@@ -1,0 +1,306 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shop Phat Gorrilla | Premium Streetwear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shop Phat Gorrilla premium T-shirts, hoodies, country designs and streetwear drops. First purchase includes free app access.">
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #121212;
+      --panel2: #181818;
+      --gold: #d7b56d;
+      --text: #f5f1e8;
+      --muted: #b9b0a1;
+      --line: rgba(215,181,109,.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(215,181,109,.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,.07), transparent 32%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(8,8,8,.9);
+      backdrop-filter: blur(12px);
+      z-index: 5;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 70px 0 38px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: .92;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: var(--gold);
+      color: #101010;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .offer {
+      margin: 26px 0 42px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(215,181,109,.18), rgba(255,255,255,.04));
+    }
+
+    .offer strong {
+      color: var(--gold);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin: 32px 0 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 46px);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding-bottom: 70px;
+    }
+
+    .card {
+      overflow: hidden;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,.32);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #222;
+    }
+
+    .card-body {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .price {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .buy {
+      margin-top: 4px;
+      display: inline-flex;
+      justify-content: center;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--gold);
+      color: #101010;
+      font-weight: 900;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 30px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav { align-items: start; flex-direction: column; }
+      .hero { padding-top: 46px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">PHAT GORRILLA</div>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="app.html">Free App</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Premium streetwear • Country drops • Built to roar</div>
+      <h1>Shop the Phat Gorrilla drop</h1>
+      <p>
+        Bold graphic T-shirts, hoodies and country-inspired designs built for fans, streetwear and statement outfits.
+        Prices are shown in pounds. Every first purchase includes free Phat Gorrilla app access.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#products">Shop Products</a>
+        <a class="btn secondary" href="app.html">Claim Free App</a>
+      </div>
+    </section>
+
+    <section class="offer">
+      <strong>Free app with your first purchase.</strong>
+      Buy any Phat Gorrilla product and get access to the Phat Gorrilla app page for updates, drops, previews and launch content.
+    </section>
+
+    <section id="products">
+      <div class="section-title">
+        <h2>Latest Products</h2>
+        <span id="count"></span>
+      </div>
+      <div class="grid" id="productGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © Phat Gorrilla. Product checkout is handled by the linked fulfilment store.
+    </div>
+  </footer>
+
+  <script src="shop-data.js"></script>
+  <script>
+    const products = window.PHAT_GORRILLA_PRODUCTS || [];
+    const grid = document.getElementById('productGrid');
+    const count = document.getElementById('count');
+
+    count.textContent = `${products.length} products`;
+
+    grid.innerHTML = products.map(product => `
+      <article class="card">
+        <img class="product-img" src="${product.image}" alt="${product.title}">
+        <div class="card-body">
+          <h3>${product.title}</h3>
+          <div class="price">${product.price}</div>
+          <div class="mini">${product.offer}</div>
+          <a class="buy" href="${product.buy_url}" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+      </article>
+    `).join('');
+  </script>
+</body>
+</html>
