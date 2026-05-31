@@ -5,6 +5,14 @@
   <title>Phat Gorrilla | Premium Streetwear & Country Drops</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Phat Gorrilla premium streetwear, country-inspired T-shirts, hoodies and elite range clothing. First purchase includes free app access.">
+  <link rel="canonical" href="https://phatgorrilla.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Phat Gorrilla">
+  <meta property="og:title" content="Phat Gorrilla | Super Elite Streetwear">
+  <meta property="og:description" content="Premium gorilla streetwear, country drops and black-and-gold Super Elite clothing. Secure GBP checkout powered by Stripe.">
+  <meta property="og:url" content="https://phatgorrilla.com/">
+  <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-main-badge.png">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       --bg: #050505;
@@ -201,6 +209,25 @@
       letter-spacing: .08em;
     }
 
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .proof span {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-size: 12px;
+    }
+
     .section {
       padding: 46px 0;
       border-top: 1px solid var(--line);
@@ -281,9 +308,21 @@
       .hero, .elite { grid-template-columns: 1fr; }
       .hero { padding-top: 38px; }
       .cards { grid-template-columns: 1fr; }
+      .proof { grid-template-columns: 1fr; }
       .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Phat Gorrilla",
+    "url": "https://phatgorrilla.com/",
+    "logo": "https://phatgorrilla.com/assets/brand/pg-main-badge.png",
+    "sameAs": [],
+    "description": "Premium gorilla streetwear, country drops and Super Elite clothing."
+  }
+  </script>
 <style id="pg-structure-nav">
   .pg-main-nav {
     display: flex;
@@ -316,6 +355,8 @@
   <a href="worldcup.html">World Cup</a>
   <a href="elite.html">Super Elite</a>
   <a href="app.html">Free App</a>
+  <a href="app-demo.html">Demo</a>
+  <a href="comments.html">Comments</a>
   <a href="about.html">About</a>
 </nav>
     </div>
@@ -324,15 +365,19 @@
   <main>
     <section class="wrap hero">
       <div>
-        <div class="badge">Premium streetwear • Country drops • Built to roar</div>
-        <h1>Bold gear. <span>Big identity.</span> Phat Gorrilla.</h1>
+        <div class="badge">Super Elite streetwear • Country drops • Built to roar</div>
+        <h1>Phat Gorrilla <span>Super Elite</span> streetwear.</h1>
         <p class="lead">
-          High-impact graphic T-shirts, hoodies and country-inspired designs sold through Phat Gorrilla and printed by Printify. The main range brings neon streetwear energy,
-          while the Elite Range brings a black-and-gold premium finish.
+          High-impact gorilla graphics, football country drops and black-and-gold premium pieces. Customers pay by secure GBP checkout powered by Stripe, and products are printed and fulfilled by Printify.
         </p>
+        <div class="proof" aria-label="Store promises">
+          <span>Secure GBP Checkout</span>
+          <span>Printify Fulfilment</span>
+          <span>Free App Access</span>
+        </div>
         <div class="cta">
           <a class="btn" href="shop.html">Shop the Drop</a>
-          <a class="btn alt" href="app.html">Claim Free App</a>
+          <a class="btn alt" href="elite.html">Super Elite Range</a>
         </div>
       </div>
       <div class="hero-art">
@@ -409,10 +454,11 @@
 </main>
 
   <footer>
-    PHAT GORRILLA — Premium streetwear, country drops and elite range clothing.
+    PHAT GORRILLA — Premium streetwear, country drops and elite range clothing. <a href="shipping-returns.html">Shipping & Returns</a> · <a href="size-guide.html">Size Guide</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy</a>
   </footer>
 </body>
 </html>
+
 
 
 
