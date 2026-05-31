@@ -6,227 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Phat Gorrilla World Cup country T-shirts with bold football supporter colours, gorilla artwork and Printify checkout.">
   <style>
-    :root {
-      --black:#05070b;
-      --panel:#0d1320;
-      --pink:#ff2da8;
-      --green:#24f087;
-      --blue:#14b8ff;
-      --gold:#ffd53d;
-      --text:#ffffff;
-      --muted:#b8c2d8;
-      --line:rgba(255,255,255,.14);
-    }
-
+    :root { --black:#05070b; --pink:#ff2da8; --green:#24f087; --blue:#14b8ff; --gold:#ffd53d; --text:#ffffff; --muted:#b8c2d8; --line:rgba(255,255,255,.14); }
     * { box-sizing:border-box; }
-
-    body {
-      margin:0;
-      color:var(--text);
-      font-family:Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 10% 8%, rgba(255,45,168,.26), transparent 26%),
-        radial-gradient(circle at 92% 12%, rgba(36,240,135,.20), transparent 28%),
-        radial-gradient(circle at 50% 92%, rgba(20,184,255,.16), transparent 30%),
-        linear-gradient(180deg, #05070b 0%, #09111f 52%, #05070b 100%);
-    }
-
+    body { margin:0; color:var(--text); font-family:Arial, Helvetica, sans-serif; background:radial-gradient(circle at 10% 8%, rgba(255,45,168,.26), transparent 26%), radial-gradient(circle at 92% 12%, rgba(36,240,135,.20), transparent 28%), radial-gradient(circle at 50% 92%, rgba(20,184,255,.16), transparent 30%), linear-gradient(180deg, #05070b 0%, #09111f 52%, #05070b 100%); }
     a { color:inherit; }
-
-    .wrap {
-      width:min(1220px, calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    header {
-      border-bottom:1px solid var(--line);
-      background:rgba(5,7,11,.78);
-      backdrop-filter:blur(12px);
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
-
-    .nav {
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-    }
-
-    .brand {
-      text-decoration:none;
-      font-weight:950;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    nav {
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-end;
-    }
-
-    nav a,
-    .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:10px 16px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:900;
-      border:1px solid rgba(36,240,135,.34);
-      background:rgba(255,255,255,.04);
-    }
-
-    nav a:hover {
-      color:var(--green);
-      border-color:rgba(36,240,135,.72);
-    }
-
-    .hero {
-      padding:58px 0 32px;
-    }
-
-    .eyebrow {
-      color:var(--gold);
-      font-weight:950;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      font-size:.82rem;
-    }
-
-    h1 {
-      margin:12px 0 14px;
-      font-size:clamp(2.7rem, 8vw, 6.4rem);
-      line-height:.9;
-      letter-spacing:-.06em;
-      text-transform:uppercase;
-      text-shadow:0 0 26px rgba(255,45,168,.34);
-    }
-
-    .intro {
-      max-width:860px;
-      color:var(--muted);
-      font-size:1.08rem;
-      line-height:1.65;
-    }
-
-    .notice {
-      margin:22px 0 0;
-      max-width:920px;
-      padding:16px 18px;
-      border:1px solid rgba(36,240,135,.26);
-      border-radius:18px;
-      background:linear-gradient(90deg, rgba(255,45,168,.14), rgba(36,240,135,.10));
-      color:#e9eefb;
-      font-weight:800;
-      line-height:1.45;
-    }
-
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:20px;
-      padding:26px 0 62px;
-    }
-
-    .card {
-      overflow:hidden;
-      border-radius:24px;
-      border:1px solid rgba(36,240,135,.28);
-      background:
-        radial-gradient(circle at top left, rgba(255,45,168,.17), transparent 38%),
-        radial-gradient(circle at bottom right, rgba(36,240,135,.12), transparent 34%),
-        linear-gradient(145deg, rgba(13,19,32,.96), rgba(5,7,11,.98));
-      box-shadow:0 22px 70px rgba(0,0,0,.42);
-    }
-
-    .image {
-      height:330px;
-      display:grid;
-      place-items:center;
-      padding:14px;
-      background:rgba(255,255,255,.035);
-    }
-
-    .image img {
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      border-radius:16px;
-      background:rgba(255,255,255,.035);
-    }
-
-    .body {
-      padding:18px;
-      display:grid;
-      gap:10px;
-    }
-
-    .country {
-      color:var(--green);
-      font-size:.78rem;
-      font-weight:950;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    h2 {
-      margin:0;
-      font-size:1.08rem;
-      line-height:1.28;
-    }
-
-    .price {
-      color:var(--gold);
-      font-size:1.35rem;
-      font-weight:950;
-    }
-
-    .meta {
-      margin:0;
-      color:var(--muted);
-      line-height:1.45;
-      font-size:.9rem;
-    }
-
-    .btn {
-      margin-top:4px;
-      background:linear-gradient(90deg, var(--pink), var(--green));
-      color:#05070b;
-      text-transform:uppercase;
-      letter-spacing:.04em;
-    }
-
-    .btn.disabled {
-      color:#ffffff;
-      background:linear-gradient(90deg, #2b1430, #163524);
-      border-color:rgba(255,45,168,.45);
-      cursor:not-allowed;
-    }
-
-    footer {
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      text-align:center;
-      padding:28px 16px 34px;
-    }
-
-    @media (max-width:980px) {
-      .grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width:680px) {
-      .nav { align-items:flex-start; flex-direction:column; padding:16px 0; }
-      nav { justify-content:flex-start; }
-      .grid { grid-template-columns:1fr; }
-      .image { height:300px; }
-    }
+    .wrap { width:min(1220px, calc(100% - 32px)); margin:0 auto; }
+    header { border-bottom:1px solid var(--line); background:rgba(5,7,11,.78); backdrop-filter:blur(12px); position:sticky; top:0; z-index:10; }
+    .nav { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { text-decoration:none; font-weight:950; text-transform:uppercase; letter-spacing:.08em; }
+    nav { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
+    nav a, .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:10px 16px; border-radius:999px; text-decoration:none; font-weight:900; border:1px solid rgba(36,240,135,.34); background:rgba(255,255,255,.04); }
+    nav a:hover { color:var(--green); border-color:rgba(36,240,135,.72); }
+    .hero { padding:58px 0 32px; }
+    .eyebrow { color:var(--gold); font-weight:950; letter-spacing:.16em; text-transform:uppercase; font-size:.82rem; }
+    h1 { margin:12px 0 14px; font-size:clamp(2.7rem, 8vw, 6.4rem); line-height:.9; letter-spacing:-.06em; text-transform:uppercase; text-shadow:0 0 26px rgba(255,45,168,.34); }
+    .intro { max-width:860px; color:var(--muted); font-size:1.08rem; line-height:1.65; }
+    .notice { margin:22px 0 0; max-width:960px; padding:16px 18px; border:1px solid rgba(36,240,135,.26); border-radius:18px; background:linear-gradient(90deg, rgba(255,45,168,.14), rgba(36,240,135,.10)); color:#e9eefb; font-weight:800; line-height:1.45; }
+    .grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:20px; padding:26px 0 62px; }
+    .card { overflow:hidden; border-radius:24px; border:1px solid rgba(36,240,135,.28); background:radial-gradient(circle at top left, rgba(255,45,168,.17), transparent 38%), radial-gradient(circle at bottom right, rgba(36,240,135,.12), transparent 34%), linear-gradient(145deg, rgba(13,19,32,.96), rgba(5,7,11,.98)); box-shadow:0 22px 70px rgba(0,0,0,.42); }
+    .image { height:330px; display:grid; place-items:center; padding:14px; background:rgba(255,255,255,.035); }
+    .image img { width:100%; height:100%; object-fit:contain; border-radius:16px; background:rgba(255,255,255,.035); }
+    .body { padding:18px; display:grid; gap:10px; }
+    .country { color:var(--green); font-size:.78rem; font-weight:950; letter-spacing:.14em; text-transform:uppercase; }
+    h2 { margin:0; font-size:1.08rem; line-height:1.28; }
+    .price { color:var(--gold); font-size:1.35rem; font-weight:950; }
+    .meta { margin:0; color:var(--muted); line-height:1.45; font-size:.9rem; }
+    .btn { margin-top:4px; background:linear-gradient(90deg, var(--pink), var(--green)); color:#05070b; text-transform:uppercase; letter-spacing:.04em; }
+    footer { border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:28px 16px 34px; }
+    @media (max-width:980px) { .grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+    @media (max-width:680px) { .nav { align-items:flex-start; flex-direction:column; padding:16px 0; } nav { justify-content:flex-start; } .grid { grid-template-columns:1fr; } .image { height:300px; } }
   </style>
 </head>
 <body>
@@ -236,10 +44,10 @@
       <nav>
         <a href="/">Home</a>
         <a href="/shop">Shop</a>
-        <a href="/world-cup.html">World Cup</a>
-        <a href="/elite.html">Elite Range</a>
-        <a href="/about.html">About</a>
-        <a href="/app.html">Free App</a>
+        <a href="/world-cup">World Cup</a>
+        <a href="/elite">Elite Range</a>
+        <a href="/about">About</a>
+        <a href="/app">Free App</a>
       </nav>
     </div>
   </header>
@@ -248,152 +56,133 @@
     <section class="hero">
       <p class="eyebrow">Phat Gorrilla World Cup Range</p>
       <h1>Country Tees</h1>
-      <p class="intro">
-        Bold country T-shirts for football supporters, world-cup energy and streetwear outfits.
-        Checkout stays with Printify, and final shipping or tax is confirmed inside Printify checkout.
-      </p>
-      <div class="notice">
-        Live Printify links are used where the shop URL is already known. Products marked "Printify link being checked" are not sent to any non-Printify checkout.
-      </div>
+      <p class="intro">Country-themed Phat Gorrilla T-shirts for football supporters, World Cup energy and streetwear outfits. Checkout stays with Printify, and final shipping or tax is confirmed inside Printify checkout.</p>
+      <div class="notice">All country-themed Printify products found in the storefront are included here. Gildan 5000 country tees are priced at £25.99 to £27.99, aiming for about £5 profit per shirt based on Printify product cost. Wales uses a higher-cost blank, so it starts at £28.99.</div>
     </section>
 
     <section class="grid" aria-label="World Cup country products">
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b138fa2f3e94ff40cce51/12100/92570/belgium-gorilla-tee-bold-belgian-flag-graphic-shirt.jpg?camera_label=front" alt="Belgium Phat Gorrilla Tee - Bold Belgian Flag Graphic Shirt"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b138fa2f3e94ff40cce51/12100/92570/belgium-phat-gorrilla-tee-bold-belgian-flag-graphic-shirt.jpg?camera_label=front" alt="Belgium Phat Gorrilla Tee - Bold Belgian Flag Graphic Shirt"></div>
         <div class="body">
           <div class="country">Belgium</div>
           <h2>Belgium Phat Gorrilla Tee - Bold Belgian Flag Graphic Shirt</h2>
-          <div class="price">£32.12</div>
-          <p class="meta"><strong>Colours:</strong> Black, Gold, Red, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28978794" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a174e6e318117fcbc0505f7/12100/92570/brazil-flag-graphic-tshirt-rio-carnival-football-fan-tee.jpg?camera_label=front" alt="Brazil Flag Graphic T-Shirt - Rio Carnival and Football Fan Tee"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1bd78ea2f3e94ff40d5d50/12100/92570/brazil-phat-gorrilla-t-shirt-brazil-graphic-tee-with-gorrilla-and-flag-design.jpg?camera_label=front" alt="Brazil Phat Gorrilla T-Shirt - Brazil Graphic Tee with Gorrilla and Flag Design"></div>
         <div class="body">
           <div class="country">Brazil</div>
-          <h2>Brazil Flag Graphic T-Shirt - Rio Carnival and Football Fan Tee</h2>
-          <div class="price">£32.12 - £34.60</div>
-          <p class="meta"><strong>Colours:</strong> Black, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn" href="https://phat-gorrilla.printify.me/product/28922404" target="_blank" rel="noopener">Checkout with Printify</a>
+          <h2>Brazil Phat Gorrilla T-Shirt - Brazil Graphic Tee with Gorrilla and Flag Design</h2>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28991760" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b19e0d51905e88807a07b/11974/101990/canada-phat-gorilla-graphic-tee-canadian-flag-maple-shield-shirt.jpg?camera_label=person-6-back" alt="Canada Phat Gorrilla Graphic Tee - Canadian Flag Maple Shield Shirt"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b19e0d51905e88807a07b/12100/92570/canada-phat-gorrilla-graphic-tee-canadian-flag-maple-shield-shirt.jpg?camera_label=front" alt="Canada Phat Gorrilla Graphic Tee - Canadian Flag Maple Shield Shirt"></div>
         <div class="body">
           <div class="country">Canada</div>
           <h2>Canada Phat Gorrilla Graphic Tee - Canadian Flag Maple Shield Shirt</h2>
-          <div class="price">£32.12</div>
-          <p class="meta"><strong>Colours:</strong> Maroon, Sand, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28979322" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a19dd531babc69aaa0e422e/12022/102006/england-graphic-tee-phat-gorilla-london-skyline-football-fan-shirt.jpg?camera_label=back-2" alt="England Graphic Tee - Phat Gorrilla London Skyline Football Fan Shirt"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a19dd531babc69aaa0e422e/12022/92570/england-graphic-tee-phat-gorrilla-london-skyline-football-fan-shirt.jpg?camera_label=front" alt="England Graphic Tee - Phat Gorrilla London Skyline Football Fan Shirt"></div>
         <div class="body">
           <div class="country">England</div>
           <h2>England Graphic Tee - Phat Gorrilla London Skyline Football Fan Shirt</h2>
-          <div class="price">£32.12 - £34.60</div>
-          <p class="meta"><strong>Colours:</strong> Black, Red, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
           <a class="btn" href="https://phat-gorrilla.printify.me/product/28962286" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b1525d51905e888079d85/12100/92570/germany-phat-gorilla-graphic-tee.jpg?camera_label=front" alt="Germany Phat Gorrilla Graphic Tee"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1be96a99790633660770a8/12028/92587/france-phat-gorrilla-soccer-t-shirt-french-football-fan-tee.jpg?camera_label=back-collar-closeup" alt="France Phat Gorrilla Soccer T-Shirt - French Football Fan Tee"></div>
+        <div class="body">
+          <div class="country">France</div>
+          <h2>France Phat Gorrilla Soccer T-Shirt - French Football Fan Tee</h2>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28992497" target="_blank" rel="noopener">Checkout with Printify</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b1525d51905e888079d85/12100/92570/germany-phat-gorrilla-graphic-tee.jpg?camera_label=front" alt="Germany Phat Gorrilla Graphic Tee"></div>
         <div class="body">
           <div class="country">Germany</div>
           <h2>Germany Phat Gorrilla Graphic Tee</h2>
-          <div class="price">£32.12</div>
-          <p class="meta"><strong>Colours:</strong> Black, Forest Green, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28978970" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b17819a524711b5034c0a/12100/92570/portugal-graphic-tee-phat-gorrida-vintage-portuguese-heritage-tshirt.jpg?camera_label=front" alt="Portugal Graphic Tee - PHAT GORRILLA Vintage Portuguese Heritage T-Shirt"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b17819a524711b5034c0a/12100/92570/portugal-graphic-tee-phat-gorrilla-vintage-portuguese-heritage-t-shirt.jpg?camera_label=front" alt="Portugal Graphic Tee - PHAT GORRILLA Vintage Portuguese Heritage T-Shirt"></div>
         <div class="body">
           <div class="country">Portugal</div>
           <h2>Portugal Graphic Tee - PHAT GORRILLA Vintage Portuguese Heritage T-Shirt</h2>
-          <div class="price">£32.12</div>
-          <p class="meta"><strong>Colours:</strong> Black, Forest Green, Red, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28979179" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a19dec1a0b34026ee0a16bb/12100/92570/scotland-phat-gorilla-t-shirt-scottish-pride-rugby-fan-tee.jpg?camera_label=front" alt="Scotland Phat Gorrilla T-Shirt - Scottish Pride Rugby Fan Tee"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1bd5d199790633660760e0/12124/92570/scotland-graphic-tee-scotland-crew-neck-t-shirt-with-crest-and-gothic-back-print.jpg?camera_label=front" alt="Scotland Graphic Tee - Scotland Crew Neck T-Shirt with Crest and Gothic Back Print"></div>
         <div class="body">
           <div class="country">Scotland</div>
-          <h2>Scotland Phat Gorrilla T-Shirt - Scottish Pride Rugby Fan Tee</h2>
-          <div class="price">£32.12 - £34.60</div>
-          <p class="meta"><strong>Colours:</strong> Black, Navy, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn" href="https://phat-gorrilla.printify.me/product/28962356" target="_blank" rel="noopener">Checkout with Printify</a>
+          <h2>Scotland Graphic Tee - Scotland Crew Neck T-Shirt with Crest and Gothic Back Print</h2>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28991728" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b031b3b86f4ce6f0d2dd9/11986/92570/phat-gorrilla-scotland-world-cup-tee.jpg?camera_label=front" alt="Phat Gorrilla Scotland World Cup Tee"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a1bdff94525ffd573108374/12148/92570/sweden-phat-gorrilla-tee-swedish-flag-viking-design.jpg?camera_label=front" alt="Sweden Phat Gorrilla Tee - Swedish Flag Viking Design"></div>
         <div class="body">
-          <div class="country">Scotland</div>
-          <h2>Phat Gorrilla Scotland World Cup Tee</h2>
-          <div class="price">£19.99</div>
-          <p class="meta"><strong>Colours:</strong> Navy</p>
-          <p class="meta"><strong>Sizes:</strong> S to 2XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
+          <div class="country">Sweden</div>
+          <h2>Sweden Phat Gorrilla Tee - Swedish Flag Viking Design</h2>
+          <div class="price">£25.99 - £27.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.11+ per shirt before any extra platform effects.</p>
+          <a class="btn" href="https://phat-gorrilla.printify.me/product/28992039" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b0b74279ee4205a06d310/11986/92570/phat-gorrilla-scotland-world-cup-tee-fixed-draft-v2.jpg?camera_label=front" alt="Phat Gorrilla Scotland World Cup Tee - Fixed Draft V2"></div>
-        <div class="body">
-          <div class="country">Scotland</div>
-          <h2>Phat Gorrilla Scotland World Cup Tee - Fixed Draft V2</h2>
-          <div class="price">£19.99</div>
-          <p class="meta"><strong>Colours:</strong> Navy</p>
-          <p class="meta"><strong>Sizes:</strong> S to 2XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a1b11aa1af687cf6103eaa4/12100/92570/scotland-phat-gorilla-tshirt-scottish-flag-ape-design.jpg?camera_label=front" alt="Scotland Phat Gorrilla T-Shirt - Scottish Flag Ape Design"></div>
-        <div class="body">
-          <div class="country">Scotland</div>
-          <h2>Scotland Phat Gorrilla T-Shirt - Scottish Flag Ape Design</h2>
-          <div class="price">£32.12</div>
-          <p class="meta"><strong>Colours:</strong> Navy, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 5XL</p>
-          <a class="btn disabled" href="#checkout-not-ready">Printify link being checked</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="image"><img src="https://images-api.printify.com/mockup/6a18807721f4508fc9026c24/73207/98446/wales-phat-gorilla-graphic-t-shirt-rugbyfootball-fan-tee.jpg?camera_label=back" alt="Wales Phat Gorrilla Graphic T-Shirt - Rugby and Football Fan Tee"></div>
+        <div class="image"><img src="https://images-api.printify.com/mockup/6a18807721f4508fc9026c24/73207/98446/wales-phat-gorrilla-graphic-t-shirt-rugby-and-football-fan-tee.jpg?camera_label=back" alt="Wales Phat Gorrilla Graphic T-Shirt - Rugby and Football Fan Tee"></div>
         <div class="body">
           <div class="country">Wales</div>
           <h2>Wales Phat Gorrilla Graphic T-Shirt - Rugby and Football Fan Tee</h2>
-          <div class="price">£36.42 - £45.02</div>
-          <p class="meta"><strong>Colours:</strong> Graphite, White</p>
-          <p class="meta"><strong>Sizes:</strong> S to 4XL</p>
+          <div class="price">£28.99 - £34.99</div>
+          <p class="meta"><strong>Status:</strong> Live in Printify</p>
+          <p class="meta"><strong>Profit target:</strong> around £5.02+ per shirt before any extra platform effects.</p>
           <a class="btn" href="https://phat-gorrilla.printify.me/product/28940752" target="_blank" rel="noopener">Checkout with Printify</a>
         </div>
       </article>
     </section>
   </main>
 
-  <footer>
-    PHAT GORRILLA - World Cup country range. Checkout is handled by Printify.
-  </footer>
+  <footer>PHAT GORRILLA - World Cup country range. Checkout is handled by Printify.</footer>
 </body>
 </html>
