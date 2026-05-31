@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Phat Gorrilla Elite Gold Tee",
+    "price": "£29.99",
+    "image": "https://images-api.printify.com/mockup/6a1c2fbea2f3e94ff40d99d6/12124/92570/phat-gorrilla-elite-gold-tee.jpg?camera_label=front",
+    "buy_url": "https://phat-gorrilla.printify.me/product/28995236",
+    "product_id": "6a1c2fbea2f3e94ff40d99d6",
+    "status": "Live"
+  },
+  {
+    "title": "Phat Gorrilla Elite Crest Sweatshirt",
+    "price": "£39.99",
+    "image": "https://images-api.printify.com/mockup/6a1c2fc49979063366079e02/62629/99286/phat-gorrilla-elite-crest-sweatshirt.jpg?camera_label=front",
+    "buy_url": "https://phat-gorrilla.printify.me/product/28995238",
+    "product_id": "6a1c2fc49979063366079e02",
+    "status": "Live"
+  },
+  {
+    "title": "Phat Gorrilla Elite Shield Hoodie",
+    "price": "£44.99",
+    "image": "https://images-api.printify.com/mockup/6a1c2fca4229d0bf980244ef/62275/99231/phat-gorrilla-elite-shield-hoodie.jpg?camera_label=front",
+    "buy_url": "https://phat-gorrilla.printify.me/product/28995239",
+    "product_id": "6a1c2fca4229d0bf980244ef",
+    "status": "Live"
+  }
+]
