@@ -1,10 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18200925736"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18200925736');
+</script>
   <meta charset="utf-8">
   <title>Shop Phat Gorrilla | Premium Streetwear</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Shop Phat Gorrilla premium T-shirts, hoodies, country designs and streetwear drops. First purchase includes free app access.">
+  <link rel="canonical" href="https://phatgorrilla.com/shop.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Phat Gorrilla">
+  <meta property="og:title" content="Shop Phat Gorrilla Streetwear">
+  <meta property="og:description" content="Shop Phat Gorrilla T-shirts, hoodies, country drops and rustic streetwear graphics with secure GBP checkout.">
+  <meta property="og:url" content="https://phatgorrilla.com/shop.html">
+  <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-main-badge.png">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       --bg: #080808;
@@ -265,6 +282,7 @@
   <a href="worldcup.html">World Cup</a>
   <a href="elite.html">Super Elite</a>
   <a href="app.html">Free App</a>
+  <a href="size-guide.html">Size Guide</a>
   <a href="about.html">About</a>
 </nav>
     </div>
@@ -276,7 +294,7 @@
       <h1>Shop the Phat Gorrilla drop</h1>
       <p>
         Bold graphic T-shirts, hoodies and country-inspired designs built for fans, streetwear and statement outfits.
-        Prices are shown in pounds. Secure GBP checkout is powered by Stripe. Printing and fulfilment are handled by Printify, with final shipping and taxes shown there. Every first purchase includes free Phat Gorrilla app access.
+        Prices are shown in pounds. Secure GBP checkout is powered by Stripe. Printing and fulfilment are handled by Printify, with final shipping and taxes shown at checkout. Every first purchase includes free Phat Gorrilla app access.
       </p>
       <div class="cta-row">
         <a class="btn" href="#products">Shop Products</a>
@@ -287,6 +305,7 @@
     <section class="offer">
       <strong>Free app with your first purchase.</strong>
       Buy any Phat Gorrilla product through secure GBP checkout — printed and fulfilled by Printify, and get access to the Phat Gorrilla app page for updates, drops, previews and launch content.
+      Selected designs use intentional rustic, distressed or vintage-style texture for a raw streetwear finish.
     </section>
 
     <section id="products">
@@ -310,13 +329,13 @@
 
   <footer>
     <div class="wrap">
-      © Phat Gorrilla. Secure GBP checkout is powered by Stripe. Printing and fulfilment are handled by Printify.
+      © Phat Gorrilla. Secure GBP checkout is powered by Stripe. Printing and fulfilment are handled by Printify. <a href="shipping-returns.html">Shipping & Returns</a> · <a href="size-guide.html">Size Guide</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy</a>
     </div>
   </footer>
 
   <script src="shop-data.js"></script>
   <script>
-    const products = window.PHAT_GORRILLA_PRODUCTS || [];
+    const products = (window.PHAT_GORRILLA_PRODUCTS || []).filter(product => product.visible !== false);
     const grid = document.getElementById('productGrid');
     const count = document.getElementById('count');
 
@@ -331,7 +350,11 @@
     }
 
     function buttonText(product) {
-      return product.buy_url === '#checkout-not-ready' ? 'Checkout Securely' : 'Checkout Securely';
+      return product.buy_url === '#checkout-not-ready' ? 'Checkout Being Prepared' : 'Secure GBP Checkout';
+    }
+
+    function buttonTarget(product) {
+      return product.buy_url === '#checkout-not-ready' ? '' : ' target="_blank" rel="noopener"';
     }
 
     grid.innerHTML = products.map(product => `
@@ -341,10 +364,38 @@
           <h3>${product.title}</h3>
           <div class="price">${priceText(product)}</div>
           <div class="mini">${product.offer}</div>
-          <a class="buy" href="${product.buy_url}" target="_blank" rel="noopener">${buttonText(product)}</a>
+          <a class="buy" href="${product.buy_url}"${buttonTarget(product)}>${buttonText(product)}</a>
         </div>
       </article>
     `).join('');
+
+    const productSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: products.map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: product.title,
+          image: product.image,
+          description: product.offer,
+          brand: { '@type': 'Brand', name: 'Phat Gorrilla' },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'GBP',
+            price: String(product.price_from || product.price || '').replace(/[^0-9.]/g, ''),
+            availability: 'https://schema.org/InStock',
+            url: `https://phatgorrilla.com${product.buy_url}`
+          }
+        }
+      }))
+    };
+
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.textContent = JSON.stringify(productSchema);
+    document.head.appendChild(schemaScript);
   </script>
 
 <style id="pg-main-shop-brand-override">
@@ -457,7 +508,7 @@
   .button,
   .btn,
   button,
-  a[href*="printify"],
+  a[href*="create-checkout-session"],
   a[href="#checkout-not-ready"] {
     background: linear-gradient(90deg, #ff2da8, #24f087) !important;
     color: #05070b !important;
@@ -476,7 +527,7 @@
   .button:hover,
   .btn:hover,
   button:hover,
-  a[href*="printify"]:hover {
+  a[href*="create-checkout-session"]:hover {
     transform: translateY(-2px) !important;
     filter: brightness(1.08) !important;
   }
@@ -492,6 +543,7 @@
 
 </body>
 </html>
+
 
 
 
