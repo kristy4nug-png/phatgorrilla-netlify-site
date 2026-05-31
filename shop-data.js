@@ -76,7 +76,7 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_from": "£32.12",
     "price_to": "£34.6",
     "image": "https://images-api.printify.com/mockup/6a174e6e318117fcbc0505f7/12100/92570/brazil-flag-graphic-tshirt-rio-carnival-football-fan-tee.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=brazil-phat-gorrilla-world-cup-tee-gildan-5000-11956",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=brazil-phat-gorrilla-world-cup-tee-gildan-5000-12100",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -150,4 +150,5 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "offer": "Free Phat Gorrilla app access with first purchase"
   }
 ];
+
 

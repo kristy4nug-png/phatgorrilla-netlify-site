@@ -16,7 +16,7 @@
     "price_from": "£32.12",
     "price_to": "£34.6",
     "image": "https://images-api.printify.com/mockup/6a19dec1a0b34026ee0a16bb/12100/92570/scotland-phat-gorilla-t-shirt-scottish-pride-rugby-fan-tee.jpg?camera_label=front",
-    "buy_url": "https://phat-gorrilla.printify.me/product/28962356",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=scotland-phat-gorrilla-world-cup-tee-gildan-5000-11956",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -36,7 +36,7 @@
     "price_from": "£103.11",
     "price_to": "£103.11",
     "image": "https://images-api.printify.com/mockup/6a19dabc997906336605f3eb/63249/5051/phat-gorrilla-logo-zip-hoodie-luxury-gold-monogram-streetwear.jpg?camera_label=front",
-    "buy_url": "https://phat-gorrilla.printify.me/product/28962025",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=phat-gorrilla-elite-stone-monogram-hoodie-62259",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -46,7 +46,7 @@
     "price_from": "£74.15",
     "price_to": "£74.15",
     "image": "https://images-api.printify.com/mockup/6a19d8c9c03728859b04044a/115803/111733/relaxed-hoodie-minimal-gold-b-monogram-hoodie.jpg?camera_label=folded",
-    "buy_url": "https://phat-gorrilla.printify.me/product/28961853",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=phat-gorrilla-elite-stone-monogram-hoodie-62259",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -56,7 +56,7 @@
     "price_from": "£20.99",
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a19d7bbbc484b92020c4a98/12124/102005/minimalist-logo-tee-gold-pg-monogram-chest-t-shirt.jpg?camera_label=front-2",
-    "buy_url": "https://phat-gorrilla.printify.me/product/28961774",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=t-shirt-phat-gorilla-gold-logo-tee-11962",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -66,7 +66,7 @@
     "price_from": "£36.42",
     "price_to": "£45.02",
     "image": "https://images-api.printify.com/mockup/6a18807721f4508fc9026c24/73207/98446/wales-phat-gorilla-graphic-t-shirt-rugbyfootball-fan-tee.jpg?camera_label=back",
-    "buy_url": "https://phat-gorrilla.printify.me/product/28940752",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=scotland-phat-gorrilla-world-cup-tee-gildan-5000-11956",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -76,7 +76,7 @@
     "price_from": "£32.12",
     "price_to": "£34.6",
     "image": "https://images-api.printify.com/mockup/6a174e6e318117fcbc0505f7/12100/92570/brazil-flag-graphic-tshirt-rio-carnival-football-fan-tee.jpg?camera_label=front",
-    "buy_url": "https://phat-gorrilla.printify.me/product/28922404",
+    "buy_url": "/.netlify/functions/create-checkout-session?key=brazil-phat-gorrilla-world-cup-tee-gildan-5000-12100",
     "offer": "Free Phat Gorrilla app access with first purchase"
   },
   {
@@ -150,3 +150,4 @@
     "offer": "Free Phat Gorrilla app access with first purchase"
   }
 ]
+
