@@ -7,7 +7,7 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£24.88",
     "image": "https://images-api.printify.com/mockup/6a1a9c3b1babc69aaa0ed446/11962/102005/tshirt-phat-gorilla-gold-logo-tee.jpg?camera_label=front-2",
     "buy_url": "/.netlify/functions/create-checkout-session?key=t-shirt-phat-gorilla-gold-logo-tee-11962",
-    "offer": "Printify checkout link being checked. First purchase includes free Phat Gorrilla app access."
+    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. First purchase includes free Phat Gorrilla app access."
   },
   {
     "id": "6a19dec1a0b34026ee0a16bb",
@@ -150,5 +150,6 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "offer": "Free Phat Gorrilla app access with first purchase"
   }
 ];
+
 
 
