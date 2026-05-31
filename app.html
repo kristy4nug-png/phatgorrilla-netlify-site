@@ -262,6 +262,24 @@
       nav { justify-content:flex-start; }
     }
   </style>
+<style id="pg-structure-nav">
+  .pg-main-nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pg-main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+    opacity: .9;
+  }
+  .pg-main-nav a:hover,
+  .pg-main-nav a.active {
+    color: #ffdf8a;
+  }
+</style>
 </head>
 <body>
   <header>
@@ -270,13 +288,14 @@
         <img src="assets/brand/pg-main-badge.png" alt="Phat Gorrilla badge">
         <span>Phat Gorrilla</span>
       </a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/shop">Shop</a>
-        <a href="/world-cup.html">World Cup</a>
-        <a href="/elite.html">Elite Range</a>
-        <a href="/about.html">About</a>
-      </nav>
+      <nav class="pg-main-nav" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="worldcup.html">World Cup</a>
+  <a href="elite.html">Super Elite</a>
+  <a class="active" href="app.html">Free App</a>
+  <a href="about.html">About</a>
+</nav>
     </div>
   </header>
 
@@ -286,7 +305,7 @@
         <span class="eyebrow">Free with first purchase</span>
         <h1>Phat Gorrilla App</h1>
         <p class="lead">
-          Your bonus app page for Phat Gorrilla drops, previews, launch notes, design direction and customer-only updates after Printify checkout.
+          Your bonus app page for Phat Gorrilla drops, previews, launch notes, design direction and customer-only updates after secure Stripe checkout.
           It matches the main neon pink, chrome green and black brand style.
         </p>
         <div class="actions">
@@ -301,7 +320,7 @@
     </section>
 
     <div class="unlock-strip">
-      Included free with any Phat Gorrilla product purchase. After Printify checkout, customers can access this free app page for Phat Gorrilla drops, previews, launch notes and customer-only updates.
+      Included free with any Phat Gorrilla product purchase. After secure Stripe checkout, customers can access this free app page for Phat Gorrilla drops, previews, launch notes and customer-only updates.
     </div>
 
     <section class="grid">
@@ -336,5 +355,7 @@
   </footer>
 </body>
 </html>
+
+
 
 

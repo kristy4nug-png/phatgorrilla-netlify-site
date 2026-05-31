@@ -243,6 +243,24 @@
       nav { justify-content:flex-start; }
     }
   </style>
+<style id="pg-structure-nav">
+  .pg-main-nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pg-main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+    opacity: .9;
+  }
+  .pg-main-nav a:hover,
+  .pg-main-nav a.active {
+    color: #ffdf8a;
+  }
+</style>
 </head>
 <body>
   <header>
@@ -251,14 +269,14 @@
         <img src="assets/brand/pg-main-badge.png" alt="Phat Gorrilla badge">
         <span>Phat Gorrilla</span>
       </a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/shop">Shop</a>
-        <a href="/world-cup.html">World Cup</a>
-        <a href="/elite.html">Elite Range</a>
-        <a href="/about.html">About</a>
-        <a href="/app.html">Free App</a>
-      </nav>
+      <nav class="pg-main-nav" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="worldcup.html">World Cup</a>
+  <a href="elite.html">Super Elite</a>
+  <a href="app.html">Free App</a>
+  <a class="active" href="about.html">About</a>
+</nav>
     </div>
   </header>
 
@@ -312,3 +330,4 @@
   </footer>
 </body>
 </html>
+
