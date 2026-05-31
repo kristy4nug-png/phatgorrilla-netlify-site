@@ -284,6 +284,24 @@
       .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
     }
   </style>
+<style id="pg-structure-nav">
+  .pg-main-nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pg-main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+    opacity: .9;
+  }
+  .pg-main-nav a:hover,
+  .pg-main-nav a.active {
+    color: #ffdf8a;
+  }
+</style>
 </head>
 <body>
   <header>
@@ -292,13 +310,14 @@
         <span class="phat">PHAT</span>
         <span class="gorrilla">GORRILLA</span>
       </a>
-      <nav class="links">
-        <a href="shop.html">Shop</a>
-        <a href="world-cup.html">World Cup</a>
-        <a href="elite.html">Elite Range</a>
-        <a href="about.html">About</a>
-        <a href="app.html">Free App</a>
-      </nav>
+      <nav class="pg-main-nav" aria-label="Main navigation">
+  <a class="active" href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="worldcup.html">World Cup</a>
+  <a href="elite.html">Super Elite</a>
+  <a href="app.html">Free App</a>
+  <a href="about.html">About</a>
+</nav>
     </div>
   </header>
 
@@ -308,7 +327,7 @@
         <div class="badge">Premium streetwear • Country drops • Built to roar</div>
         <h1>Bold gear. <span>Big identity.</span> Phat Gorrilla.</h1>
         <p class="lead">
-          High-impact graphic T-shirts, hoodies and country-inspired designs sold through Printify checkout. The main range brings neon streetwear energy,
+          High-impact graphic T-shirts, hoodies and country-inspired designs sold through secure Stripe checkout. The main range brings neon streetwear energy,
           while the Elite Range brings a black-and-gold premium finish.
         </p>
         <div class="cta">
@@ -324,7 +343,7 @@
     <section class="wrap strip">
       <div>
         <strong>Free app with first purchase</strong>
-        <div>Buy any Phat Gorrilla product through Printify checkout and receive free access to the Phat Gorrilla app page.</div>
+        <div>Buy any Phat Gorrilla product through secure Stripe checkout and receive free access to the Phat Gorrilla app page.</div>
       </div>
       <a class="btn alt" href="app.html">Open App Page</a>
     </section>
@@ -394,6 +413,9 @@
   </footer>
 </body>
 </html>
+
+
+
 
 
 

@@ -236,19 +236,37 @@
     }
   </style>
 
+<style id="pg-structure-nav">
+  .pg-main-nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pg-main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+    opacity: .9;
+  }
+  .pg-main-nav a:hover,
+  .pg-main-nav a.active {
+    color: #ffdf8a;
+  }
+</style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
       <div class="brand">PHAT GORRILLA</div>
-      <nav class="navlinks">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="world-cup.html">World Cup</a>
-        <a href="elite.html">Elite Range</a>
-        <a href="about.html">About</a>
-        <a href="app.html">Free App</a>
-      </nav>
+      <nav class="pg-main-nav" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a class="active" href="shop.html">Shop</a>
+  <a href="worldcup.html">World Cup</a>
+  <a href="elite.html">Super Elite</a>
+  <a href="app.html">Free App</a>
+  <a href="about.html">About</a>
+</nav>
     </div>
   </header>
 
@@ -258,7 +276,7 @@
       <h1>Shop the Phat Gorrilla drop</h1>
       <p>
         Bold graphic T-shirts, hoodies and country-inspired designs built for fans, streetwear and statement outfits.
-        Prices are shown in pounds. Checkout is handled by Printify, with final shipping and taxes shown there. Every first purchase includes free Phat Gorrilla app access.
+        Prices are shown in pounds. Checkout is handled securely by Stripe, with final shipping and taxes shown there. Every first purchase includes free Phat Gorrilla app access.
       </p>
       <div class="cta-row">
         <a class="btn" href="#products">Shop Products</a>
@@ -268,7 +286,7 @@
 
     <section class="offer">
       <strong>Free app with your first purchase.</strong>
-      Buy any Phat Gorrilla product through Printify checkout and get access to the Phat Gorrilla app page for updates, drops, previews and launch content.
+      Buy any Phat Gorrilla product through secure Stripe checkout and get access to the Phat Gorrilla app page for updates, drops, previews and launch content.
     </section>
 
     <section id="products">
@@ -292,7 +310,7 @@
 
   <footer>
     <div class="wrap">
-      © Phat Gorrilla. Product checkout is handled by Printify.
+      © Phat Gorrilla. Product Checkout is handled securely by Stripe.
     </div>
   </footer>
 
@@ -474,6 +492,13 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
