@@ -244,6 +244,9 @@
       <nav class="navlinks">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
+        <a href="world-cup.html">World Cup</a>
+        <a href="elite.html">Elite Range</a>
+        <a href="about.html">About</a>
         <a href="app.html">Free App</a>
       </nav>
     </div>
@@ -255,7 +258,7 @@
       <h1>Shop the Phat Gorrilla drop</h1>
       <p>
         Bold graphic T-shirts, hoodies and country-inspired designs built for fans, streetwear and statement outfits.
-        Prices are shown in pounds. Every first purchase includes free Phat Gorrilla app access.
+        Prices are shown in pounds. Checkout is handled by Printify, with final shipping and taxes shown there. Every first purchase includes free Phat Gorrilla app access.
       </p>
       <div class="cta-row">
         <a class="btn" href="#products">Shop Products</a>
@@ -265,7 +268,7 @@
 
     <section class="offer">
       <strong>Free app with your first purchase.</strong>
-      Buy any Phat Gorrilla product and get access to the Phat Gorrilla app page for updates, drops, previews and launch content.
+      Buy any Phat Gorrilla product through Printify checkout and get access to the Phat Gorrilla app page for updates, drops, previews and launch content.
     </section>
 
     <section id="products">
@@ -275,11 +278,21 @@
       </div>
       <div class="grid" id="productGrid"></div>
     </section>
-  </main>
+  
+<!-- PHAT GORRILLA WORLD CUP LINK START -->
+<section style='margin:28px auto;max-width:1100px;padding:24px;border-radius:28px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,rgba(255,20,147,.20),rgba(57,255,20,.14),rgba(20,184,255,.16));text-align:center;box-shadow:0 0 26px rgba(255,20,147,.10);'>
+  <p style='margin:0 0 10px;color:#ffd53d;font-weight:900;letter-spacing:.16em;text-transform:uppercase;'>World Cup Drop</p>
+  <h2 style='margin:0 0 10px;color:#fff;font-size:clamp(28px,5vw,48px);text-transform:uppercase;'>Country T-Shirts</h2>
+  <p style='margin:0 auto 18px;max-width:760px;color:#eee;line-height:1.55;'>Explore the Phat Gorrilla country range with bold colours, supporter style and gorilla back prints.</p>
+  <a href='/world-cup.html' style='display:inline-block;padding:14px 24px;border-radius:999px;background:linear-gradient(90deg,#ff1493,#ffd53d,#39ff14);color:#050505;font-weight:900;text-decoration:none;text-transform:uppercase;'>View World Cup Range</a>
+</section>
+<!-- PHAT GORRILLA WORLD CUP LINK END -->
+
+</main>
 
   <footer>
     <div class="wrap">
-      © Phat Gorrilla. Product checkout is handled by the linked fulfilment store.
+      © Phat Gorrilla. Product checkout is handled by Printify.
     </div>
   </footer>
 
@@ -291,14 +304,26 @@
 
     count.textContent = `${products.length} products`;
 
+    function priceText(product) {
+      if (product.price) return product.price;
+      if (product.price_from && product.price_to && product.price_from !== product.price_to) {
+        return `${product.price_from} - ${product.price_to}`;
+      }
+      return product.price_from || product.price_to || 'Price checked in Printify';
+    }
+
+    function buttonText(product) {
+      return product.buy_url === '#checkout-not-ready' ? 'Printify Link Being Checked' : 'Checkout With Printify';
+    }
+
     grid.innerHTML = products.map(product => `
       <article class="card">
         <img class="product-img" src="${product.image}" alt="${product.title}">
         <div class="card-body">
           <h3>${product.title}</h3>
-          <div class="price">${product.price}</div>
+          <div class="price">${priceText(product)}</div>
           <div class="mini">${product.offer}</div>
-          <a class="buy" href="${product.buy_url}" target="_blank" rel="noopener">Buy Now</a>
+          <a class="buy" href="${product.buy_url}" target="_blank" rel="noopener">${buttonText(product)}</a>
         </div>
       </article>
     `).join('');
@@ -449,6 +474,8 @@
 
 </body>
 </html>
+
+
 
 
 

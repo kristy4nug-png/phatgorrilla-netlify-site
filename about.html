@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <title>About Phat Gorrilla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phat Gorrilla Free App</title>
-  <meta name="description" content="Free Phat Gorrilla app access included with your first purchase. Drops, previews, updates and brand tools.">
+  <meta name="description" content="About Phat Gorrilla, a bold streetwear brand with manga and comic gorilla graphics, country football designs and premium drops.">
   <style>
     :root {
-      --pg-black:#05070b;
-      --pg-panel:#0d1320;
-      --pg-pink:#ff2da8;
-      --pg-green:#24f087;
-      --pg-white:#ffffff;
-      --pg-muted:#b8c2d8;
-      --pg-gold:#d8a436;
+      --black:#05070b;
+      --panel:#0d1320;
+      --pink:#ff2da8;
+      --green:#24f087;
+      --gold:#d8a436;
+      --text:#ffffff;
+      --muted:#b8c2d8;
+      --line:rgba(255,255,255,.14);
     }
 
     * { box-sizing:border-box; }
 
     body {
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
+      min-height:100vh;
+      font-family:Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(255,45,168,.22), transparent 30%),
+        radial-gradient(circle at top left, rgba(255,45,168,.24), transparent 30%),
         radial-gradient(circle at top right, rgba(36,240,135,.18), transparent 32%),
         linear-gradient(180deg, #05070b 0%, #090d16 55%, #05070b 100%);
-      color:var(--pg-white);
-      min-height:100vh;
+      color:var(--text);
     }
 
     a { color:inherit; }
@@ -39,8 +40,8 @@
     header {
       padding:22px 0;
       border-bottom:1px solid rgba(36,240,135,.22);
-      background:rgba(5,7,11,.72);
-      backdrop-filter: blur(12px);
+      background:rgba(5,7,11,.74);
+      backdrop-filter:blur(12px);
       position:sticky;
       top:0;
       z-index:10;
@@ -60,6 +61,7 @@
       text-decoration:none;
       font-weight:950;
       letter-spacing:.08em;
+      text-transform:uppercase;
     }
 
     .brand img {
@@ -67,11 +69,6 @@
       height:48px;
       object-fit:contain;
       filter:drop-shadow(0 0 18px rgba(36,240,135,.28));
-    }
-
-    .brand span {
-      font-size:1.05rem;
-      text-transform:uppercase;
     }
 
     nav {
@@ -97,14 +94,14 @@
     }
 
     nav a:hover {
-      color:var(--pg-green);
+      color:var(--green);
       border-color:rgba(36,240,135,.75);
     }
 
     .hero {
-      padding:64px 0 36px;
+      padding:68px 0 32px;
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns:1.05fr .95fr;
       gap:34px;
       align-items:center;
     }
@@ -115,7 +112,7 @@
       border-radius:999px;
       background:rgba(255,45,168,.12);
       border:1px solid rgba(255,45,168,.38);
-      color:var(--pg-green);
+      color:var(--green);
       font-size:.78rem;
       font-weight:950;
       letter-spacing:.12em;
@@ -124,18 +121,18 @@
 
     h1 {
       margin:18px 0 14px;
-      font-size:clamp(2.5rem, 7vw, 5.7rem);
-      line-height:.92;
+      font-size:clamp(2.7rem, 8vw, 6.4rem);
+      line-height:.9;
       letter-spacing:-.06em;
       text-transform:uppercase;
       text-shadow:
-        0 0 28px rgba(255,45,168,.36),
-        0 0 22px rgba(36,240,135,.18);
+        0 0 30px rgba(255,45,168,.36),
+        0 0 18px rgba(36,240,135,.18);
     }
 
     .lead {
-      max-width:760px;
-      color:var(--pg-muted);
+      max-width:780px;
+      color:var(--muted);
       font-size:1.12rem;
       line-height:1.65;
     }
@@ -148,20 +145,19 @@
     }
 
     .btn-primary {
-      background:linear-gradient(90deg, var(--pg-pink), var(--pg-green));
+      background:linear-gradient(90deg, var(--pink), var(--green));
       color:#05070b;
       border-color:rgba(36,240,135,.7);
-      box-shadow:
-        0 0 24px rgba(255,45,168,.24),
-        0 0 18px rgba(36,240,135,.18);
+      text-transform:uppercase;
     }
 
     .btn-secondary {
       color:#fff;
       background:rgba(255,255,255,.05);
+      text-transform:uppercase;
     }
 
-    .app-art {
+    .art {
       border:1px solid rgba(36,240,135,.28);
       border-radius:30px;
       padding:24px;
@@ -173,28 +169,18 @@
       text-align:center;
     }
 
-    .app-art img {
+    .art img {
       max-width:100%;
-      max-height:440px;
+      max-height:420px;
       object-fit:contain;
       filter:drop-shadow(0 0 28px rgba(36,240,135,.20));
     }
 
-    .unlock-strip {
-      margin:14px 0 34px;
-      padding:18px;
-      border-radius:22px;
-      background:linear-gradient(90deg, rgba(255,45,168,.16), rgba(36,240,135,.12));
-      border:1px solid rgba(36,240,135,.28);
-      color:#e9eefb;
-      font-weight:800;
-    }
-
     .grid {
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:18px;
-      padding:20px 0 56px;
+      padding:24px 0 58px;
     }
 
     .card {
@@ -218,41 +204,36 @@
 
     .card p {
       margin:0;
-      color:var(--pg-muted);
+      color:var(--muted);
       line-height:1.55;
     }
 
     .tag {
       display:inline-block;
       margin-bottom:12px;
-      color:var(--pg-green);
+      color:var(--green);
       font-size:.74rem;
       font-weight:950;
       letter-spacing:.12em;
       text-transform:uppercase;
     }
 
-    .mini-logo-row {
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      padding:28px 0 50px;
-      border-top:1px solid rgba(255,45,168,.20);
-    }
-
-    .mini-logo-row img {
-      max-height:86px;
-      max-width:180px;
-      object-fit:contain;
-      filter:drop-shadow(0 0 18px rgba(255,45,168,.16));
+    .note {
+      margin:0 0 54px;
+      padding:20px;
+      border:1px solid rgba(216,164,54,.34);
+      border-radius:24px;
+      background:linear-gradient(90deg, rgba(216,164,54,.16), rgba(255,45,168,.08));
+      color:#f0e7d1;
+      line-height:1.6;
+      font-weight:800;
     }
 
     footer {
       padding:24px 0 36px;
       color:#8d98ad;
       text-align:center;
+      border-top:1px solid var(--line);
     }
 
     @media (max-width:850px) {
@@ -276,6 +257,7 @@
         <a href="/world-cup.html">World Cup</a>
         <a href="/elite.html">Elite Range</a>
         <a href="/about.html">About</a>
+        <a href="/app.html">Free App</a>
       </nav>
     </div>
   </header>
@@ -283,58 +265,50 @@
   <main class="wrap">
     <section class="hero">
       <div>
-        <span class="eyebrow">Free with first purchase</span>
-        <h1>Phat Gorrilla App</h1>
+        <span class="eyebrow">Bold streetwear brand</span>
+        <h1>About Phat Gorrilla</h1>
         <p class="lead">
-          Your bonus app page for Phat Gorrilla drops, previews, launch notes, design direction and customer-only updates after Printify checkout.
-          It matches the main neon pink, chrome green and black brand style.
+          Phat Gorrilla is built around premium manga and comic-style gorilla graphics, bold football country drops,
+          neon streetwear branding and a black-and-gold Elite Range. The signature mark often used on designs is csn 1981.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="/shop">Shop To Unlock</a>
-          <a class="btn btn-secondary" href="/thank-you.html">Purchase Thank You Page</a>
+          <a class="btn btn-primary" href="/shop">Shop Products</a>
+          <a class="btn btn-secondary" href="/world-cup.html">World Cup Range</a>
         </div>
       </div>
 
-      <div class="app-art">
-        <img src="assets/brand/pg-app-gorilla.png" alt="Phat Gorrilla app gorilla">
+      <div class="art">
+        <img src="assets/brand/pg-app-gorilla.png" alt="Phat Gorrilla artwork">
       </div>
     </section>
 
-    <div class="unlock-strip">
-      Included free with any Phat Gorrilla product purchase. After Printify checkout, customers can access this free app page for Phat Gorrilla drops, previews, launch notes and customer-only updates.
-    </div>
-
-    <section class="grid">
+    <section class="grid" aria-label="About Phat Gorrilla">
       <article class="card">
-        <span class="tag">Drops</span>
-        <h2>Launch Updates</h2>
-        <p>See new clothing drops, country designs, Elite Range plans and upcoming product previews in one clean place.</p>
+        <span class="tag">Main Brand</span>
+        <h2>Neon Streetwear</h2>
+        <p>Pink, chrome green and black give the main Phat Gorrilla range its loud, online-ready streetwear identity.</p>
       </article>
 
       <article class="card">
-        <span class="tag">Bonus</span>
-        <h2>Customer Access</h2>
-        <p>First purchase includes this free bonus access page for updates, previews and future app features.</p>
+        <span class="tag">Country Drops</span>
+        <h2>Football Energy</h2>
+        <p>Country T-shirts and World Cup designs bring supporter colours, bold graphics and big back-print pieces together.</p>
       </article>
 
       <article class="card">
-        <span class="tag">Brand</span>
-        <h2>Phat Gorrilla Hub</h2>
-        <p>Keep the brand world together: main range, country drops, app updates and Elite Range without mixing the styles.</p>
+        <span class="tag">Elite Range</span>
+        <h2>Black And Gold</h2>
+        <p>The Elite Range keeps the premium side separate with cleaner logos, gold details and a sharper luxury feel.</p>
       </article>
     </section>
 
-    <section class="mini-logo-row" aria-label="Phat Gorrilla brand logos">
-      <img src="assets/brand/pg-main-badge.png" alt="Phat Gorrilla main badge">
-      <img src="assets/brand/pg-main-wordmark.png" alt="Phat Gorrilla wordmark">
-      <img src="assets/brand/pg-app-gorilla.png" alt="Phat Gorrilla app gorilla">
+    <section class="note">
+      Products are fulfilled through Printify. Checkout, final delivery pricing and tax are confirmed by Printify at checkout, while Phat Gorrilla keeps the brand, designs and product pages together.
     </section>
   </main>
 
   <footer>
-    PHAT GORRILLA — Free app bonus with first purchase.
+    PHAT GORRILLA - premium streetwear, country drops and Elite Range clothing.
   </footer>
 </body>
 </html>
-
-
