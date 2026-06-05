@@ -3,8 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phat Gorrilla Free App</title>
-  <meta name="description" content="Free Phat Gorrilla app access included with your first purchase. Drops, previews, updates and brand tools.">
+  <title>Phat Gorrilla App | Free Demo & Full App After Purchase</title>
+  <meta name="description" content="Try the free Phat Gorrilla app demo. Full app access comes free after a product purchase. Built for drops, development notes and brand updates.">
+  <link rel="canonical" href="https://phatgorrilla.com/app.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Phat Gorrilla">
+  <meta property="og:title" content="Phat Gorrilla App - Free Demo">
+  <meta property="og:description" content="Try the free demo. Full Phat Gorrilla app access comes free after purchase.">
+  <meta property="og:url" content="https://phatgorrilla.com/app.html">
+  <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-app-gorilla.png">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       --pg-black:#05070b;
@@ -190,6 +198,25 @@
       font-weight:800;
     }
 
+    .value-bar {
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .value-bar span {
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:13px 14px;
+      background:rgba(255,255,255,.045);
+      color:#fff;
+      font-size:.78rem;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
     .grid {
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -249,6 +276,98 @@
       filter:drop-shadow(0 0 18px rgba(255,45,168,.16));
     }
 
+    .live-products {
+      padding:8px 0 58px;
+      border-top:1px solid rgba(36,240,135,.20);
+    }
+
+    .section-head {
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin:30px 0 18px;
+    }
+
+    .section-head h2 {
+      margin:0;
+      font-size:clamp(1.9rem, 5vw, 3.8rem);
+      line-height:.92;
+      letter-spacing:-.045em;
+      text-transform:uppercase;
+    }
+
+    .section-head p {
+      margin:0;
+      max-width:560px;
+      color:var(--pg-muted);
+      line-height:1.55;
+    }
+
+    .product-grid {
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+    }
+
+    .product-card {
+      overflow:hidden;
+      border:1px solid rgba(36,240,135,.28);
+      border-radius:24px;
+      background:
+        radial-gradient(circle at top left, rgba(255,45,168,.16), transparent 38%),
+        linear-gradient(145deg, rgba(15,22,36,.96), rgba(5,7,11,.98));
+      box-shadow:0 20px 60px rgba(0,0,0,.34);
+    }
+
+    .product-card img {
+      width:100%;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      display:block;
+      background:#111827;
+    }
+
+    .product-body {
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .product-body h3 {
+      margin:0;
+      font-size:1rem;
+      line-height:1.25;
+      text-transform:uppercase;
+    }
+
+    .product-price {
+      color:var(--pg-green);
+      font-weight:950;
+    }
+
+    .product-copy {
+      color:var(--pg-muted);
+      line-height:1.45;
+      font-size:.88rem;
+    }
+
+    .product-buy {
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--pg-pink), var(--pg-green));
+      color:#05070b;
+      text-decoration:none;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
     footer {
       padding:24px 0 36px;
       color:#8d98ad;
@@ -258,6 +377,8 @@
     @media (max-width:850px) {
       .hero { grid-template-columns:1fr; padding-top:42px; }
       .grid { grid-template-columns:1fr; }
+      .product-grid { grid-template-columns:1fr; }
+      .value-bar { grid-template-columns:1fr; }
       .nav { align-items:flex-start; flex-direction:column; }
       nav { justify-content:flex-start; }
     }
@@ -294,6 +415,7 @@
   <a href="worldcup.html">World Cup</a>
   <a href="elite.html">Super Elite</a>
   <a class="active" href="app.html">Free App</a>
+  <a href="app-demo.html">Demo</a>
   <a href="about.html">About</a>
 </nav>
     </div>
@@ -302,15 +424,20 @@
   <main class="wrap">
     <section class="hero">
       <div>
-        <span class="eyebrow">Free with first purchase</span>
+        <span class="eyebrow">Free demo • Full app after purchase</span>
         <h1>Phat Gorrilla App</h1>
         <p class="lead">
-          Your bonus app page for Phat Gorrilla drops, previews, launch notes, design direction and customer-only updates after secure Stripe checkout.
-          It matches the main neon pink, chrome green and black brand style.
+          Try the free demo first. The full Phat Gorrilla app comes free after a product purchase, giving customers the deeper drops, development notes,
+          product previews and brand updates behind the clothing.
         </p>
+        <div class="value-bar" aria-label="Free app benefits">
+          <span>Free Demo</span>
+          <span>Full App With Purchase</span>
+          <span>Built For Development</span>
+        </div>
         <div class="actions">
-          <a class="btn btn-primary" href="/shop">Shop To Unlock</a>
-          <a class="btn btn-secondary" href="/thank-you.html">Purchase Thank You Page</a>
+          <a class="btn btn-primary" href="app-demo.html">Open Free Demo</a>
+          <a class="btn btn-secondary" href="/shop">Buy To Unlock Full App</a>
         </div>
       </div>
 
@@ -320,27 +447,35 @@
     </section>
 
     <div class="unlock-strip">
-      Included free with any Phat Gorrilla product purchase. After secure Stripe checkout, customers can access this free app page for Phat Gorrilla drops, previews, launch notes and customer-only updates.
+      Advertise this clearly: the free demo is available now, and the full Phat Gorrilla app comes free with any product purchase. The app is the live brand hub for product development, drops, previews and launch updates.
     </div>
 
-    <section class="grid">
+    <section class="grid" id="app-features">
       <article class="card">
         <span class="tag">Drops</span>
-        <h2>Launch Updates</h2>
-        <p>See new clothing drops, country designs, Elite Range plans and upcoming product previews in one clean place.</p>
+        <h2>Live Drop Hub</h2>
+        <p>See new clothing drops, country designs, Super Elite plans and upcoming product previews in one clean place.</p>
       </article>
 
       <article class="card">
-        <span class="tag">Bonus</span>
-        <h2>Customer Access</h2>
-        <p>First purchase includes this free bonus access page for updates, previews and future app features.</p>
+        <span class="tag">Access</span>
+        <h2>Full App After Purchase</h2>
+        <p>The demo is free. Buying any Phat Gorrilla product unlocks the full app as a bonus part of the customer experience.</p>
       </article>
 
       <article class="card">
-        <span class="tag">Brand</span>
-        <h2>Phat Gorrilla Hub</h2>
-        <p>Keep the brand world together: main range, country drops, app updates and Elite Range without mixing the styles.</p>
+        <span class="tag">Development</span>
+        <h2>Built For Building</h2>
+        <p>This is not a fallback page. It is the development space for ideas, visuals, launch direction, product planning and brand growth.</p>
       </article>
+    </section>
+
+    <section class="live-products" aria-label="Live app products">
+      <div class="section-head">
+        <h2>Live Products</h2>
+        <p>Full app access uses the same live shop data. New mapped Printify products can appear here with secure GBP checkout once they are added to the product data. Selected designs use intentional rustic artwork texture.</p>
+      </div>
+      <div class="product-grid" id="appProductGrid"></div>
     </section>
 
     <section class="mini-logo-row" aria-label="Phat Gorrilla brand logos">
@@ -351,8 +486,33 @@
   </main>
 
   <footer>
-    PHAT GORRILLA — Free app bonus with first purchase.
+    PHAT GORRILLA — Free demo. Full app free after purchase. Built for development. <a href="shipping-returns.html">Shipping & Returns</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy</a>
   </footer>
+  <script src="shop-data.js"></script>
+  <script>
+    const appProducts = (window.PHAT_GORRILLA_PRODUCTS || []).filter(product => product.visible !== false);
+    const appProductGrid = document.getElementById('appProductGrid');
+
+    function appPriceText(product) {
+      if (product.price) return product.price;
+      if (product.price_from && product.price_to && product.price_from !== product.price_to) {
+        return `${product.price_from} - ${product.price_to}`;
+      }
+      return product.price_from || product.price_to || 'Price shown at checkout';
+    }
+
+    appProductGrid.innerHTML = appProducts.map(product => `
+      <article class="product-card">
+        <img src="${product.image}" alt="${product.title}" loading="lazy">
+        <div class="product-body">
+          <h3>${product.title}</h3>
+          <div class="product-price">${appPriceText(product)}</div>
+          <div class="product-copy">${product.offer}</div>
+          <a class="product-buy" href="${product.buy_url}" target="_blank" rel="noopener">Secure GBP Checkout</a>
+        </div>
+      </article>
+    `).join('');
+  </script>
 </body>
 </html>
 

@@ -30,7 +30,7 @@ const products = [
             "Phat Gorrilla _ Local-first command power_files/product-argentina-front-model.jpg",
             "Phat Gorrilla _ Local-first command power_files/product-argentina-back-model.jpg"
         ],
-        checkout: "https://phat-gorrilla.printify.me/product/28891616/argentina-phat-gorilla-graphic-tee-vintage-soccer-fan-shirt"
+        checkout: "/.netlify/functions/create-checkout-session?key=argentina-phat-gorrilla-world-cup-tee-gildan-5000-11956"
     }
 ];
 
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <li>${storeSettings.appBonus}</li>
                     </ul>
                 </details>
-                <a href="${product.checkout}" target="_blank" rel="noopener" class="pg-buy-btn">View Product</a>
+                <a href="${product.checkout}" target="_blank" rel="noopener" class="pg-buy-btn">Secure GBP Checkout</a>
             </div>
         `;
         grid.appendChild(card);

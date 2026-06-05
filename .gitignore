@@ -6,3 +6,16 @@ phat_gorrilla_price_website_audit.csv
 site_backup_before_brand_update_*.zip
 index_backup_rugged_logo_*.html
 node_modules/
+
+# Phat Gorrilla local working files
+*.bak
+*.structurebackup_*
+*.backup_*
+*.ps1
+*.csv
+*_review.html
+*_report.html
+elite-non-uk-review.html
+phat_gorrilla_elite_logos_print_ready/
+elite_assets/
+*.zip
