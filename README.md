@@ -18,3 +18,12 @@ Original assets and brand folders are kept safely in the parent folder.
 - Submit `https://phatgorrilla.com/google-free-listings-feed.xml` in Google Merchant Center for free product listings.
 - IndexNow ownership is prepared with `https://phatgorrilla.com/phatgorrilla-20260531-indexnow.txt`.
 - After deployment, submit changed URLs to IndexNow with key `phatgorrilla-20260531-indexnow`.
+
+## Social Profiles And API Setup
+
+- Official social hub: `https://phatgorrilla.com/socials`
+- Official Instagram: `https://www.instagram.com/phatgorrilla/`
+- Official TikTok: `https://www.tiktok.com/@phatgorrilla`
+- Official Facebook: `https://www.facebook.com/profile.php?id=61590460628534`
+- API setup notes are in `SOCIAL_API_SETUP.md`.
+- Never commit social API tokens, app secrets, passwords or recovery codes.
