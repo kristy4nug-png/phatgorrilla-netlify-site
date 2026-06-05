@@ -60,6 +60,18 @@ Website/domain:
 
 `https://phatgorrilla.com`
 
+Terms of Service URL:
+
+`https://phatgorrilla.com/terms-of-service.html`
+
+Privacy Policy URL:
+
+`https://phatgorrilla.com/privacy-policy.html`
+
+App icon:
+
+`assets/brand/tiktok-app-icon-1024.png`
+
 Products to request:
 
 - Login Kit
