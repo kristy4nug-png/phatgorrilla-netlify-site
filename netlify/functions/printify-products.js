@@ -151,6 +151,7 @@ function publicProduct(product, includeVariants = false) {
     min_price: low,
     max_price: high,
     image: bestImage(product, defaultVariant.id),
+    images: (product.images || []).map(img => img.src).filter(Boolean),
     drop: String(product.title || "").toLowerCase().includes("world cup") ? "World Cup" : "Live Printify Drop",
     type: type,
     colours: summary.colours,

@@ -200,3 +200,30 @@
     padding: 10px 14px;
   }
 }
+
+/* Gallery thumbnails */
+.pg-thumbs {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.pg-thumbs img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid var(--line, rgba(215, 181, 109, 0.2));
+  transition: all 0.2s ease;
+  background: var(--panel-hover, rgba(26, 26, 26, 1));
+  flex-shrink: 0;
+}
+
+.pg-thumbs img:hover,
+.pg-thumbs img.active {
+  border-color: var(--green, #00e676);
+  transform: scale(1.08);
+}

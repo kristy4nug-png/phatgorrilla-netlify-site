@@ -285,6 +285,13 @@
                   <div class="pg-product-badge badge">${product.type}</div>
                 </div>
               </a>
+              ${product.images && product.images.length > 1 ? `
+                <div class="pg-thumbs" style="padding: 0 20px; margin: 10px 0 0;" aria-label="${product.title} mockups">
+                  ${product.images.slice(0, 6).map((src, index) => `
+                    <img src="${src}" alt="${product.title} mockup ${index + 1}" class="${index === 0 ? 'active' : ''}" onclick="event.stopPropagation(); const mainImg = this.closest('.pg-product-card').querySelector('.pg-product-image img'); if(mainImg) { mainImg.src = '${src}'; this.parentNode.querySelectorAll('img').forEach(i => i.classList.remove('active')); this.classList.add('active'); }">
+                  `).join('')}
+                </div>
+              ` : ''}
               <div class="pg-product-info product-info">
                 <p class="country">${country}</p>
                 <a href="${product.product_url || `/product.html?id=${product.id}`}" style="color: inherit; text-decoration: none;">

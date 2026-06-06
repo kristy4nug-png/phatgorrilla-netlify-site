@@ -19,6 +19,7 @@
   <meta property="og:description" content="Premium streetwear, secure GBP checkout, printed and fulfilled by Printify.">
   <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-main-badge.png">
   <link rel="stylesheet" href="pg-premium-refresh.css">
+  <link rel="stylesheet" href="product-card-styles.css">
   <style>
     :root {
       --bg:#05070b;
@@ -249,8 +250,11 @@
 
   <main class="wrap">
     <section class="product-layout" id="productRoot">
-      <div class="media">
-        <img id="productImage" src="assets/brand/pg-main-badge.png" alt="Phat Gorrilla product">
+      <div class="media-gallery">
+        <div class="media">
+          <img id="productImage" src="assets/brand/pg-main-badge.png" alt="Phat Gorrilla product">
+        </div>
+        <div id="productThumbs" class="pg-thumbs" style="margin-top: 16px; justify-content: center;"></div>
       </div>
 
       <div class="details">
@@ -358,6 +362,18 @@
         imageEl.alt = product.title;
         dropEl.textContent = product.drop;
 
+        // Render variation thumbnails
+        const thumbsContainer = document.getElementById('productThumbs');
+        if (thumbsContainer) {
+          if (product.images && product.images.length > 1) {
+            thumbsContainer.innerHTML = product.images.map((src, index) => `
+              <img src="${escapeHtml(src)}" alt="${escapeHtml(product.title)} mockup ${index + 1}" class="${index === 0 ? 'active' : ''}" onclick="const mainImg = document.getElementById('productImage'); if(mainImg) { mainImg.src = '${escapeHtml(src)}'; this.parentNode.querySelectorAll('img').forEach(i => i.classList.remove('active')); this.classList.add('active'); }">
+            `).join('');
+          } else {
+            thumbsContainer.innerHTML = '';
+          }
+        }
+
         const colors = product.colours ? product.colours.split(', ') : [];
         const sizes = product.sizes ? product.sizes.split(', ') : [];
         const variantsContainer = document.getElementById('productVariantsContainer');
@@ -435,7 +451,20 @@
           const selected = matched;
           if (selected) {
             priceEl.textContent = selected.price;
-            if (selected.image) imageEl.src = selected.image;
+            if (selected.image) {
+              imageEl.src = selected.image;
+              // Synchronize the active thumbnail in the gallery
+              const thumbsContainer = document.getElementById('productThumbs');
+              if (thumbsContainer) {
+                thumbsContainer.querySelectorAll('img').forEach(thumb => {
+                  if (thumb.src === selected.image) {
+                    thumb.classList.add('active');
+                  } else {
+                    thumb.classList.remove('active');
+                  }
+                });
+              }
+            }
             selectedVariantId = selected.id;
             checkoutEl.removeAttribute('aria-disabled');
             checkoutEl.style.opacity = '1';

@@ -68,6 +68,17 @@ class PhatGorrillaProduct {
         if (imgEl) {
           imgEl.src = variant.image;
         }
+        // Update thumbnail active class
+        const thumbsEl = this.element.querySelector('.pg-thumbs');
+        if (thumbsEl) {
+          thumbsEl.querySelectorAll('img').forEach(thumb => {
+            if (thumb.src === variant.image) {
+              thumb.classList.add('active');
+            } else {
+              thumb.classList.remove('active');
+            }
+          });
+        }
       }
     }
   }
