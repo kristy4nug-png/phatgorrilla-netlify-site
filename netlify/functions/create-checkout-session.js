@@ -86,7 +86,8 @@ async function getLivePrintifyProduct(productId, variantId) {
   const type = productType(printifyProduct.title);
   const basePricePence = Number(variant.price);
   const markupPence = getMarkupPence(type);
-  const finalPricePence = basePricePence + markupPence;
+  const isGildan5000 = Number(printifyProduct.blueprint_id) === 6 || Number(printifyProduct.blueprint_id) === 157 || String(printifyProduct.title || "").toLowerCase().includes("gildan 5000");
+  const finalPricePence = isGildan5000 ? 1999 : (basePricePence + markupPence);
 
   return {
     title: cleanText(printifyProduct.title),
@@ -99,7 +100,8 @@ async function getLivePrintifyProduct(productId, variantId) {
     markup_pence: markupPence,
     stripe_amount_pence: finalPricePence,
     price_gbp: (finalPricePence / 100).toFixed(2),
-    image_url: bestImage(printifyProduct, variant.id)
+    image_url: bestImage(printifyProduct, variant.id),
+    blueprint_id: Number(printifyProduct.blueprint_id)
   };
 }
 
@@ -129,6 +131,18 @@ exports.handler = async function(event) {
       referenceId = `printify-${dynamicProductId}-${dynamicVariantId}`;
     }
 
+    const isGildan5000Product = product && (
+      Number(product.blueprint_id) === 6 ||
+      Number(product.blueprint_id) === 157 ||
+      (product.title && product.title.toLowerCase().includes("gildan 5000")) ||
+      (referenceId && referenceId.toLowerCase().includes("gildan-5000"))
+    );
+
+    if (isGildan5000Product) {
+      product.stripe_amount_pence = 1999;
+      product.price_gbp = "19.99";
+    }
+
     if (!referenceId || !product) {
       return {
         statusCode: 404,
@@ -140,6 +154,7 @@ exports.handler = async function(event) {
       };
     }
 
+    const shippingPrice = isGildan5000Product ? 600 : 499;
     const siteUrl = process.env.SITE_URL || "https://phatgorrilla.com";
 
     const session = await stripe.checkout.sessions.create({
@@ -154,7 +169,7 @@ exports.handler = async function(event) {
           shipping_rate_data: {
             type: "fixed_amount",
             fixed_amount: {
-              amount: 499,
+              amount: shippingPrice,
               currency: "gbp"
             },
             display_name: "UK Standard Delivery"

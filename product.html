@@ -259,12 +259,14 @@
         <p class="description" id="productDescription">Checking the live Printify product details.</p>
         <div class="price" id="productPrice">Price loading</div>
 
-        <label for="variantSelect">
-          Choose Option
-          <select id="variantSelect" disabled>
-            <option>Loading options</option>
-          </select>
-        </label>
+        <div id="productVariantsContainer" style="display: grid; gap: 14px; margin: 12px 0;">
+          <label for="variantSelect">
+            Choose Option
+            <select id="variantSelect" disabled>
+              <option>Loading options</option>
+            </select>
+          </label>
+        </div>
 
         <a class="buy" id="checkoutButton" href="#" aria-disabled="true">Secure GBP Checkout</a>
 
@@ -293,7 +295,6 @@
     const imageEl = document.getElementById('productImage');
     const priceEl = document.getElementById('productPrice');
     const dropEl = document.getElementById('productDrop');
-    const selectEl = document.getElementById('variantSelect');
     const checkoutEl = document.getElementById('checkoutButton');
 
     function checkoutUrl(product, variantId) {
@@ -308,14 +309,6 @@
         '"': '&quot;',
         "'": '&#39;'
       }[character]));
-    }
-
-    function setVariant(product) {
-      const selected = product.variants.find(variant => String(variant.id) === selectEl.value) || product.variants[0];
-      priceEl.textContent = selected.price;
-      if (selected.image) imageEl.src = selected.image;
-      checkoutEl.href = checkoutUrl(product, selected.id);
-      checkoutEl.removeAttribute('aria-disabled');
     }
 
     async function loadProduct() {
@@ -339,17 +332,107 @@
         imageEl.alt = product.title;
         dropEl.textContent = product.drop;
 
-        selectEl.innerHTML = product.variants.map(variant =>
-          `<option value="${escapeHtml(variant.id)}">${escapeHtml(variant.title)} - ${escapeHtml(variant.price)}</option>`
-        ).join('');
-        selectEl.disabled = false;
-        selectEl.addEventListener('change', () => setVariant(product));
-        setVariant(product);
+        const colors = product.colours ? product.colours.split(', ') : [];
+        const sizes = product.sizes ? product.sizes.split(', ') : [];
+        const variantsContainer = document.getElementById('productVariantsContainer');
+
+        let html = '';
+        if (sizes.length > 0) {
+          html += `
+            <label style="display:grid; gap:8px;">
+              Size
+              <select id="sizeSelect" style="width:100%; min-height:48px; border-radius:14px; border:1px solid rgba(36,240,135,.38); background:#080c14; color:#fff; padding:0 14px; font-weight:800;">
+                <option value="">Select Size</option>
+                ${sizes.map(size => `<option value="${escapeHtml(size)}">${escapeHtml(size)}</option>`).join('')}
+              </select>
+            </label>
+          `;
+        }
+        if (colors.length > 0) {
+          html += `
+            <label style="display:grid; gap:8px;">
+              Colour
+              <select id="colorSelect" style="width:100%; min-height:48px; border-radius:14px; border:1px solid rgba(36,240,135,.38); background:#080c14; color:#fff; padding:0 14px; font-weight:800;">
+                <option value="">Select Colour</option>
+                ${colors.map(color => `<option value="${escapeHtml(color)}">${escapeHtml(color)}</option>`).join('')}
+              </select>
+            </label>
+          `;
+        }
+
+        if (html) {
+          variantsContainer.innerHTML = html;
+        } else {
+          variantsContainer.innerHTML = '';
+        }
+
+        const sizeSelect = document.getElementById('sizeSelect');
+        const colorSelect = document.getElementById('colorSelect');
+        const selections = { size: '', color: '' };
+
+        function updateSelectedVariant() {
+          if (sizeSelect) selections.size = sizeSelect.value;
+          if (colorSelect) selections.color = colorSelect.value;
+
+          // Require selections if they exist
+          if (sizeSelect && !selections.size) {
+            priceEl.textContent = 'Select size';
+            checkoutEl.href = '#';
+            checkoutEl.setAttribute('aria-disabled', 'true');
+            checkoutEl.style.opacity = '0.5';
+            checkoutEl.style.pointerEvents = 'none';
+            return;
+          }
+          if (colorSelect && !selections.color) {
+            priceEl.textContent = 'Select colour';
+            checkoutEl.href = '#';
+            checkoutEl.setAttribute('aria-disabled', 'true');
+            checkoutEl.style.opacity = '0.5';
+            checkoutEl.style.pointerEvents = 'none';
+            return;
+          }
+
+          // Find matching variant
+          let matched = null;
+          if (selections.size || selections.color) {
+            matched = product.variants.find(v => {
+              if (!v || !v.title) return false;
+              const title = v.title.toLowerCase();
+              const matchSize = !selections.size || title.includes(selections.size.toLowerCase());
+              const matchColor = !selections.color || title.includes(selections.color.toLowerCase());
+              return matchSize && matchColor;
+            });
+          } else if (product.variants.length === 1) {
+            matched = product.variants[0];
+          }
+
+          const selected = matched;
+          if (selected) {
+            priceEl.textContent = selected.price;
+            if (selected.image) imageEl.src = selected.image;
+            checkoutEl.href = checkoutUrl(product, selected.id);
+            checkoutEl.removeAttribute('aria-disabled');
+            checkoutEl.style.opacity = '1';
+            checkoutEl.style.pointerEvents = 'auto';
+          } else {
+            priceEl.textContent = 'Option unavailable';
+            checkoutEl.href = '#';
+            checkoutEl.setAttribute('aria-disabled', 'true');
+            checkoutEl.style.opacity = '0.5';
+            checkoutEl.style.pointerEvents = 'none';
+          }
+        }
+
+        if (sizeSelect) sizeSelect.addEventListener('change', updateSelectedVariant);
+        if (colorSelect) colorSelect.addEventListener('change', updateSelectedVariant);
+        updateSelectedVariant();
+
       } catch (error) {
+        console.error('Failed to load product details:', error);
         titleEl.textContent = 'Product Temporarily Unavailable';
         descriptionEl.textContent = 'This product is not ready for checkout yet. Please return to the shop or check again shortly after publishing in Printify.';
         priceEl.textContent = '';
-        selectEl.innerHTML = '<option>Unavailable</option>';
+        document.getElementById('productVariantsContainer').innerHTML = '<label>Choose Option<select disabled><option>Unavailable</option></select></label>';
       }
     }
 

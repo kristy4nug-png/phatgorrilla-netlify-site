@@ -45,25 +45,54 @@ function splitVariantTitle(title) {
     .filter(Boolean);
 }
 
-function variantSummary(variants) {
-  const sizeWords = new Set(["xs", "s", "m", "l", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "one size"]);
+function variantSummary(product) {
   const colors = new Set();
   const sizes = new Set();
+  const variants = enabledVariants(product);
 
-  variants.forEach(variant => {
-    splitVariantTitle(variant.title).forEach(part => {
-      const normalized = part.toLowerCase();
-      if (sizeWords.has(normalized) || /^\d+xl$/.test(normalized)) {
-        sizes.add(part.toUpperCase());
-      } else {
-        colors.add(part);
+  const enabledOptionIds = new Set();
+  variants.forEach(v => {
+    if (Array.isArray(v.options)) {
+      v.options.forEach(id => enabledOptionIds.add(Number(id)));
+    }
+  });
+
+  (product.options || []).forEach(opt => {
+    const nameLower = String(opt.name || opt.type || '').toLowerCase();
+    const isColor = nameLower.includes('color') || nameLower.includes('colour');
+    const isSize = nameLower.includes('size');
+    
+    (opt.values || []).forEach(val => {
+      if (enabledOptionIds.has(Number(val.id))) {
+        if (isColor) {
+          colors.add(val.title);
+        } else if (isSize) {
+          sizes.add(val.title);
+        } else {
+          colors.add(val.title);
+        }
       }
     });
   });
 
+  // Fallback parsing from titles if options are empty
+  if (colors.size === 0 && sizes.size === 0) {
+    const sizeWords = new Set(["xs", "s", "m", "l", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "one size"]);
+    variants.forEach(variant => {
+      splitVariantTitle(variant.title).forEach(part => {
+        const normalized = part.toLowerCase();
+        if (sizeWords.has(normalized) || /^\d+xl$/.test(normalized)) {
+          sizes.add(part.toUpperCase());
+        } else {
+          colors.add(part);
+        }
+      });
+    });
+  }
+
   return {
-    colours: Array.from(colors).slice(0, 8).join(", ") || "Colours shown on product page",
-    sizes: Array.from(sizes).slice(0, 10).join(", ") || "Sizes shown on product page"
+    colours: Array.from(colors).slice(0, 15).join(", ") || "",
+    sizes: Array.from(sizes).slice(0, 15).join(", ") || ""
   };
 }
 
@@ -101,10 +130,15 @@ function publicProduct(product, includeVariants = false) {
   const variants = enabledVariants(product);
   const defaultVariant = variants.find(variant => variant.is_default) || variants[0];
   const type = productType(product.title);
-  const prices = variants.map(variant => applyMarkup(variant.price, type)).filter(Boolean);
+  const isGildan5000 = Number(product.blueprint_id) === 6 || Number(product.blueprint_id) === 157 || String(product.title || "").toLowerCase().includes("gildan 5000");
+
+  const prices = variants.map(variant => {
+    if (isGildan5000) return 1999;
+    return applyMarkup(variant.price, type);
+  }).filter(Boolean);
   const low = Math.min(...prices);
   const high = Math.max(...prices);
-  const summary = variantSummary(variants);
+  const summary = variantSummary(product);
   const description = cleanText(product.description, 320) ||
     "Premium Phat Gorrilla streetwear. Secure GBP checkout powered by Stripe. Printed and fulfilled by Printify.";
 
@@ -130,8 +164,8 @@ function publicProduct(product, includeVariants = false) {
     item.variants = variants.map(variant => ({
       id: variant.id,
       title: cleanText(variant.title, 90),
-      price: money(applyMarkup(variant.price, type)),
-      price_pence: applyMarkup(variant.price, type),
+      price: money(isGildan5000 ? 1999 : applyMarkup(variant.price, type)),
+      price_pence: isGildan5000 ? 1999 : applyMarkup(variant.price, type),
       image: bestImage(product, variant.id)
     }));
   }

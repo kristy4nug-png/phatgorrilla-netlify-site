@@ -51,10 +51,9 @@ class PhatGorrillaProduct {
     }
 
     // Multiple variants - find match
-    let matched = null;
     if (size || color) {
-      matched = this.variants.find(v => {
-        if (!v || !v.title || v.price <= 0) return false;
+      return this.variants.find(v => {
+        if (!v || !v.title) return false;
         const title = v.title.toLowerCase();
         const matchSize = !size || title.includes(size.toLowerCase());
         const matchColor = !color || title.includes(color.toLowerCase());
@@ -62,20 +61,35 @@ class PhatGorrillaProduct {
       });
     }
 
-    // Fallback to first available
-    return matched || this.variants.find(v => v && v.price > 0);
+    return null;
   }
 
   async handleCheckout(e) {
     const btn = e.target;
+    
+    // Check if selectors exist and are selected
+    const sizeSelect = this.element.querySelector('.variant-size');
+    const colorSelect = this.element.querySelector('.variant-color');
+
+    if (sizeSelect && !this.selections.size) {
+      this.showError('Please select a size');
+      return;
+    }
+
+    if (colorSelect && !this.selections.color) {
+      this.showError('Please select a colour');
+      return;
+    }
+
     const variant = this.findMatchingVariant();
 
     if (!variant) {
-      this.showError('Please select valid options');
+      this.showError('This option combination is not available');
       return;
     }
 
     btn.disabled = true;
+    const originalText = btn.textContent;
     btn.textContent = 'Processing...';
 
     try {
@@ -96,7 +110,7 @@ class PhatGorrillaProduct {
       console.error('Checkout error:', error);
       this.showError(`Error: ${error.message}`);
       btn.disabled = false;
-      btn.textContent = 'Add to Cart';
+      btn.textContent = originalText;
     }
   }
 
