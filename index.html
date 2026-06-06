@@ -24,6 +24,7 @@
   <meta property="og:url" content="https://phatgorrilla.com/">
   <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-main-badge.png">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="pg-premium-refresh.css">
   <style>
     :root {
       --bg: #050505;
@@ -97,12 +98,12 @@
     }
 
     .text-logo .phat {
-      font-size: clamp(26px, 3vw, 40px);
+      font-size: 36px;
       color: var(--pink);
     }
 
     .text-logo .gorrilla {
-      font-size: clamp(30px, 3.4vw, 46px);
+      font-size: 40px;
       color: var(--green);
       margin-top: -2px;
     }
@@ -143,9 +144,9 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(44px, 7vw, 88px);
-      line-height: .9;
-      letter-spacing: -0.065em;
+      font-size: 76px;
+      line-height: .95;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
@@ -246,10 +247,10 @@
 
     .section h2 {
       margin: 0 0 14px;
-      font-size: clamp(30px, 4vw, 54px);
+      font-size: 44px;
       line-height: .95;
       text-transform: uppercase;
-      letter-spacing: -0.045em;
+      letter-spacing: 0;
     }
 
     .section p {
@@ -318,6 +319,11 @@
     @media (max-width: 850px) {
       .hero, .elite { grid-template-columns: 1fr; }
       .hero { padding-top: 38px; }
+      .text-logo .phat { font-size: 28px; }
+      .text-logo .gorrilla { font-size: 32px; }
+      .badge { letter-spacing: .08em; line-height: 1.35; }
+      h1 { font-size: 36px; }
+      .section h2 { font-size: 34px; }
       .cards { grid-template-columns: 1fr; }
       .proof { grid-template-columns: 1fr; }
       .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
@@ -403,10 +409,32 @@
 
     <section class="wrap strip">
       <div>
-        <strong>Free app with first purchase</strong>
-        <div>Buy any Phat Gorrilla product through secure GBP checkout — printed and fulfilled by Printify, and receive free access to the Phat Gorrilla app page.</div>
+        <strong>Free demo now. Full app after purchase.</strong>
+        <div>Try the public demo before you buy. Every Phat Gorrilla purchase unlocks the full app bonus for drops, previews and brand updates.</div>
       </div>
-      <a class="btn alt" href="app.html">Open App Page</a>
+      <a class="btn alt" href="app-demo.html">Open Free Demo</a>
+    </section>
+
+    <section class="wrap section">
+      <h2>New Drop Energy</h2>
+      <p>Limited designs. Made on demand. Built for bold supporters, loud streetwear fits and customers who want the brand before everyone else.</p>
+      <div class="pg-launch-grid">
+        <article class="pg-drop-card">
+          <span class="pg-kicker">Main drop</span>
+          <h3>Shop The Drop</h3>
+          <p>Graphic tees, hoodies and statement pieces with Phat Gorrilla colour, texture and attitude.</p>
+        </article>
+        <article class="pg-drop-card">
+          <span class="pg-kicker">Country range</span>
+          <h3>World Cup Streetwear Has Landed</h3>
+          <p>Built for bold supporters: country colours, gorilla graphics and match-day streetwear energy.</p>
+        </article>
+        <article class="pg-drop-card">
+          <span class="pg-kicker">Premium range</span>
+          <h3>Super Elite</h3>
+          <p>Cream, stone, army, olive, black and gold pieces with a cleaner premium streetwear finish.</p>
+        </article>
+      </div>
     </section>
 
     <section class="wrap section">
@@ -437,8 +465,8 @@
         <article class="card">
           <img src="assets/brand/pg-app-gorilla.png" alt="Phat Gorrilla app gorilla">
           <div>
-            <h3>Free App Bonus</h3>
-            <p>Every first purchase unlocks the Phat Gorrilla app page for drops, previews and updates.</p>
+            <h3>Free Demo + Full App</h3>
+            <p>The demo is open now. Full app access comes free after a purchase for drops, previews and updates.</p>
           </div>
         </article>
       </div>
@@ -453,15 +481,26 @@
           minimal chest prints, heavyweight hoodies, premium badges and special edition drops.
         </p>
         <div class="cta">
-          <a class="btn" href="shop.html">View Products</a>
+          <a class="btn" href="elite.html">View Super Elite</a>
         </div>
+      </div>
+    </section>
+
+    <section class="wrap pg-follow-band">
+      <span class="pg-kicker">Follow the brand</span>
+      <h2>@phatgorrilla</h2>
+      <p>Follow the official pages for new drops, World Cup designs, Super Elite previews and behind-the-brand updates.</p>
+      <div class="pg-link-row">
+        <a class="pg-mini-link" href="socials.html">Official Brand Hub</a>
+        <a class="pg-mini-link secondary" href="https://www.instagram.com/phatgorrilla/" rel="me noopener">Instagram</a>
+        <a class="pg-mini-link secondary" href="https://www.tiktok.com/@phatgorrilla" rel="me noopener">TikTok</a>
       </div>
     </section>
   
 <!-- PHAT GORRILLA WORLD CUP LINK START -->
 <section style='margin:28px auto;max-width:1100px;padding:24px;border-radius:28px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,rgba(255,20,147,.20),rgba(57,255,20,.14),rgba(20,184,255,.16));text-align:center;box-shadow:0 0 26px rgba(255,20,147,.10);'>
   <p style='margin:0 0 10px;color:#ffd53d;font-weight:900;letter-spacing:.16em;text-transform:uppercase;'>World Cup Drop</p>
-  <h2 style='margin:0 0 10px;color:#fff;font-size:clamp(28px,5vw,48px);text-transform:uppercase;'>Country T-Shirts</h2>
+  <h2 style='margin:0 0 10px;color:#fff;font-size:34px;text-transform:uppercase;'>Country T-Shirts</h2>
   <p style='margin:0 auto 18px;max-width:760px;color:#eee;line-height:1.55;'>Explore the Phat Gorrilla country range with bold colours, supporter style and gorilla back prints.</p>
   <a href='/world-cup.html' style='display:inline-block;padding:14px 24px;border-radius:999px;background:linear-gradient(90deg,#ff1493,#ffd53d,#39ff14);color:#050505;font-weight:900;text-decoration:none;text-transform:uppercase;'>View World Cup Range</a>
 </section>

@@ -23,6 +23,7 @@
   <meta property="og:url" content="https://phatgorrilla.com/elite.html">
   <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-elite-badge.png">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="pg-premium-refresh.css">
   <style>
     :root {
       --bg: #050505;
@@ -107,8 +108,9 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2.6rem, 8vw, 6.5rem);
-      line-height: .88;
+      font-size: 5rem;
+      line-height: .95;
+      letter-spacing: 0;
       text-transform: uppercase;
       color: var(--gold2);
       text-shadow: 0 0 30px rgba(214,168,79,.25);
@@ -177,7 +179,7 @@
     .section-heading h2 {
       margin: 0;
       color: var(--text);
-      font-size: clamp(1.8rem, 4vw, 3.4rem);
+      font-size: 2.8rem;
       text-transform: uppercase;
     }
 
@@ -323,6 +325,8 @@
     @media (max-width: 820px) {
       header { flex-direction: column; align-items: flex-start; }
       nav { justify-content: flex-start; }
+      h1 { font-size: 2.6rem; }
+      .section-heading h2 { font-size: 2rem; }
       .products, .stats { grid-template-columns: 1fr; }
       .section-heading { display: block; }
     }
@@ -357,6 +361,17 @@
         <div class="stat">Stripe Checkout<span>Secure GBP payment</span></div>
         <div class="stat">Printify Fulfilment<span>Printed after purchase</span></div>
         <div class="stat">Realistic Mockups<span>Premium product visuals</span></div>
+      </div>
+    </section>
+
+    <section class="pg-band">
+      <strong>Premium streetwear, made on demand.</strong>
+      <p>The Super Elite range is the cleaner side of Phat Gorrilla: cream, stone, army, olive, black and gold pieces with a sharper badge-led look. Prices include the brand margin. Delivery is shown at checkout.</p>
+      <div class="pg-pill-row">
+        <span class="pg-pill">Super Elite range</span>
+        <span class="pg-pill">Secure GBP checkout</span>
+        <span class="pg-pill">Printify fulfilment</span>
+        <span class="pg-pill">Full app after purchase</span>
       </div>
     </section>
 
@@ -742,6 +757,16 @@
       <p>
         Free Phat Gorrilla app access with first purchase. Customers pay by secure GBP checkout powered by Stripe. Products are printed and fulfilled by Printify.
       </p>
+    </section>
+
+    <section class="pg-follow-band">
+      <span class="pg-kicker">Follow the drop</span>
+      <h2>@phatgorrilla</h2>
+      <p>Follow the official pages for new Super Elite previews, launch posts and customer drop updates.</p>
+      <div class="pg-link-row">
+        <a class="pg-mini-link" href="socials.html">Official Brand Hub</a>
+        <a class="pg-mini-link secondary" href="shop.html">Shop Main Drop</a>
+      </div>
     </section>
   </main>
 

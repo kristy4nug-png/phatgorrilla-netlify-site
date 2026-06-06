@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://phatgorrilla.com/app.html">
   <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-app-gorilla.png">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="pg-premium-refresh.css">
   <style>
     :root {
       --pg-black:#05070b;
@@ -132,9 +133,9 @@
 
     h1 {
       margin:18px 0 14px;
-      font-size:clamp(2.5rem, 7vw, 5.7rem);
-      line-height:.92;
-      letter-spacing:-.06em;
+      font-size:4.5rem;
+      line-height:.96;
+      letter-spacing:0;
       text-transform:uppercase;
       text-shadow:
         0 0 28px rgba(255,45,168,.36),
@@ -292,9 +293,9 @@
 
     .section-head h2 {
       margin:0;
-      font-size:clamp(1.9rem, 5vw, 3.8rem);
-      line-height:.92;
-      letter-spacing:-.045em;
+      font-size:3rem;
+      line-height:.96;
+      letter-spacing:0;
       text-transform:uppercase;
     }
 
@@ -376,6 +377,8 @@
 
     @media (max-width:850px) {
       .hero { grid-template-columns:1fr; padding-top:42px; }
+      h1 { font-size:2.45rem; }
+      .section-head h2 { font-size:2rem; }
       .grid { grid-template-columns:1fr; }
       .product-grid { grid-template-columns:1fr; }
       .value-bar { grid-template-columns:1fr; }
@@ -507,6 +510,11 @@
         <div class="product-body">
           <h3>${product.title}</h3>
           <div class="product-price">${appPriceText(product)}</div>
+          <div class="product-tags">
+            ${product.drop ? `<span>${product.drop}</span>` : ''}
+            ${product.type ? `<span>${product.type}</span>` : ''}
+            ${product.sizes ? `<span>${product.sizes}</span>` : ''}
+          </div>
           <div class="product-copy">${product.offer}</div>
           <a class="product-buy" href="${product.buy_url}" target="_blank" rel="noopener">Secure GBP Checkout</a>
         </div>

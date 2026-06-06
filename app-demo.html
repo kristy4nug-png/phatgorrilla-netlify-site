@@ -6,6 +6,7 @@
   <title>Free Demo App | Phat Gorrilla</title>
   <meta name="description" content="Free demo of the Phat Gorrilla app: drops, development notes, brand direction and previews. Full app access comes after purchase.">
   <link rel="canonical" href="https://phatgorrilla.com/app-demo.html">
+  <link rel="stylesheet" href="pg-premium-refresh.css">
   <style>
     :root {
       --bg:#05070b;
@@ -116,9 +117,9 @@
 
     h1 {
       margin:12px 0 14px;
-      font-size:clamp(2.7rem, 8vw, 6.4rem);
-      line-height:.88;
-      letter-spacing:-.055em;
+      font-size:4.6rem;
+      line-height:.95;
+      letter-spacing:0;
       text-transform:uppercase;
       text-shadow:0 0 30px rgba(255,45,168,.34);
     }
@@ -262,6 +263,7 @@
 
     @media (max-width:850px) {
       .hero { grid-template-columns:1fr; padding-top:38px; }
+      h1 { font-size:2.6rem; }
       .grid { grid-template-columns:1fr; }
     }
   </style>
@@ -288,8 +290,8 @@
         <div class="eyebrow">Free demo app</div>
         <h1>Preview the <span>Phat Gorrilla</span> app.</h1>
         <p class="lead">
-          This free demo shows what the Phat Gorrilla app is for: drops, product development, design direction,
-          launch notes and brand updates. The full app comes free after a product purchase.
+          This free demo is the public preview, not a fallback. It shows drops, product development, design direction,
+          launch notes and brand updates. The full app comes free after a Phat Gorrilla product purchase.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="#demo">Use Free Demo</a>
@@ -311,6 +313,24 @@
     <div class="strip">
       Free demo now. Full app access comes free with a Phat Gorrilla purchase through secure GBP checkout powered by Stripe. Products are printed and fulfilled by Printify.
     </div>
+
+    <section class="pg-trust-grid" aria-label="App trust points">
+      <article class="pg-trust-card">
+        <span class="pg-kicker">Free now</span>
+        <h3>Demo Access</h3>
+        <p>Open the public demo and see the brand direction before buying.</p>
+      </article>
+      <article class="pg-trust-card">
+        <span class="pg-kicker">After purchase</span>
+        <h3>Full App Bonus</h3>
+        <p>Buying a product unlocks the full app experience as a customer bonus.</p>
+      </article>
+      <article class="pg-trust-card">
+        <span class="pg-kicker">Brand hub</span>
+        <h3>Updates + Drops</h3>
+        <p>Use the app for previews, development notes and new drop direction.</p>
+      </article>
+    </section>
 
     <section class="grid" id="demo" aria-label="Free app demo sections">
       <article class="tile">

@@ -1,13 +1,17 @@
 window.PHAT_GORRILLA_PRODUCTS = [
   {
     "id": "6a1a9c3b1babc69aaa0ed446",
-    "title": "T‑Shirt — “Phat Gorrilla” Gold Logo Tee",
+    "title": "Phat Gorrilla Gold Logo Tee",
     "visible": true,
     "price_from": "£27.99",
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a1a9c3b1babc69aaa0ed446/11962/102005/tshirt-phat-gorilla-gold-logo-tee.jpg?camera_label=front-2",
     "buy_url": "/.netlify/functions/create-checkout-session?key=t-shirt-phat-gorilla-gold-logo-tee-11962",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "T-Shirt",
+    "colours": "Black / Gold",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A clean gold-logo streetwear tee for the core Phat Gorrilla look. Secure GBP checkout, printed and fulfilled by Printify. Full app access comes free after purchase."
   },
   {
     "id": "6a1bd5d199790633660760e0",
@@ -17,17 +21,25 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a1bd5d199790633660760e0/12124/92570/scotland-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=scotland-phat-gorrilla-world-cup-tee-gildan-5000-11956",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "World Cup",
+    "type": "T-Shirt",
+    "colours": "Scotland colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "Built for bold Scotland supporters with intentional rustic print texture and Phat Gorrilla energy. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a19dd531babc69aaa0e422e",
-    "title": "England Graphic Tee — 'Phat Gorrilla' London Skyline Football Fan Shirt",
+    "title": "England Phat Gorrilla Skyline Tee",
     "visible": true,
     "price_from": "£27.99",
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a19dd531babc69aaa0e422e/12022/102006/england-graphic-tee-phat-gorilla-london-skyline-football-fan-shirt.jpg?camera_label=back-2",
     "buy_url": "/.netlify/functions/create-checkout-session?key=england-phat-gorrilla-world-cup-tee-gildan-5000-12022",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "World Cup",
+    "type": "T-Shirt",
+    "colours": "England colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A country-inspired England supporter tee with skyline attitude and rugged streetwear texture. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a1b17819a524711b5034c0a",
@@ -37,7 +49,11 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a1b17819a524711b5034c0a/12100/92570/portugal-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=portugal-phat-gorrilla-world-cup-tee-gildan-5000-12022",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "World Cup",
+    "type": "T-Shirt",
+    "colours": "Portugal colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "Portugal supporter energy with bold Phat Gorrilla graphics and a vintage streetwear finish. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a19dabc997906336605f3eb",
@@ -87,17 +103,25 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a1bd78ea2f3e94ff40d5d50/12100/92570/brazil-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=brazil-phat-gorrilla-world-cup-tee-gildan-5000-12100",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "World Cup",
+    "type": "T-Shirt",
+    "colours": "Brazil colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "Brazil-inspired football streetwear with strong colour and gorilla attitude. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a174b81318117fcbc050461",
-    "title": "Gorilla King Tee — Green Streetwear Graphic T-Shirt with 'PHAT' Design",
+    "title": "Gorilla King Green Graphic Tee",
     "visible": true,
     "price_from": "£27.99",
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a174b81318117fcbc050461/12100/92570/gorilla-king-tee-green-streetwear-graphic-t-shirt-with-phat-design.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=gorilla-king-tee-green-streetwear-graphic-t-shirt-with-phat-design-12100",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "T-Shirt",
+    "colours": "Green / Black",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A loud gorilla graphic tee with green streetwear impact and strong front-print energy. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a1749a0a63666767e0ea50a",
@@ -107,7 +131,11 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£39.99",
     "image": "https://images-api.printify.com/mockup/6a1749a0a63666767e0ea50a/123966/111658/unisex-heavyweight-hooded-sweatshirt.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=unisex-heavyweight-hooded-sweatshirt-123966",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "Hoodie",
+    "colours": "Drop colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A heavier Phat Gorrilla layer for cooler days, streetwear fits and launch-season drops. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a1746c375f5c394ef0a8281",
@@ -117,17 +145,25 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a1746c375f5c394ef0a8281/12100/92570/unisex-heavy-cotton-tee.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=unisex-heavy-cotton-tee-12102",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "T-Shirt",
+    "colours": "Drop colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A staple heavy cotton tee for the main Phat Gorrilla range. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a17456d75f5c394ef0a8194",
-    "title": "Gorilla Crewneck Sweatshirt — 'Phat Gorrilla' Retro Neon Logo",
+    "title": "Retro Neon Gorilla Crewneck",
     "visible": true,
     "price_from": "£39.99",
     "price_to": "£39.99",
     "image": "https://images-api.printify.com/mockup/6a17456d75f5c394ef0a8194/25458/98502/gorilla-crewneck-sweatshirt-phat-gorilla-retro-neon-logo.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=gorilla-crewneck-sweatshirt-phat-gorilla-retro-neon-logo-25458",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "Sweatshirt",
+    "colours": "Neon / Black",
+    "sizes": "Sizes shown at checkout",
+    "offer": "Retro neon logo energy on a clean crewneck shape for everyday streetwear. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a173b4315c0ad1fc90f07c4",
@@ -137,26 +173,38 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a173b4315c0ad1fc90f07c4/103520/100285/unisex-oversized-boxy-tee.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=unisex-oversized-boxy-tee-103520",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "Oversized Tee",
+    "colours": "Drop colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A boxier oversized streetwear fit for a stronger silhouette and bigger brand feel. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a17387f616126f69b0aec15",
-    "title": "Phat Gorrilla Heavy Cotton Tee",
+    "title": "Phat Gorrilla Classic Heavy Tee",
     "visible": true,
     "price_from": "£27.99",
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a17387f616126f69b0aec15/12124/92570/unisex-heavy-cotton-tee.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=unisex-heavy-cotton-tee-12124",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Main Drop",
+    "type": "T-Shirt",
+    "colours": "Drop colours",
+    "sizes": "Sizes shown at checkout",
+    "offer": "A classic Phat Gorrilla tee built for bold everyday wear and clean product styling. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a1730f7318117fcbc04f678",
-    "title": "Paper Poster",
+    "title": "Phat Gorrilla Wall Art Poster",
     "visible": true,
     "price_from": "£27.99",
     "price_to": "£27.99",
     "image": "https://images-api.printify.com/mockup/6a1730f7318117fcbc04f678/70655/11328/paper-poster.jpg?camera_label=front",
     "buy_url": "/.netlify/functions/create-checkout-session?key=paper-poster-70655",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
+    "drop": "Brand Art",
+    "type": "Poster",
+    "colours": "Print artwork",
+    "sizes": "Size shown at checkout",
+    "offer": "Phat Gorrilla wall art for rooms, studios and launch supporters who want the brand off-body too. Secure GBP checkout, printed and fulfilled by Printify."
   }
 ];

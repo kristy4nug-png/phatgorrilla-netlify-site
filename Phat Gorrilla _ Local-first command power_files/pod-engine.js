@@ -1,11 +1,11 @@
 const products = [
     {
-        name: "Classic Roar Tee - Blue",
-        collection: "Blue",
-        price: "£24.99",
-        description: "Heavyweight 180gsm ring-spun cotton. Cut for the street, built to last.",
-        image: "https://placehold.co/600x600/111/FFF?text=Blue+Mockup", 
-        checkout: "https://printify.me/placeholder-blue"
+        name: "Phat Gorrilla Launch Drop",
+        collection: "Official Shop",
+        price: "Live prices on phatgorrilla.com",
+        description: "Premium gorilla streetwear, country drops and Super Elite pieces with secure GBP checkout.",
+        image: "../assets/brand/pg-main-badge.png",
+        checkout: "https://phatgorrilla.com/shop.html"
     }
 ];
 
