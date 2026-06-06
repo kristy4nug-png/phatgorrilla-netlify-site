@@ -296,10 +296,7 @@
     const priceEl = document.getElementById('productPrice');
     const dropEl = document.getElementById('productDrop');
     const checkoutEl = document.getElementById('checkoutButton');
-
-    function checkoutUrl(product, variantId) {
-      return `/.netlify/functions/create-checkout-session?printify_product_id=${encodeURIComponent(product.id)}&variant_id=${encodeURIComponent(variantId)}`;
-    }
+    let selectedVariantId = null;
 
     function escapeHtml(value) {
       return String(value || '').replace(/[&<>"']/g, character => ({
@@ -310,6 +307,35 @@
         "'": '&#39;'
       }[character]));
     }
+
+    checkoutEl.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (checkoutEl.getAttribute('aria-disabled') === 'true' || !selectedVariantId) return;
+
+      checkoutEl.setAttribute('aria-disabled', 'true');
+      const originalText = checkoutEl.textContent;
+      checkoutEl.textContent = 'Processing...';
+
+      try {
+        const query = new URLSearchParams({
+          printify_product_id: productId,
+          variant_id: selectedVariantId
+        });
+
+        const response = await fetch(`/.netlify/functions/create-checkout-session?${query}`);
+        if (!response.ok) throw new Error('Checkout failed');
+
+        const data = await response.json();
+        if (!data.success || !data.url) throw new Error('No checkout URL returned');
+
+        window.location.href = data.url;
+      } catch (error) {
+        console.error('Checkout error:', error);
+        alert(`Checkout error: ${error.message}`);
+        checkoutEl.removeAttribute('aria-disabled');
+        checkoutEl.textContent = originalText;
+      }
+    });
 
     async function loadProduct() {
       if (!productId) {
@@ -377,7 +403,7 @@
           // Require selections if they exist
           if (sizeSelect && !selections.size) {
             priceEl.textContent = 'Select size';
-            checkoutEl.href = '#';
+            selectedVariantId = null;
             checkoutEl.setAttribute('aria-disabled', 'true');
             checkoutEl.style.opacity = '0.5';
             checkoutEl.style.pointerEvents = 'none';
@@ -385,7 +411,7 @@
           }
           if (colorSelect && !selections.color) {
             priceEl.textContent = 'Select colour';
-            checkoutEl.href = '#';
+            selectedVariantId = null;
             checkoutEl.setAttribute('aria-disabled', 'true');
             checkoutEl.style.opacity = '0.5';
             checkoutEl.style.pointerEvents = 'none';
@@ -410,13 +436,13 @@
           if (selected) {
             priceEl.textContent = selected.price;
             if (selected.image) imageEl.src = selected.image;
-            checkoutEl.href = checkoutUrl(product, selected.id);
+            selectedVariantId = selected.id;
             checkoutEl.removeAttribute('aria-disabled');
             checkoutEl.style.opacity = '1';
             checkoutEl.style.pointerEvents = 'auto';
           } else {
             priceEl.textContent = 'Option unavailable';
-            checkoutEl.href = '#';
+            selectedVariantId = null;
             checkoutEl.setAttribute('aria-disabled', 'true');
             checkoutEl.style.opacity = '0.5';
             checkoutEl.style.pointerEvents = 'none';
