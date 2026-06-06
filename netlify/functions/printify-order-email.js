@@ -1,7 +1,8 @@
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
-const SITE_URL = process.env.SITE_URL || "https://phatgorrilla.com";
+const SHOP_URL = process.env.SHOP_URL || "https://shop.phatgorrilla.com";
+const BRAND_SITE_URL = process.env.BRAND_SITE_URL || process.env.SITE_URL || "https://phatgorrilla.com";
 const BRAND_NAME = "Phat Gorrilla";
 const OWNER_EMAIL = process.env.OWNER_EMAIL || "kristy4nug@gmail.com";
 
@@ -43,10 +44,10 @@ function buildEmail(order) {
     return `<li><strong>${title}</strong>${variant}</li>`;
   }).join("");
 
-  const logo = `${SITE_URL}/Phat%20Gorrilla%20_%20Local-first%20command%20power_files/brand-wordmark-pink-green-clean.png`;
-  const signature = `${SITE_URL}/Phat%20Gorrilla%20_%20Local-first%20command%20power_files/signature-wide-powered-by.jpg`;
-  const appUrl = process.env.APP_ACCESS_URL || `${SITE_URL}/app.html`;
-  const storeUrl = `${SITE_URL}/`;
+  const logo = `${BRAND_SITE_URL}/Phat%20Gorrilla%20_%20Local-first%20command%20power_files/brand-wordmark-pink-green-clean.png`;
+  const signature = `${BRAND_SITE_URL}/Phat%20Gorrilla%20_%20Local-first%20command%20power_files/signature-wide-powered-by.jpg`;
+  const appUrl = process.env.APP_ACCESS_URL || `${BRAND_SITE_URL}/app.html`;
+  const storeUrl = `${SHOP_URL}/`;
   const displayTotal = moneyFromPence(order.total_price);
 
   const subject = `Thank you for your ${BRAND_NAME} order`;

@@ -440,7 +440,7 @@
         </div>
         <div class="actions">
           <a class="btn btn-primary" href="app-demo.html">Open Free Demo</a>
-          <a class="btn btn-secondary" href="/shop">Buy To Unlock Full App</a>
+          <a class="btn btn-secondary" href="/shop" data-shop-link>Buy To Unlock Full App</a>
         </div>
       </div>
 
@@ -491,6 +491,7 @@
   <footer>
     PHAT GORRILLA — Free demo. Full app free after purchase. Built for development. <a href="socials.html">Socials</a> · <a href="shipping-returns.html">Shipping & Returns</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy</a>
   </footer>
+  <script src="shop-config.js"></script>
   <script src="shop-data.js"></script>
   <script>
     const appProducts = (window.PHAT_GORRILLA_PRODUCTS || []).filter(product => product.visible !== false);

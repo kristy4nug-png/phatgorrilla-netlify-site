@@ -11,717 +11,332 @@
   </script>
 
   <meta charset="utf-8">
-  <title>Shop Phat Gorrilla | Premium Streetwear & Apparel</title>
+  <title>Official Shop Upgrade | Phat Gorrilla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shop Phat Gorrilla premium T-shirts, hoodies, streetwear and exclusive country designs with secure GBP checkout.">
+  <meta name="description" content="The official Phat Gorrilla shop is being upgraded to WooCommerce at shop.phatgorrilla.com.">
   <link rel="canonical" href="https://phatgorrilla.com/shop.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Phat Gorrilla">
-  <meta property="og:title" content="Shop Phat Gorrilla - Premium Apparel">
-  <meta property="og:description" content="Streetwear, T-shirts, hoodies and exclusive drops with secure Stripe checkout.">
+  <meta property="og:title" content="Phat Gorrilla Official Shop">
+  <meta property="og:description" content="The official Phat Gorrilla shop is being upgraded for the real WooCommerce launch.">
   <meta property="og:url" content="https://phatgorrilla.com/shop.html">
   <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-main-badge.png">
   <link rel="stylesheet" href="pg-premium-refresh.css">
-  <link rel="stylesheet" href="product-card-styles.css">
   <style>
     :root {
       --bg: #050505;
-      --panel: #0f0f0f;
-      --panel-hover: #1a1a1a;
+      --panel: #101010;
       --pink: #ff2cab;
       --green: #00e676;
       --gold: #d7b56d;
-      --text: #f5f1e8;
-      --muted: #b9b0a1;
-      --line: rgba(215, 181, 109, 0.2);
-      --error: #ff4444;
-      --success: #00dd44;
+      --text: #f8f5ee;
+      --muted: #bdb6aa;
+      --line: rgba(255,255,255,.14);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 20% 50%, rgba(255, 44, 171, 0.08), transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 230, 118, 0.06), transparent 50%),
+        radial-gradient(circle at 16% 20%, rgba(255,44,171,.20), transparent 32%),
+        radial-gradient(circle at 86% 18%, rgba(0,230,118,.18), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(215,181,109,.12), transparent 34%),
         var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; }
 
     .wrap {
-      width: min(1200px, calc(100% - 32px));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
     }
 
-    /* HEADER */
     header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,5,5,.88);
+      backdrop-filter: blur(14px);
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      z-index: 10;
     }
 
     .nav {
-      min-height: 70px;
+      min-height: 76px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .logo {
-      font-size: 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .brand {
+      text-decoration: none;
       color: var(--gold);
-    }
-
-    .nav-right {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .nav-link {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
+      font-weight: 950;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
+      letter-spacing: .12em;
     }
 
-    .nav-link:hover {
-      color: var(--pink);
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    /* HERO */
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 850;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .06em;
+    }
+
+    nav a:hover,
+    nav a.active { color: var(--gold); }
+
+    main {
+      padding: 58px 0 34px;
+    }
+
     .hero {
-      padding: 60px 0 80px;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr .82fr;
+      gap: 34px;
+      align-items: center;
+      min-height: calc(100vh - 210px);
     }
 
     .eyebrow {
       color: var(--green);
-      font-weight: 900;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin: 0 0 16px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(36px, 8vw, 72px);
-      line-height: 1.1;
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: .92;
+      letter-spacing: 0;
       text-transform: uppercase;
-      letter-spacing: -0.01em;
     }
 
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 0;
+    h1 span {
+      color: var(--pink);
+      text-shadow: 0 0 28px rgba(255,44,171,.34);
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 680px;
       color: var(--muted);
       font-size: 18px;
+      line-height: 1.68;
     }
 
-    /* FILTERS */
-    .filters {
+    .actions {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin: 40px 0;
-      align-items: center;
-    }
-
-    .filter-group {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .filter-group label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .filter-group select {
-      padding: 8px 12px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-size: 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-
-    .filter-group select:hover,
-    .filter-group select:focus {
-      border-color: var(--pink);
-      outline: none;
-    }
-
-    /* GRID */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 32px;
-      margin: 60px 0;
-    }
-
-    .product-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .product-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 8px 32px rgba(215, 181, 109, 0.15);
-    }
-
-    .product-image {
-      width: 100%;
-      aspect-ratio: 1;
-      background: var(--panel-hover);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.05);
-    }
-
-    .badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--pink);
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .product-info {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex-grow: 1;
-    }
-
-    .product-type {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .product-title {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    .product-description {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    .product-variants {
-      display: grid;
-      gap: 10px;
-      margin: 12px 0;
-    }
-
-    .variant-select {
-      display: grid;
-      gap: 6px;
-    }
-
-    .variant-select label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .variant-select select {
-      padding: 8px;
-      background: var(--panel-hover);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-size: 13px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .variant-select select:hover,
-    .variant-select select:focus {
-      border-color: var(--green);
-      outline: none;
-    }
-
-    .product-price {
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--green);
-      margin: 12px 0 0;
-    }
-
-    .product-actions {
-      display: grid;
-      gap: 8px;
-      margin-top: auto;
+      margin-top: 30px;
     }
 
     .btn {
-      padding: 12px 16px;
-      border: none;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 21px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--pink), var(--green));
+      color: #050505;
+      font-weight: 950;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: center;
+      letter-spacing: .06em;
+      box-shadow: 0 18px 44px rgba(0,0,0,.34);
     }
 
-    .btn-primary {
-      background: var(--green);
-      color: #000;
+    .btn.secondary {
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
     }
 
-    .btn-primary:hover:not(:disabled) {
-      background: #00ff55;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 230, 118, 0.3);
+    .badge-panel {
+      border: 1px solid rgba(215,181,109,.32);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(16,16,16,.92), rgba(5,5,5,.88));
+      padding: 26px;
+      box-shadow: 0 30px 70px rgba(0,0,0,.38);
     }
 
-    .btn-primary:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+    .badge-panel img {
+      display: block;
+      width: min(340px, 100%);
+      margin: 0 auto 22px;
+      filter: drop-shadow(0 20px 36px rgba(255,44,171,.18));
     }
 
-    /* LOADING & EMPTY */
-    .loading {
-      text-align: center;
-      padding: 60px 20px;
+    .status-grid {
+      display: grid;
+      gap: 12px;
     }
 
-    .spinner {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      border: 3px solid var(--line);
-      border-top-color: var(--green);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+    .status {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: rgba(255,255,255,.04);
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+    .status strong {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 5px;
     }
 
-    .empty {
-      text-align: center;
-      padding: 60px 20px;
+    .status span {
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    .social-band {
+      margin-top: 34px;
+      padding: 22px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .social-band p {
+      margin: 0 0 14px;
       color: var(--muted);
     }
 
-    .error-banner {
-      background: rgba(255, 68, 68, 0.1);
-      border: 1px solid var(--error);
-      color: #ff9999;
-      padding: 16px;
-      border-radius: 4px;
-      margin: 20px 0;
-      text-align: center;
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .success-banner {
-      background: rgba(0, 221, 68, 0.1);
-      border: 1px solid var(--success);
-      color: #00ff99;
-      padding: 16px;
-      border-radius: 4px;
-      margin: 20px 0;
-      text-align: center;
+    .social-links a {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 850;
     }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
-      padding: 40px 0;
-      margin-top: 80px;
+      padding: 24px 0;
       color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-
-    .footer-section h3 {
-      font-size: 14px;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin: 0 0 12px;
-      letter-spacing: 0.08em;
-    }
-
-    .footer-section a {
-      display: block;
-      margin: 8px 0;
-      transition: color 0.2s;
-    }
-
-    .footer-section a:hover {
-      color: var(--pink);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
       text-align: center;
+      font-size: 14px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 40px 0 60px;
-      }
+    footer a { color: var(--text); }
 
-      h1 {
-        font-size: 36px;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 16px;
-        margin: 40px 0;
-      }
-
-      .nav-link {
-        font-size: 12px;
-      }
-
-      .filters {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .filter-group {
-        width: 100%;
-      }
-
-      .filter-group select {
-        width: 100%;
-      }
+    @media (max-width: 820px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      nav { justify-content: flex-start; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      main { padding-top: 38px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="wrap">
-      <nav class="nav">
-        <a href="/" class="logo">🦍 Phat Gorrilla</a>
-        <div class="nav-right">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/shop.html" class="nav-link">Shop</a>
-          <a href="/about.html" class="nav-link">About</a>
-          <a href="/contact.html" class="nav-link">Contact</a>
-        </div>
+    <div class="wrap nav">
+      <a class="brand" href="/">Phat Gorrilla</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="shop.html">Shop</a>
+        <a href="worldcup.html">World Cup</a>
+        <a href="elite.html">Super Elite</a>
+        <a href="app-demo.html">Free Demo</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="wrap">
-      <section class="hero">
-        <div class="eyebrow">Premium Collection</div>
-        <h1>Shop Phat Gorrilla</h1>
-        <p>Explore our exclusive streetwear, premium T-shirts, hoodies and limited edition drops. Every item crafted for quality and style.</p>
-      </section>
-
-      <div id="error-container"></div>
-      <div id="success-container"></div>
-
-      <div class="filters">
-        <div class="filter-group">
-          <label for="type-filter">Type:</label>
-          <select id="type-filter">
-            <option value="">All Products</option>
-            <option value="T-Shirt">T-Shirts</option>
-            <option value="Hoodie">Hoodies</option>
-            <option value="Sweatshirt">Sweatshirts</option>
-            <option value="Poster">Posters</option>
-          </select>
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Official shop handover</div>
+        <h1>The Phat Gorrilla shop is moving to <span>WooCommerce</span>.</h1>
+        <p class="lead">
+          The brand site at phatgorrilla.com is staying live and safe while the real shop is upgraded at shop.phatgorrilla.com. No fake checkout, no broken buy buttons. When the WooCommerce checkout is confirmed live, this page becomes the direct route to the official shop.
+        </p>
+        <div class="actions">
+          <a class="btn" href="https://shop.phatgorrilla.com" data-shop-live-cta>Official Shop Target</a>
+          <a class="btn secondary" href="mailto:support@phatgorrilla.com?subject=Phat%20Gorrilla%20Shop%20Support">Contact Support</a>
         </div>
-        <div class="filter-group">
-          <label for="sort-filter">Sort:</label>
-          <select id="sort-filter">
-            <option value="name">Name (A-Z)</option>
-            <option value="price-low">Price (Low to High)</option>
-            <option value="price-high">Price (High to Low)</option>
-          </select>
-        </div>
+        <section class="social-band" aria-label="Official social links">
+          <p>Follow the official pages for launch updates, Super Elite previews and World Cup drop posts.</p>
+          <div class="social-links">
+            <a href="/instagram">Instagram</a>
+            <a href="/tiktok">TikTok</a>
+            <a href="/facebook">Facebook</a>
+            <a href="socials.html">Brand Hub</a>
+          </div>
+        </section>
       </div>
 
-      <div id="products-container" class="products-grid"></div>
-    </div>
+      <aside class="badge-panel" aria-label="Shop launch status">
+        <img src="assets/brand/pg-main-badge.png" alt="Phat Gorrilla badge">
+        <div class="status-grid">
+          <div class="status">
+            <strong>Brand site</strong>
+            <span>phatgorrilla.com remains the main Netlify brand site.</span>
+          </div>
+          <div class="status">
+            <strong>Shop target</strong>
+            <span>shop.phatgorrilla.com is reserved for the public WooCommerce store.</span>
+          </div>
+          <div class="status">
+            <strong>Launch rule</strong>
+            <span>Customer-facing shop links switch only after live WooCommerce checkout is tested.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h3>Shop</h3>
-          <a href="/shop.html">All Products</a>
-          <a href="/shop.html?type=T-Shirt">T-Shirts</a>
-          <a href="/shop.html?type=Hoodie">Hoodies</a>
-          <a href="/shop.html?type=Poster">Posters</a>
-        </div>
-        <div class="footer-section">
-          <h3>Support</h3>
-          <a href="/shipping-returns.html">Shipping & Returns</a>
-          <a href="/size-guide.html">Size Guide</a>
-          <a href="/contact.html">Contact Us</a>
-          <a href="/privacy-policy.html">Privacy Policy</a>
-        </div>
-        <div class="footer-section">
-          <h3>About</h3>
-          <a href="/about.html">About Phat Gorrilla</a>
-          <a href="/socials.html">Follow Us</a>
-          <a href="/">Home</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Phat Gorrilla. All rights reserved. Secure checkout powered by Stripe.</p>
-      </div>
-    </div>
+    PHAT GORRILLA official shop upgrade. <a href="shipping-returns.html">Shipping & Returns</a> · <a href="size-guide.html">Size Guide</a> · <a href="privacy-policy.html">Privacy</a> · <a href="terms-of-service.html">Terms</a>
   </footer>
 
-  <script src="product-component.js"></script>
+  <script src="shop-config.js"></script>
   <script>
-    function escapeHtml(str) {
-      return String(str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
+    (function () {
+      var config = window.PHAT_GORRILLA_SHOP_CONFIG || {};
+      var cta = document.querySelector('[data-shop-live-cta]');
+      if (!cta) return;
 
-    // State
-    let allProducts = [];
-    let filteredProducts = [];
-
-    // Show message
-    function showMessage(type, text) {
-      const container = document.getElementById(type === 'error' ? 'error-container' : 'success-container');
-      container.innerHTML = `<div class="${type}-banner">${text}</div>`;
-      setTimeout(() => {
-        container.innerHTML = '';
-      }, 4000);
-    }
-
-    // Load products from Printify
-    async function loadProducts() {
-      const container = document.getElementById('products-container');
-      container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading products...</p></div>';
-
-      try {
-        const response = await fetch('/.netlify/functions/printify-products');
-        if (!response.ok) throw new Error('Failed to load products');
-        
-        const data = await response.json();
-        allProducts = data.products || [];
-        if (!Array.isArray(allProducts)) {
-          throw new Error('Invalid product data format');
-        }
-
-        filterAndDisplay();
-      } catch (error) {
-        console.error('Product load error:', error);
-        container.innerHTML = '<div class="empty"><p>❌ Unable to load products. Please try again later.</p></div>';
-        showMessage('error', `Error: ${error.message}`);
-      }
-    }
-
-    // Filter and display
-    function filterAndDisplay() {
-      const typeFilter = document.getElementById('type-filter').value;
-      const sortFilter = document.getElementById('sort-filter').value;
-
-      filteredProducts = allProducts.filter(p => {
-        if (!typeFilter) return true;
-        return p.type === typeFilter;
-      });
-
-      // Sort
-      if (sortFilter === 'price-low') {
-        filteredProducts.sort((a, b) => a.min_price - b.min_price);
-      } else if (sortFilter === 'price-high') {
-        filteredProducts.sort((a, b) => b.min_price - a.min_price);
+      cta.href = config.SHOP_URL || 'https://shop.phatgorrilla.com';
+      if (config.SHOP_LIVE) {
+        cta.textContent = 'Enter Official Shop';
+        cta.setAttribute('rel', 'noopener');
       } else {
-        filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
-      }
-
-      renderProducts();
-    }
-
-    // Render products
-    function renderProducts() {
-      const container = document.getElementById('products-container');
-
-      if (filteredProducts.length === 0) {
-        container.innerHTML = '<div class="empty" style="grid-column: 1 / -1;"><p>No products found.</p></div>';
-        return;
-      }
-
-      container.innerHTML = filteredProducts.map(product => {
-        const variants = product.variants || [];
-        const colors = product.colours ? product.colours.split(', ') : [];
-        const sizes = product.sizes ? product.sizes.split(', ') : [];
-        const price = product.min_price ? (product.min_price / 100).toFixed(2) : 'N/A';
-
-        return `
-          <div class="pg-product-card" data-product-id="${product.id}" data-variants="${escapeHtml(JSON.stringify(variants))}">
-            <a href="${product.product_url || `/product.html?id=${product.id}`}" style="display: block; color: inherit; text-decoration: none;">
-              <div class="pg-product-image">
-                <img src="${product.image || '/assets/placeholder.png'}" alt="${product.title}" loading="lazy">
-                <div class="pg-product-badge">${product.type}</div>
-              </div>
-            </a>
-            ${product.images && product.images.length > 1 ? `
-              <div class="pg-thumbs" style="padding: 0 20px; margin: 10px 0 0;" aria-label="${product.title} mockups">
-                ${product.images.slice(0, 6).map((src, index) => `
-                  <img src="${src}" alt="${product.title} mockup ${index + 1}" class="${index === 0 ? 'active' : ''}" onclick="event.stopPropagation(); const mainImg = this.closest('.pg-product-card').querySelector('.pg-product-image img'); if(mainImg) { mainImg.src = '${src}'; this.parentNode.querySelectorAll('img').forEach(i => i.classList.remove('active')); this.classList.add('active'); }">
-                `).join('')}
-              </div>
-            ` : ''}
-            <div class="pg-product-info">
-              <div class="pg-product-type">${product.type}</div>
-              <a href="${product.product_url || `/product.html?id=${product.id}`}" style="color: inherit; text-decoration: none;">
-                <h3 class="pg-product-title">${product.title}</h3>
-              </a>
-              ${product.description ? `<p class="pg-product-description">${product.description}</p>` : ''}
-              
-              <div class="pg-product-variants">
-                ${sizes.length > 0 ? `
-                  <div class="pg-variant-group">
-                    <label>Size</label>
-                    <select class="variant-size">
-                      <option value="">Select Size</option>
-                      ${sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
-                    </select>
-                  </div>
-                ` : ''}
-
-                ${colors.length > 0 ? `
-                  <div class="pg-variant-group">
-                    <label>Colour</label>
-                    <select class="variant-color">
-                      <option value="">Select Colour</option>
-                      ${colors.map(color => `<option value="${color}">${color}</option>`).join('')}
-                    </select>
-                  </div>
-                ` : ''}
-              </div>
-
-              <div class="pg-product-price">£${price}</div>
-
-              <div class="pg-product-actions">
-                <button class="add-to-cart-btn">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      // Initialize product components
-      if (window.PhatGorrillaProduct) {
-        document.querySelectorAll('.pg-product-card').forEach(el => {
-          new window.PhatGorrillaProduct(el);
+        cta.textContent = 'Shop Launch Target';
+        cta.setAttribute('aria-disabled', 'true');
+        cta.addEventListener('click', function (event) {
+          event.preventDefault();
         });
       }
-    }
-
-    // Filter listeners
-    document.getElementById('type-filter').addEventListener('change', filterAndDisplay);
-    document.getElementById('sort-filter').addEventListener('change', filterAndDisplay);
-
-    // Load on page load
-    window.addEventListener('DOMContentLoaded', loadProducts);
+    })();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

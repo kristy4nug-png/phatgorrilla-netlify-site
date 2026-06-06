@@ -428,7 +428,7 @@
       <p>Follow the official pages for new Super Elite previews, launch posts and customer drop updates.</p>
       <div class="pg-link-row">
         <a class="pg-mini-link" href="socials.html">Official Brand Hub</a>
-        <a class="pg-mini-link secondary" href="shop.html">Shop Main Drop</a>
+        <a class="pg-mini-link secondary" href="shop.html" data-shop-link>Shop Main Drop</a>
       </div>
     </section>
   </main>
@@ -437,6 +437,7 @@
     © 2026 Phat Gorrilla · Super Elite Range · <a href="socials.html">Socials</a> · <a href="https://www.instagram.com/phatgorrilla/" rel="me noopener">Instagram</a> · <a href="https://www.tiktok.com/@phatgorrilla" rel="me noopener">TikTok</a> · <a href="https://www.facebook.com/profile.php?id=61590460628534" rel="me noopener">Facebook</a> · <a href="shipping-returns.html">Shipping & Returns</a> · <a href="size-guide.html">Size Guide</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy</a>
   </footer>
 
+  <script src="shop-config.js"></script>
   <script src="product-component.js"></script>
   <script>
     function escapeHtml(str) {
@@ -479,61 +480,51 @@
 
           container.innerHTML = productsList.map(product => {
             const variants = product.variants || [];
-            const colors = product.colours ? product.colours.split(', ') : [];
-            const sizes = product.sizes ? product.sizes.split(', ') : [];
+            const rawColours = product.colours
+              ? product.colours.split(',').map(s => s.trim()).filter(Boolean)
+              : [];
+            const rawSizes = product.sizes
+              ? product.sizes.split(',').map(s => s.trim()).filter(Boolean)
+              : [];
             const price = product.min_price ? (product.min_price / 100).toFixed(2) : 'N/A';
 
             return `
-              <article class="pg-product-card elite-card ${cardClass}" data-product-id="${product.id}" data-variants="${escapeHtml(JSON.stringify(variants))}">
+              <article class="pg-product-card elite-card ${cardClass}"
+                data-product-id="${product.id}"
+                data-variants="${escapeHtml(JSON.stringify(variants))}"
+                data-sizes="${escapeHtml(JSON.stringify(rawSizes))}"
+                data-colours="${escapeHtml(JSON.stringify(rawColours))}">
                 <a href="${product.product_url || `/product.html?id=${product.id}`}" style="display: block; color: inherit; text-decoration: none;">
                   <div class="pg-product-image product-image-wrap">
-                    <img src="${product.image || '/assets/placeholder.png'}" alt="${product.title}" loading="lazy">
+                    <img src="${product.image || '/assets/placeholder.png'}" alt="${escapeHtml(product.title)}" loading="lazy">
                     <span class="live-badge pg-product-badge">Live</span>
                   </div>
                 </a>
                 ${product.images && product.images.length > 1 ? `
-                  <div class="pg-thumbs" style="padding: 0 20px; margin: 10px 0 0;" aria-label="${product.title} mockups">
+                  <div class="pg-thumbs" style="padding: 0 20px;" aria-label="${escapeHtml(product.title)} mockups">
                     ${product.images.slice(0, 6).map((src, index) => `
-                      <img src="${src}" alt="${product.title} mockup ${index + 1}" class="${index === 0 ? 'active' : ''}" onclick="event.stopPropagation(); const mainImg = this.closest('.pg-product-card').querySelector('.pg-product-image img'); if(mainImg) { mainImg.src = '${src}'; this.parentNode.querySelectorAll('img').forEach(i => i.classList.remove('active')); this.classList.add('active'); }">
+                      <img src="${src}" alt="${escapeHtml(product.title)} view ${index + 1}" class="${index === 0 ? 'active' : ''}"
+                        onclick="event.stopPropagation();(function(el,s){var m=el.closest('.pg-product-card').querySelector('.pg-product-image img');if(m)m.src=s;el.parentNode.querySelectorAll('img').forEach(function(i){i.classList.remove('active')});el.classList.add('active')})(this,'${src}')">
                     `).join('')}
                   </div>
                 ` : ''}
                 <div class="pg-product-info product-info">
-                  <p class="pg-product-type product-type">${product.type}</p>
+                  <p class="pg-product-type product-type">${escapeHtml(product.type)}</p>
                   <a href="${product.product_url || `/product.html?id=${product.id}`}" style="color: inherit; text-decoration: none;">
-                    <h3 class="pg-product-title">${product.title}</h3>
+                    <h3 class="pg-product-title">${escapeHtml(product.title)}</h3>
                   </a>
-                  <p class="pg-product-description product-copy">${product.description}</p>
-                  
-                  <div class="pg-product-variants" style="margin: 12px 0;">
-                    ${sizes.length > 0 ? `
-                      <div class="pg-variant-group">
-                        <label>Size</label>
-                        <select class="variant-size">
-                          <option value="">Select Size</option>
-                          ${sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
-                        </select>
-                      </div>
-                    ` : ''}
+                  <p class="pg-product-description product-copy">${escapeHtml(product.description)}</p>
 
-                    ${colors.length > 0 ? `
-                      <div class="pg-variant-group">
-                        <label>Colour</label>
-                        <select class="variant-color">
-                          <option value="">Select Colour</option>
-                          ${colors.map(color => `<option value="${color}">${color}</option>`).join('')}
-                        </select>
-                      </div>
-                    ` : ''}
-                  </div>
+                  <!-- Size & colour selectors injected by PhatGorrillaProduct component -->
+                  <div class="pg-product-variants" style="margin: 12px 0;"></div>
 
                   <div class="price-row" style="margin-top: auto;">
                     <strong>£${price}</strong>
                   </div>
 
                   <div class="pg-product-actions" style="margin-top: 12px;">
-                    <button class="add-to-cart-btn buy-btn" style="width: 100%; border: 0;">
-                      Secure GBP Checkout
+                    <button class="add-to-cart-btn buy-btn" type="button" style="width: 100%; border: 0;">
+                      🛒 Secure GBP Checkout
                     </button>
                   </div>
                 </div>
@@ -561,12 +552,10 @@
         renderGrid('black-gold-products', groups['black-gold'], 'black-card');
         renderGrid('elite-gold-products', groups['elite-gold'], 'gold-card');
 
-        // Initialize product component handlers
-        if (window.PhatGorrillaProduct) {
-          document.querySelectorAll('.pg-product-card').forEach(el => {
-            new window.PhatGorrillaProduct(el);
-          });
-        }
+        // Initialize product component handlers (renders size/colour selectors)
+        document.querySelectorAll('.pg-product-card').forEach(el => {
+          new window.PhatGorrillaProduct(el);
+        });
       } catch (error) {
         console.error('Failed to load Elite products:', error);
         ['cream-stone-products', 'army-olive-products', 'black-gold-products', 'elite-gold-products'].forEach(id => {
@@ -582,5 +571,4 @@
   </script>
 </body>
 </html>
-
 

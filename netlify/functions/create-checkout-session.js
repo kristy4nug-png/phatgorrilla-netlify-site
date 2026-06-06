@@ -155,7 +155,7 @@ exports.handler = async function(event) {
     }
 
     const shippingPrice = isGildan5000Product ? 600 : 499;
-    const siteUrl = process.env.SITE_URL || "https://phatgorrilla.com";
+    const siteUrl = process.env.SHOP_URL || process.env.SITE_URL || "https://shop.phatgorrilla.com";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
@@ -198,7 +198,7 @@ exports.handler = async function(event) {
         variant_title: product.variant_title
       },
       success_url: `${siteUrl}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/shop.html`
+      cancel_url: `${siteUrl}/shop/`
     });
 
     return {
