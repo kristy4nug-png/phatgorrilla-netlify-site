@@ -1,12 +1,90 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const PRODUCTS = require("../../data/stripe-printify-map.json");
+const PRINTIFY_API_BASE = "https://api.printify.com/v1";
+const PRINTIFY_SHOP_ID = process.env.PRINTIFY_SHOP_ID || "27674090";
+
+function cleanText(value, maxLength = 140) {
+  return String(value || "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
+}
+
+function bestImage(product, variantId) {
+  const images = product.images || [];
+  const byVariant = images.find(image =>
+    image && image.src && Array.isArray(image.variant_ids) && image.variant_ids.includes(Number(variantId))
+  );
+  const defaultImage = images.find(image => image && image.src && image.is_default);
+  const firstImage = images.find(image => image && image.src);
+  return (byVariant || defaultImage || firstImage || {}).src || "";
+}
+
+async function getLivePrintifyProduct(productId, variantId) {
+  const token = process.env.PRINTIFY_API_TOKEN;
+  if (!token) {
+    const error = new Error("Printify API is not configured.");
+    error.statusCode = 500;
+    throw error;
+  }
+
+  const response = await fetch(`${PRINTIFY_API_BASE}/shops/${PRINTIFY_SHOP_ID}/products/${encodeURIComponent(productId)}.json`, {
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "User-Agent": "PhatGorrilla-Netlify",
+      "Accept": "application/json"
+    }
+  });
+
+  if (!response.ok) {
+    const error = new Error("Product not found.");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  const printifyProduct = await response.json();
+  const variant = (printifyProduct.variants || []).find(item =>
+    Number(item.id) === Number(variantId) && item.is_enabled !== false && Number(item.price) > 0
+  );
+
+  if (printifyProduct.visible !== true || printifyProduct.is_locked === true || !variant) {
+    const error = new Error("Product not available.");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  return {
+    title: cleanText(printifyProduct.title),
+    variant_title: cleanText(variant.title, 90),
+    printify_product_id: printifyProduct.id,
+    printify_variant_id: Number(variant.id),
+    currency: "gbp",
+    stripe_amount_pence: Number(variant.price),
+    price_gbp: (Number(variant.price) / 100).toFixed(2),
+    image_url: bestImage(printifyProduct, variant.id)
+  };
+}
 
 exports.handler = async function(event) {
   try {
-    const key = event.queryStringParameters && event.queryStringParameters.key;
-    const product = PRODUCTS[key];
+    const params = event.queryStringParameters || {};
+    const key = params.key;
+    const dynamicProductId = params.printify_product_id;
+    const dynamicVariantId = params.variant_id;
+    let product = key ? PRODUCTS[key] : null;
+    let referenceId = key;
 
-    if (!key || !product) {
+    if (!product && dynamicProductId && dynamicVariantId) {
+      product = await getLivePrintifyProduct(dynamicProductId, dynamicVariantId);
+      referenceId = `printify-${dynamicProductId}-${dynamicVariantId}`;
+    }
+
+    if (!referenceId || !product) {
       return {
         statusCode: 404,
         headers: { "Content-Type": "text/plain" },
@@ -48,9 +126,9 @@ exports.handler = async function(event) {
           quantity: 1
         }
       ],
-      client_reference_id: key,
+      client_reference_id: referenceId,
       metadata: {
-        product_key: key,
+        product_key: referenceId,
         printify_product_id: product.printify_product_id,
         printify_variant_id: String(product.printify_variant_id),
         product_title: product.title,

@@ -330,6 +330,31 @@
       </div>
       <div class="grid" id="productGrid"></div>
     </section>
+
+    <section id="live-printify-products">
+      <div class="section-title">
+        <h2>Live Printify Drops</h2>
+        <span id="livePrintifyCount">Auto-sync</span>
+      </div>
+      <div class="pg-band">
+        <strong>Publish in Printify, then check the live shop.</strong>
+        <p>New published Printify products can appear here automatically after a short refresh. Set the product price, choose strong mockups and enable the right variants in Printify before publishing.</p>
+        <div class="pg-pill-row">
+          <span class="pg-pill">Auto product feed</span>
+          <span class="pg-pill">Choose size before checkout</span>
+          <span class="pg-pill">Stripe GBP payment</span>
+          <span class="pg-pill">Printify fulfilment</span>
+        </div>
+      </div>
+      <div class="grid" id="livePrintifyGrid">
+        <article class="card">
+          <div class="card-body">
+            <h3>Checking live Printify products</h3>
+            <div class="mini">Published products that are not already in the main shop will load here.</div>
+          </div>
+        </article>
+      </div>
+    </section>
   
 <!-- PHAT GORRILLA WORLD CUP LINK START -->
 <section style='margin:28px auto;max-width:1100px;padding:24px;border-radius:28px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,rgba(255,20,147,.20),rgba(57,255,20,.14),rgba(20,184,255,.16));text-align:center;box-shadow:0 0 26px rgba(255,20,147,.10);'>
@@ -353,8 +378,21 @@
     const products = (window.PHAT_GORRILLA_PRODUCTS || []).filter(product => product.visible !== false);
     const grid = document.getElementById('productGrid');
     const count = document.getElementById('count');
+    const liveGrid = document.getElementById('livePrintifyGrid');
+    const liveCount = document.getElementById('livePrintifyCount');
+    const staticProductIds = new Set(products.map(product => product.id));
 
     count.textContent = `${products.length} products`;
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[character]));
+    }
 
     function priceText(product) {
       if (product.price) return product.price;
@@ -374,21 +412,78 @@
 
     grid.innerHTML = products.map(product => `
       <article class="card">
-        <img class="product-img" src="${product.image}" alt="${product.title}">
+        <img class="product-img" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.title)}">
         <div class="card-body">
-          <h3>${product.title}</h3>
-          <div class="price">${priceText(product)}</div>
+          <h3>${escapeHtml(product.title)}</h3>
+          <div class="price">${escapeHtml(priceText(product))}</div>
           <div class="product-tags">
-            ${product.drop ? `<span>${product.drop}</span>` : ''}
-            ${product.type ? `<span>${product.type}</span>` : ''}
-            ${product.colours ? `<span>${product.colours}</span>` : ''}
-            ${product.sizes ? `<span>${product.sizes}</span>` : ''}
+            ${product.drop ? `<span>${escapeHtml(product.drop)}</span>` : ''}
+            ${product.type ? `<span>${escapeHtml(product.type)}</span>` : ''}
+            ${product.colours ? `<span>${escapeHtml(product.colours)}</span>` : ''}
+            ${product.sizes ? `<span>${escapeHtml(product.sizes)}</span>` : ''}
           </div>
-          <div class="mini">${product.offer}</div>
-          <a class="buy" href="${product.buy_url}"${buttonTarget(product)}>${buttonText(product)}</a>
+          <div class="mini">${escapeHtml(product.offer)}</div>
+          <a class="buy" href="${escapeHtml(product.buy_url)}"${buttonTarget(product)}>${escapeHtml(buttonText(product))}</a>
         </div>
       </article>
     `).join('');
+
+    async function loadLivePrintifyProducts() {
+      try {
+        const response = await fetch('/.netlify/functions/printify-products');
+        if (!response.ok) throw new Error('Printify feed unavailable');
+        const data = await response.json();
+        const liveProducts = (data.products || [])
+          .filter(product => !staticProductIds.has(product.id))
+          .slice(0, 24);
+
+        liveCount.textContent = liveProducts.length
+          ? `${liveProducts.length} auto products`
+          : 'All current products are already featured';
+
+        if (!liveProducts.length) {
+          liveGrid.innerHTML = `
+            <article class="card">
+              <div class="card-body">
+                <h3>All live products are already featured</h3>
+                <div class="mini">When you publish a new product in Printify, it can appear here automatically after the feed refreshes.</div>
+              </div>
+            </article>
+          `;
+          return;
+        }
+
+        liveGrid.innerHTML = liveProducts.map(product => `
+          <article class="card">
+            <img class="product-img" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.title)}" loading="lazy">
+            <div class="card-body">
+              <h3>${escapeHtml(product.title)}</h3>
+              <div class="price">${escapeHtml(product.price_from === product.price_to ? product.price_from : `${product.price_from} - ${product.price_to}`)}</div>
+              <div class="product-tags">
+                <span>${escapeHtml(product.drop)}</span>
+                <span>${escapeHtml(product.type)}</span>
+                <span>${escapeHtml(product.colours)}</span>
+                <span>${escapeHtml(product.sizes)}</span>
+              </div>
+              <div class="mini">${escapeHtml(product.description)} Intentional rustic print texture may be part of the design.</div>
+              <a class="buy" href="${escapeHtml(product.product_url)}">Choose Size + Checkout</a>
+            </div>
+          </article>
+        `).join('');
+      } catch (error) {
+        liveCount.textContent = 'Feed check needed';
+        liveGrid.innerHTML = `
+          <article class="card">
+            <div class="card-body">
+              <h3>Printify feed not available yet</h3>
+              <div class="mini">The main shop is still working. The auto-feed needs the Printify API environment variable active in Netlify.</div>
+            </div>
+          </article>
+        `;
+      }
+    }
+
+    loadLivePrintifyProducts();
 
     const productSchema = {
       '@context': 'https://schema.org',

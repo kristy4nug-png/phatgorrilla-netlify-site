@@ -476,7 +476,7 @@
     <section class="live-products" aria-label="Live app products">
       <div class="section-head">
         <h2>Live Products</h2>
-        <p>Full app access uses the same live shop data. New mapped Printify products can appear here with secure GBP checkout once they are added to the product data. Selected designs use intentional rustic artwork texture.</p>
+        <p>Full app access uses the same live shop data. Curated products stay featured, and newly published Printify products can appear automatically once the live feed refreshes. Selected designs use intentional rustic artwork texture.</p>
       </div>
       <div class="product-grid" id="appProductGrid"></div>
     </section>
@@ -495,6 +495,17 @@
   <script>
     const appProducts = (window.PHAT_GORRILLA_PRODUCTS || []).filter(product => product.visible !== false);
     const appProductGrid = document.getElementById('appProductGrid');
+    const appStaticProductIds = new Set(appProducts.map(product => product.id));
+
+    function appEscapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[character]));
+    }
 
     function appPriceText(product) {
       if (product.price) return product.price;
@@ -506,20 +517,54 @@
 
     appProductGrid.innerHTML = appProducts.map(product => `
       <article class="product-card">
-        <img src="${product.image}" alt="${product.title}" loading="lazy">
+        <img src="${appEscapeHtml(product.image)}" alt="${appEscapeHtml(product.title)}" loading="lazy">
         <div class="product-body">
-          <h3>${product.title}</h3>
-          <div class="product-price">${appPriceText(product)}</div>
+          <h3>${appEscapeHtml(product.title)}</h3>
+          <div class="product-price">${appEscapeHtml(appPriceText(product))}</div>
           <div class="product-tags">
-            ${product.drop ? `<span>${product.drop}</span>` : ''}
-            ${product.type ? `<span>${product.type}</span>` : ''}
-            ${product.sizes ? `<span>${product.sizes}</span>` : ''}
+            ${product.drop ? `<span>${appEscapeHtml(product.drop)}</span>` : ''}
+            ${product.type ? `<span>${appEscapeHtml(product.type)}</span>` : ''}
+            ${product.sizes ? `<span>${appEscapeHtml(product.sizes)}</span>` : ''}
           </div>
-          <div class="product-copy">${product.offer}</div>
-          <a class="product-buy" href="${product.buy_url}" target="_blank" rel="noopener">Secure GBP Checkout</a>
+          <div class="product-copy">${appEscapeHtml(product.offer)}</div>
+          <a class="product-buy" href="${appEscapeHtml(product.buy_url)}" target="_blank" rel="noopener">Secure GBP Checkout</a>
         </div>
       </article>
     `).join('');
+
+    async function loadAppPrintifyProducts() {
+      try {
+        const response = await fetch('/.netlify/functions/printify-products');
+        if (!response.ok) return;
+        const data = await response.json();
+        const liveProducts = (data.products || [])
+          .filter(product => !appStaticProductIds.has(product.id))
+          .slice(0, 6);
+
+        if (!liveProducts.length) return;
+
+        appProductGrid.insertAdjacentHTML('beforeend', liveProducts.map(product => `
+          <article class="product-card">
+            <img src="${appEscapeHtml(product.image)}" alt="${appEscapeHtml(product.title)}" loading="lazy">
+            <div class="product-body">
+              <h3>${appEscapeHtml(product.title)}</h3>
+              <div class="product-price">${appEscapeHtml(product.price_from === product.price_to ? product.price_from : `${product.price_from} - ${product.price_to}`)}</div>
+              <div class="product-tags">
+                <span>${appEscapeHtml(product.drop)}</span>
+                <span>${appEscapeHtml(product.type)}</span>
+                <span>${appEscapeHtml(product.sizes)}</span>
+              </div>
+              <div class="product-copy">${appEscapeHtml(product.description)}</div>
+              <a class="product-buy" href="${appEscapeHtml(product.product_url)}">Choose Size + Checkout</a>
+            </div>
+          </article>
+        `).join(''));
+      } catch (error) {
+        // The app still works from curated shop data if the live feed is temporarily unavailable.
+      }
+    }
+
+    loadAppPrintifyProducts();
   </script>
 </body>
 </html>
