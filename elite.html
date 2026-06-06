@@ -439,6 +439,15 @@
 
   <script src="product-component.js"></script>
   <script>
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
     async function loadEliteProducts() {
       try {
         const response = await fetch('/.netlify/functions/printify-products');
@@ -475,7 +484,7 @@
             const price = product.min_price ? (product.min_price / 100).toFixed(2) : 'N/A';
 
             return `
-              <article class="pg-product-card elite-card ${cardClass}" data-product-id="${product.id}" data-variants='${JSON.stringify(variants)}'>
+              <article class="pg-product-card elite-card ${cardClass}" data-product-id="${product.id}" data-variants="${escapeHtml(JSON.stringify(variants))}">
                 <a href="${product.product_url || `/product.html?id=${product.id}`}" style="display: block; color: inherit; text-decoration: none;">
                   <div class="pg-product-image product-image-wrap">
                     <img src="${product.image || '/assets/placeholder.png'}" alt="${product.title}" loading="lazy">
