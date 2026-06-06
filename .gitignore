@@ -1,6 +1,11 @@
 # Local Netlify folder
 .netlify
 
+# Environment variables - NEVER commit these
+.env.local
+.env
+.env.*
+
 mockup_audit.csv
 phat_gorrilla_price_website_audit.csv
 site_backup_before_brand_update_*.zip

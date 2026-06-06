@@ -1,5 +1,10 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const PRODUCTS = require("../../data/stripe-printify-map.json");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY || "sk_test_missing");
+let PRODUCTS = {};
+try {
+  PRODUCTS = require("../../data/stripe-printify-map.json");
+} catch (e) {
+  console.warn("Static product map not found, using dynamic Printify only");
+}
 const PRINTIFY_API_BASE = "https://api.printify.com/v1";
 const PRINTIFY_SHOP_ID = process.env.PRINTIFY_SHOP_ID || "27674090";
 
@@ -23,6 +28,26 @@ function bestImage(product, variantId) {
   const defaultImage = images.find(image => image && image.src && image.is_default);
   const firstImage = images.find(image => image && image.src);
   return (byVariant || defaultImage || firstImage || {}).src || "";
+}
+
+function productType(title) {
+  const lower = String(title || "").toLowerCase();
+  if (lower.includes("hoodie")) return "Hoodie";
+  if (lower.includes("sweatshirt") || lower.includes("crewneck")) return "Sweatshirt";
+  if (lower.includes("poster")) return "Poster";
+  if (lower.includes("tee") || lower.includes("t-shirt") || lower.includes("shirt")) return "T-Shirt";
+  return "Printify product";
+}
+
+function getMarkupPence(type) {
+  // £3 markup for T-Shirts, £8 for everything else
+  if (type === "T-Shirt") return 300;
+  return 800;
+}
+
+function applyMarkup(pricePence, type) {
+  const markup = getMarkupPence(type);
+  return Number(pricePence) + markup;
 }
 
 async function getLivePrintifyProduct(productId, variantId) {
@@ -58,20 +83,40 @@ async function getLivePrintifyProduct(productId, variantId) {
     throw error;
   }
 
+  const type = productType(printifyProduct.title);
+  const basePricePence = Number(variant.price);
+  const markupPence = getMarkupPence(type);
+  const finalPricePence = basePricePence + markupPence;
+
   return {
     title: cleanText(printifyProduct.title),
     variant_title: cleanText(variant.title, 90),
     printify_product_id: printifyProduct.id,
     printify_variant_id: Number(variant.id),
+    product_type: type,
     currency: "gbp",
-    stripe_amount_pence: Number(variant.price),
-    price_gbp: (Number(variant.price) / 100).toFixed(2),
+    base_price_pence: basePricePence,
+    markup_pence: markupPence,
+    stripe_amount_pence: finalPricePence,
+    price_gbp: (finalPricePence / 100).toFixed(2),
     image_url: bestImage(printifyProduct, variant.id)
   };
 }
 
 exports.handler = async function(event) {
   try {
+    // Validate configuration
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return {
+        statusCode: 500,
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify({
+          success: false,
+          error: "Stripe is not configured. Please add STRIPE_SECRET_KEY environment variable."
+        })
+      };
+    }
+
     const params = event.queryStringParameters || {};
     const key = params.key;
     const dynamicProductId = params.printify_product_id;
@@ -87,8 +132,11 @@ exports.handler = async function(event) {
     if (!referenceId || !product) {
       return {
         statusCode: 404,
-        headers: { "Content-Type": "text/plain" },
-        body: "Product not found."
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify({
+          success: false,
+          error: "Product not found."
+        })
       };
     }
 
@@ -139,15 +187,25 @@ exports.handler = async function(event) {
     });
 
     return {
-      statusCode: 303,
-      headers: { Location: session.url },
-      body: ""
+      statusCode: 200,
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        success: true,
+        sessionId: session.id,
+        url: session.url,
+        amount_total: session.amount_total,
+        currency: session.currency
+      })
     };
   } catch (err) {
+    console.error("Stripe checkout error:", err);
     return {
       statusCode: 500,
-      headers: { "Content-Type": "text/plain" },
-      body: err.message
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        success: false,
+        error: err.message || "Checkout session creation failed"
+      })
     };
   }
 };

@@ -1,0 +1,202 @@
+/**
+ * PHAT GORRILLA PRODUCT CARD STYLES
+ * Consistent styling for product cards across all pages
+ */
+
+.pg-product-card {
+  background: var(--panel, rgba(15, 15, 15, 1));
+  border: 1px solid var(--line, rgba(215, 181, 109, 0.2));
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pg-product-card:hover {
+  border-color: var(--gold, #d7b56d);
+  box-shadow: 0 8px 32px rgba(215, 181, 109, 0.15);
+  transform: translateY(-2px);
+}
+
+.pg-product-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--panel-hover, rgba(26, 26, 26, 1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.pg-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pg-product-card:hover .pg-product-image img {
+  transform: scale(1.05);
+}
+
+.pg-product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--pink, #ff2cab);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pg-product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.pg-product-type {
+  color: var(--gold, #d7b56d);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pg-product-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--text, #f5f1e8);
+}
+
+.pg-product-description {
+  font-size: 13px;
+  color: var(--muted, #b9b0a1);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pg-product-variants {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.pg-variant-group {
+  display: grid;
+  gap: 6px;
+}
+
+.pg-variant-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted, #b9b0a1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pg-variant-group select {
+  padding: 8px;
+  background: var(--panel-hover, rgba(26, 26, 26, 1));
+  border: 1px solid var(--line, rgba(215, 181, 109, 0.2));
+  color: var(--text, #f5f1e8);
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.pg-variant-group select:hover,
+.pg-variant-group select:focus {
+  border-color: var(--green, #00e676);
+  outline: none;
+}
+
+.pg-product-price {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--green, #00e676);
+  margin: 12px 0 0;
+}
+
+.pg-product-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.add-to-cart-btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  background: var(--green, #00e676);
+  color: #000;
+  font-family: inherit;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: #00ff55;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 230, 118, 0.3);
+}
+
+.add-to-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Error banner */
+.error-banner {
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid #ff4444;
+  color: #ff9999;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pg-product-card {
+    border-radius: 6px;
+  }
+
+  .pg-product-info {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .pg-product-title {
+    font-size: 14px;
+  }
+
+  .pg-variant-group select {
+    font-size: 12px;
+    padding: 7px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+}

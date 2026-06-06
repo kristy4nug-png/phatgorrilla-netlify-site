@@ -76,6 +76,17 @@ function productType(title) {
   return "Printify product";
 }
 
+function getMarkupPence(type) {
+  // £3 markup for T-Shirts, £8 for everything else
+  if (type === "T-Shirt") return 300;
+  return 800;
+}
+
+function applyMarkup(pricePence, type) {
+  const markup = getMarkupPence(type);
+  return Number(pricePence) + markup;
+}
+
 function bestImage(product, variantId) {
   const images = product.images || [];
   const byVariant = images.find(image =>
@@ -89,7 +100,8 @@ function bestImage(product, variantId) {
 function publicProduct(product, includeVariants = false) {
   const variants = enabledVariants(product);
   const defaultVariant = variants.find(variant => variant.is_default) || variants[0];
-  const prices = variants.map(variant => Number(variant.price)).filter(Boolean);
+  const type = productType(product.title);
+  const prices = variants.map(variant => applyMarkup(variant.price, type)).filter(Boolean);
   const low = Math.min(...prices);
   const high = Math.max(...prices);
   const summary = variantSummary(variants);
@@ -102,9 +114,11 @@ function publicProduct(product, includeVariants = false) {
     description,
     price_from: money(low),
     price_to: money(high),
+    min_price: low,
+    max_price: high,
     image: bestImage(product, defaultVariant.id),
     drop: String(product.title || "").toLowerCase().includes("world cup") ? "World Cup" : "Live Printify Drop",
-    type: productType(product.title),
+    type: type,
     colours: summary.colours,
     sizes: summary.sizes,
     updated_at: product.updated_at || product.created_at || "",
@@ -116,8 +130,8 @@ function publicProduct(product, includeVariants = false) {
     item.variants = variants.map(variant => ({
       id: variant.id,
       title: cleanText(variant.title, 90),
-      price: money(variant.price),
-      price_pence: Number(variant.price),
+      price: money(applyMarkup(variant.price, type)),
+      price_pence: applyMarkup(variant.price, type),
       image: bestImage(product, variant.id)
     }));
   }

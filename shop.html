@@ -1,662 +1,690 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18200925736"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18200925736');
-</script>
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18200925736"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18200925736');
+  </script>
 
   <meta charset="utf-8">
-  <title>Shop Phat Gorrilla | Premium Streetwear</title>
+  <title>Shop Phat Gorrilla | Premium Streetwear & Apparel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shop Phat Gorrilla premium T-shirts, hoodies, country designs and streetwear drops. First purchase includes free app access.">
+  <meta name="description" content="Shop Phat Gorrilla premium T-shirts, hoodies, streetwear and exclusive country designs with secure GBP checkout.">
   <link rel="canonical" href="https://phatgorrilla.com/shop.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Phat Gorrilla">
-  <meta property="og:title" content="Shop Phat Gorrilla Streetwear">
-  <meta property="og:description" content="Shop Phat Gorrilla T-shirts, hoodies, country drops and rustic streetwear graphics with secure GBP checkout.">
+  <meta property="og:title" content="Shop Phat Gorrilla - Premium Apparel">
+  <meta property="og:description" content="Streetwear, T-shirts, hoodies and exclusive drops with secure Stripe checkout.">
   <meta property="og:url" content="https://phatgorrilla.com/shop.html">
   <meta property="og:image" content="https://phatgorrilla.com/assets/brand/pg-main-badge.png">
-  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="pg-premium-refresh.css">
+  <link rel="stylesheet" href="product-card-styles.css">
   <style>
     :root {
-      --bg: #080808;
-      --panel: #121212;
-      --panel2: #181818;
+      --bg: #050505;
+      --panel: #0f0f0f;
+      --panel-hover: #1a1a1a;
+      --pink: #ff2cab;
+      --green: #00e676;
       --gold: #d7b56d;
       --text: #f5f1e8;
       --muted: #b9b0a1;
-      --line: rgba(215,181,109,.28);
+      --line: rgba(215, 181, 109, 0.2);
+      --error: #ff4444;
+      --success: #00dd44;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(215,181,109,.16), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,.07), transparent 32%),
+        radial-gradient(circle at 20% 50%, rgba(255, 44, 171, 0.08), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 230, 118, 0.06), transparent 50%),
         var(--bg);
       color: var(--text);
+      line-height: 1.6;
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .wrap {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
     }
 
+    /* HEADER */
     header {
-      padding: 26px 0;
-      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      background: rgba(8,8,8,.9);
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.92);
       backdrop-filter: blur(12px);
-      z-index: 5;
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
+      min-height: 70px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
     }
 
-    .brand {
-      font-size: 22px;
+    .logo {
+      font-size: 20px;
       font-weight: 900;
-      letter-spacing: .08em;
       text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
     }
 
-    .navlinks {
+    .nav-right {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
     }
 
-    .navlinks a {
-      text-decoration: none;
+    .nav-link {
       color: var(--muted);
-      font-weight: 700;
       font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
     }
 
+    .nav-link:hover {
+      color: var(--pink);
+    }
+
+    /* HERO */
     .hero {
-      padding: 70px 0 38px;
-      display: grid;
-      gap: 22px;
+      padding: 60px 0 80px;
+      text-align: center;
     }
 
     .eyebrow {
-      color: var(--gold);
+      color: var(--green);
       font-weight: 900;
-      letter-spacing: .12em;
+      font-size: 12px;
       text-transform: uppercase;
-      font-size: 13px;
+      letter-spacing: 0.15em;
+      margin: 0 0 16px;
     }
 
     h1 {
-      margin: 0;
-      font-size: 68px;
-      line-height: .96;
-      letter-spacing: 0;
+      margin: 0 0 16px;
+      font-size: clamp(36px, 8vw, 72px);
+      line-height: 1.1;
       text-transform: uppercase;
+      letter-spacing: -0.01em;
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 600px;
+      margin: 0 auto 0;
       color: var(--muted);
       font-size: 18px;
-      line-height: 1.6;
+    }
+
+    /* FILTERS */
+    .filters {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .filter-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .filter-group select {
+      padding: 8px 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .filter-group select:hover,
+    .filter-group select:focus {
+      border-color: var(--pink);
+      outline: none;
+    }
+
+    /* GRID */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+      margin: 60px 0;
+    }
+
+    .product-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(215, 181, 109, 0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--panel-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--pink);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .product-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .product-type {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
       margin: 0;
     }
 
-    .cta-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 10px;
+    .product-description {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .product-variants {
+      display: grid;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .variant-select {
+      display: grid;
+      gap: 6px;
+    }
+
+    .variant-select label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .variant-select select {
+      padding: 8px;
+      background: var(--panel-hover);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .variant-select select:hover,
+    .variant-select select:focus {
+      border-color: var(--green);
+      outline: none;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--green);
+      margin: 12px 0 0;
+    }
+
+    .product-actions {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-weight: 900;
-      text-decoration: none;
-      border: 1px solid var(--line);
-      background: var(--gold);
-      color: #101010;
-    }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--text);
-    }
-
-    .offer {
-      margin: 26px 0 42px;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(215,181,109,.18), rgba(255,255,255,.04));
-    }
-
-    .offer strong {
-      color: var(--gold);
-    }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: end;
-      margin: 32px 0 18px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font-size: 40px;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .section-title span {
-      color: var(--muted);
+      padding: 12px 16px;
+      border: none;
+      border-radius: 4px;
       font-weight: 700;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      padding-bottom: 70px;
-    }
-
-    .card {
-      overflow: hidden;
-      border-radius: 24px;
-      background: linear-gradient(180deg, var(--panel2), var(--panel));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,.32);
-    }
-
-    .product-img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      background: #222;
-    }
-
-    .card-body {
-      padding: 18px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.25;
-    }
-
-    .price {
-      color: var(--gold);
-      font-weight: 900;
-      font-size: 18px;
-    }
-
-    .mini {
-      color: var(--muted);
       font-size: 13px;
-      line-height: 1.45;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
     }
 
-    .buy {
-      margin-top: 4px;
-      display: inline-flex;
-      justify-content: center;
-      text-decoration: none;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: var(--gold);
-      color: #101010;
-      font-weight: 900;
+    .btn-primary {
+      background: var(--green);
+      color: #000;
     }
 
+    .btn-primary:hover:not(:disabled) {
+      background: #00ff55;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 230, 118, 0.3);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* LOADING & EMPTY */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--line);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+
+    .error-banner {
+      background: rgba(255, 68, 68, 0.1);
+      border: 1px solid var(--error);
+      color: #ff9999;
+      padding: 16px;
+      border-radius: 4px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .success-banner {
+      background: rgba(0, 221, 68, 0.1);
+      border: 1px solid var(--success);
+      color: #00ff99;
+      padding: 16px;
+      border-radius: 4px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
+      padding: 40px 0;
+      margin-top: 80px;
       color: var(--muted);
-      padding: 30px 0;
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
       font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 12px;
+      letter-spacing: 0.08em;
     }
 
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer-section a {
+      display: block;
+      margin: 8px 0;
+      transition: color 0.2s;
     }
 
-    @media (max-width: 620px) {
-      .grid { grid-template-columns: 1fr; }
-      .nav { align-items: start; flex-direction: column; }
-      .hero { padding-top: 46px; }
-      h1 { font-size: 42px; }
-      .section-title h2 { font-size: 30px; }
+    .footer-section a:hover {
+      color: var(--pink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 0 60px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+        margin: 40px 0;
+      }
+
+      .nav-link {
+        font-size: 12px;
+      }
+
+      .filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .filter-group {
+        width: 100%;
+      }
+
+      .filter-group select {
+        width: 100%;
+      }
     }
   </style>
-
-<style id="pg-structure-nav">
-  .pg-main-nav {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .pg-main-nav a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 800;
-    opacity: .9;
-  }
-  .pg-main-nav a:hover,
-  .pg-main-nav a.active {
-    color: #ffdf8a;
-  }
-</style>
 </head>
 <body>
   <header>
-    <div class="wrap nav">
-      <div class="brand">PHAT GORRILLA</div>
-      <nav class="pg-main-nav" aria-label="Main navigation">
-  <a href="index.html">Home</a>
-  <a class="active" href="shop.html">Shop</a>
-  <a href="worldcup.html">World Cup</a>
-  <a href="elite.html">Super Elite</a>
-  <a href="app.html">Free App</a>
-  <a href="size-guide.html">Size Guide</a>
-  <a href="socials.html">Socials</a>
-  <a href="about.html">About</a>
-</nav>
+    <div class="wrap">
+      <nav class="nav">
+        <a href="/" class="logo">🦍 Phat Gorrilla</a>
+        <div class="nav-right">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/shop.html" class="nav-link">Shop</a>
+          <a href="/about.html" class="nav-link">About</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="eyebrow">Premium streetwear • Country drops • Built to roar</div>
-      <h1>Shop the Phat Gorrilla drop</h1>
-      <p>
-        Bold graphic T-shirts, hoodies and country-inspired designs built for fans, streetwear and statement outfits.
-        Prices are shown in pounds. Secure GBP checkout is powered by Stripe. Printing and fulfilment are handled by Printify, with final shipping and taxes shown at checkout. Every first purchase includes free Phat Gorrilla app access.
-      </p>
-      <div class="cta-row">
-        <a class="btn" href="#products">Shop Products</a>
-        <a class="btn secondary" href="app-demo.html">Open Free Demo</a>
-      </div>
-    </section>
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="eyebrow">Premium Collection</div>
+        <h1>Shop Phat Gorrilla</h1>
+        <p>Explore our exclusive streetwear, premium T-shirts, hoodies and limited edition drops. Every item crafted for quality and style.</p>
+      </section>
 
-    <section class="offer">
-      <strong>Free demo now. Full app after purchase.</strong>
-      Buy any Phat Gorrilla product through secure GBP checkout — printed and fulfilled by Printify — and get full Phat Gorrilla app access after purchase for updates, drops, previews and launch content.
-      Selected designs use intentional rustic, distressed or vintage-style texture for a raw streetwear finish.
-    </section>
+      <div id="error-container"></div>
+      <div id="success-container"></div>
 
-    <section id="products">
-      <div class="section-title">
-        <h2>Latest Products</h2>
-        <span id="count"></span>
-      </div>
-      <div class="pg-band">
-        <strong>Limited designs. Made on demand.</strong>
-        <p>Every live product uses secure GBP checkout powered by Stripe. Printing and fulfilment are handled by Printify, and final shipping is shown at checkout.</p>
-        <div class="pg-pill-row">
-          <span class="pg-pill">Secure GBP checkout</span>
-          <span class="pg-pill">Printify fulfilment</span>
-          <span class="pg-pill">Size guide available</span>
-          <span class="pg-pill">Free demo now</span>
+      <div class="filters">
+        <div class="filter-group">
+          <label for="type-filter">Type:</label>
+          <select id="type-filter">
+            <option value="">All Products</option>
+            <option value="T-Shirt">T-Shirts</option>
+            <option value="Hoodie">Hoodies</option>
+            <option value="Sweatshirt">Sweatshirts</option>
+            <option value="Poster">Posters</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="sort-filter">Sort:</label>
+          <select id="sort-filter">
+            <option value="name">Name (A-Z)</option>
+            <option value="price-low">Price (Low to High)</option>
+            <option value="price-high">Price (High to Low)</option>
+          </select>
         </div>
       </div>
-      <div class="grid" id="productGrid"></div>
-    </section>
 
-    <section id="live-printify-products">
-      <div class="section-title">
-        <h2>Live Printify Drops</h2>
-        <span id="livePrintifyCount">Auto-sync</span>
-      </div>
-      <div class="pg-band">
-        <strong>Publish in Printify, then check the live shop.</strong>
-        <p>New published Printify products can appear here automatically after a short refresh. Set the product price, choose strong mockups and enable the right variants in Printify before publishing.</p>
-        <div class="pg-pill-row">
-          <span class="pg-pill">Auto product feed</span>
-          <span class="pg-pill">Choose size before checkout</span>
-          <span class="pg-pill">Stripe GBP payment</span>
-          <span class="pg-pill">Printify fulfilment</span>
-        </div>
-      </div>
-      <div class="grid" id="livePrintifyGrid">
-        <article class="card">
-          <div class="card-body">
-            <h3>Checking live Printify products</h3>
-            <div class="mini">Published products that are not already in the main shop will load here.</div>
-          </div>
-        </article>
-      </div>
-    </section>
-  
-<!-- PHAT GORRILLA WORLD CUP LINK START -->
-<section style='margin:28px auto;max-width:1100px;padding:24px;border-radius:28px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,rgba(255,20,147,.20),rgba(57,255,20,.14),rgba(20,184,255,.16));text-align:center;box-shadow:0 0 26px rgba(255,20,147,.10);'>
-  <p style='margin:0 0 10px;color:#ffd53d;font-weight:900;letter-spacing:.16em;text-transform:uppercase;'>World Cup Drop</p>
-  <h2 style='margin:0 0 10px;color:#fff;font-size:34px;text-transform:uppercase;'>Country T-Shirts</h2>
-  <p style='margin:0 auto 18px;max-width:760px;color:#eee;line-height:1.55;'>Explore the Phat Gorrilla country range with bold colours, supporter style and gorilla back prints.</p>
-  <a href='/world-cup.html' style='display:inline-block;padding:14px 24px;border-radius:999px;background:linear-gradient(90deg,#ff1493,#ffd53d,#39ff14);color:#050505;font-weight:900;text-decoration:none;text-transform:uppercase;'>View World Cup Range</a>
-</section>
-<!-- PHAT GORRILLA WORLD CUP LINK END -->
-
-</main>
+      <div id="products-container" class="products-grid"></div>
+    </div>
+  </main>
 
   <footer>
     <div class="wrap">
-      © Phat Gorrilla. Secure GBP checkout is powered by Stripe. Printing and fulfilment are handled by Printify. <a href="socials.html">Socials</a> · <a href="https://www.instagram.com/phatgorrilla/" rel="me noopener">Instagram</a> · <a href="https://www.tiktok.com/@phatgorrilla" rel="me noopener">TikTok</a> · <a href="https://www.facebook.com/profile.php?id=61590460628534" rel="me noopener">Facebook</a> · <a href="shipping-returns.html">Shipping & Returns</a> · <a href="size-guide.html">Size Guide</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy</a>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <a href="/shop.html">All Products</a>
+          <a href="/shop.html?type=T-Shirt">T-Shirts</a>
+          <a href="/shop.html?type=Hoodie">Hoodies</a>
+          <a href="/shop.html?type=Poster">Posters</a>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <a href="/shipping-returns.html">Shipping & Returns</a>
+          <a href="/size-guide.html">Size Guide</a>
+          <a href="/contact.html">Contact Us</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-section">
+          <h3>About</h3>
+          <a href="/about.html">About Phat Gorrilla</a>
+          <a href="/socials.html">Follow Us</a>
+          <a href="/">Home</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Phat Gorrilla. All rights reserved. Secure checkout powered by Stripe.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="shop-data.js"></script>
+  <script src="product-component.js"></script>
   <script>
-    const products = (window.PHAT_GORRILLA_PRODUCTS || []).filter(product => product.visible !== false);
-    const grid = document.getElementById('productGrid');
-    const count = document.getElementById('count');
-    const liveGrid = document.getElementById('livePrintifyGrid');
-    const liveCount = document.getElementById('livePrintifyCount');
-    const staticProductIds = new Set(products.map(product => product.id));
+    // State
+    let allProducts = [];
+    let filteredProducts = [];
 
-    count.textContent = `${products.length} products`;
-
-    function escapeHtml(value) {
-      return String(value || '').replace(/[&<>"']/g, character => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;'
-      }[character]));
+    // Show message
+    function showMessage(type, text) {
+      const container = document.getElementById(type === 'error' ? 'error-container' : 'success-container');
+      container.innerHTML = `<div class="${type}-banner">${text}</div>`;
+      setTimeout(() => {
+        container.innerHTML = '';
+      }, 4000);
     }
 
-    function priceText(product) {
-      if (product.price) return product.price;
-      if (product.price_from && product.price_to && product.price_from !== product.price_to) {
-        return `${product.price_from} - ${product.price_to}`;
-      }
-      return product.price_from || product.price_to || 'Price checked in Printify';
-    }
+    // Load products from Printify
+    async function loadProducts() {
+      const container = document.getElementById('products-container');
+      container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading products...</p></div>';
 
-    function buttonText(product) {
-      return product.buy_url === '#checkout-not-ready' ? 'Checkout Being Prepared' : 'Secure GBP Checkout';
-    }
-
-    function buttonTarget(product) {
-      return product.buy_url === '#checkout-not-ready' ? '' : ' target="_blank" rel="noopener"';
-    }
-
-    grid.innerHTML = products.map(product => `
-      <article class="card">
-        <img class="product-img" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.title)}">
-        <div class="card-body">
-          <h3>${escapeHtml(product.title)}</h3>
-          <div class="price">${escapeHtml(priceText(product))}</div>
-          <div class="product-tags">
-            ${product.drop ? `<span>${escapeHtml(product.drop)}</span>` : ''}
-            ${product.type ? `<span>${escapeHtml(product.type)}</span>` : ''}
-            ${product.colours ? `<span>${escapeHtml(product.colours)}</span>` : ''}
-            ${product.sizes ? `<span>${escapeHtml(product.sizes)}</span>` : ''}
-          </div>
-          <div class="mini">${escapeHtml(product.offer)}</div>
-          <a class="buy" href="${escapeHtml(product.buy_url)}"${buttonTarget(product)}>${escapeHtml(buttonText(product))}</a>
-        </div>
-      </article>
-    `).join('');
-
-    async function loadLivePrintifyProducts() {
       try {
         const response = await fetch('/.netlify/functions/printify-products');
-        if (!response.ok) throw new Error('Printify feed unavailable');
-        const data = await response.json();
-        const liveProducts = (data.products || [])
-          .filter(product => !staticProductIds.has(product.id))
-          .slice(0, 24);
-
-        liveCount.textContent = liveProducts.length
-          ? `${liveProducts.length} auto products`
-          : 'All current products are already featured';
-
-        if (!liveProducts.length) {
-          liveGrid.innerHTML = `
-            <article class="card">
-              <div class="card-body">
-                <h3>All live products are already featured</h3>
-                <div class="mini">When you publish a new product in Printify, it can appear here automatically after the feed refreshes.</div>
-              </div>
-            </article>
-          `;
-          return;
+        if (!response.ok) throw new Error('Failed to load products');
+        
+        allProducts = await response.json();
+        if (!Array.isArray(allProducts)) {
+          throw new Error('Invalid product data format');
         }
 
-        liveGrid.innerHTML = liveProducts.map(product => `
-          <article class="card">
-            <img class="product-img" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.title)}" loading="lazy">
-            <div class="card-body">
-              <h3>${escapeHtml(product.title)}</h3>
-              <div class="price">${escapeHtml(product.price_from === product.price_to ? product.price_from : `${product.price_from} - ${product.price_to}`)}</div>
-              <div class="product-tags">
-                <span>${escapeHtml(product.drop)}</span>
-                <span>${escapeHtml(product.type)}</span>
-                <span>${escapeHtml(product.colours)}</span>
-                <span>${escapeHtml(product.sizes)}</span>
-              </div>
-              <div class="mini">${escapeHtml(product.description)} Intentional rustic print texture may be part of the design.</div>
-              <a class="buy" href="${escapeHtml(product.product_url)}">Choose Size + Checkout</a>
-            </div>
-          </article>
-        `).join('');
+        filterAndDisplay();
       } catch (error) {
-        liveCount.textContent = 'Feed check needed';
-        liveGrid.innerHTML = `
-          <article class="card">
-            <div class="card-body">
-              <h3>Printify feed not available yet</h3>
-              <div class="mini">The main shop is still working. The auto-feed needs the Printify API environment variable active in Netlify.</div>
-            </div>
-          </article>
-        `;
+        console.error('Product load error:', error);
+        container.innerHTML = '<div class="empty"><p>❌ Unable to load products. Please try again later.</p></div>';
+        showMessage('error', `Error: ${error.message}`);
       }
     }
 
-    loadLivePrintifyProducts();
+    // Filter and display
+    function filterAndDisplay() {
+      const typeFilter = document.getElementById('type-filter').value;
+      const sortFilter = document.getElementById('sort-filter').value;
 
-    const productSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      itemListElement: products.map((product, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@type': 'Product',
-          name: product.title,
-          image: product.image,
-          description: product.offer,
-          brand: { '@type': 'Brand', name: 'Phat Gorrilla' },
-          offers: {
-            '@type': 'Offer',
-            priceCurrency: 'GBP',
-            price: String(product.price_from || product.price || '').replace(/[^0-9.]/g, ''),
-            availability: 'https://schema.org/InStock',
-            url: `https://phatgorrilla.com${product.buy_url}`
-          }
-        }
-      }))
-    };
+      filteredProducts = allProducts.filter(p => {
+        if (!typeFilter) return true;
+        return p.type === typeFilter;
+      });
 
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.textContent = JSON.stringify(productSchema);
-    document.head.appendChild(schemaScript);
+      // Sort
+      if (sortFilter === 'price-low') {
+        filteredProducts.sort((a, b) => a.min_price - b.min_price);
+      } else if (sortFilter === 'price-high') {
+        filteredProducts.sort((a, b) => b.min_price - a.min_price);
+      } else {
+        filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+      }
+
+      renderProducts();
+    }
+
+    // Render products
+    function renderProducts() {
+      const container = document.getElementById('products-container');
+
+      if (filteredProducts.length === 0) {
+        container.innerHTML = '<div class="empty" style="grid-column: 1 / -1;"><p>No products found.</p></div>';
+        return;
+      }
+
+      container.innerHTML = filteredProducts.map(product => {
+        const variants = product.variants || [];
+        const colors = product.colours ? product.colours.split(', ') : [];
+        const sizes = product.sizes ? product.sizes.split(', ') : [];
+        const price = product.min_price ? (product.min_price / 100).toFixed(2) : 'N/A';
+
+        return `
+          <div class="pg-product-card" data-product-id="${product.id}" data-variants='${JSON.stringify(variants)}'>
+            <div class="pg-product-image">
+              <img src="${product.image || '/assets/placeholder.png'}" alt="${product.title}" loading="lazy">
+              <div class="pg-product-badge">${product.type}</div>
+            </div>
+            <div class="pg-product-info">
+              <div class="pg-product-type">${product.type}</div>
+              <h3 class="pg-product-title">${product.title}</h3>
+              ${product.description ? `<p class="pg-product-description">${product.description}</p>` : ''}
+              
+              <div class="pg-product-variants">
+                ${sizes.length > 0 ? `
+                  <div class="pg-variant-group">
+                    <label>Size</label>
+                    <select class="variant-size">
+                      <option value="">Select Size</option>
+                      ${sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                    </select>
+                  </div>
+                ` : ''}
+
+                ${colors.length > 0 ? `
+                  <div class="pg-variant-group">
+                    <label>Colour</label>
+                    <select class="variant-color">
+                      <option value="">Select Colour</option>
+                      ${colors.map(color => `<option value="${color}">${color}</option>`).join('')}
+                    </select>
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="pg-product-price">£${price}</div>
+
+              <div class="pg-product-actions">
+                <button class="add-to-cart-btn">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Initialize product components
+      if (window.PhatGorrillaProduct) {
+        document.querySelectorAll('.pg-product-card').forEach(el => {
+          new window.PhatGorrillaProduct(el);
+        });
+      }
+    }
+
+    // Filter listeners
+    document.getElementById('type-filter').addEventListener('change', filterAndDisplay);
+    document.getElementById('sort-filter').addEventListener('change', filterAndDisplay);
+
+    // Load on page load
+    window.addEventListener('DOMContentLoaded', loadProducts);
   </script>
-
-<style id="pg-main-shop-brand-override">
-  html,
-  body {
-    background:
-      radial-gradient(circle at top left, rgba(255,45,168,.22), transparent 28%),
-      radial-gradient(circle at top right, rgba(36,240,135,.18), transparent 30%),
-      linear-gradient(180deg, #05070b 0%, #090d16 55%, #05070b 100%) !important;
-    color: #ffffff !important;
-  }
-
-  header,
-  main,
-  section,
-  .hero,
-  .shop,
-  .store,
-  .container {
-    background: transparent !important;
-    color: #ffffff !important;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: #ffffff !important;
-    text-shadow:
-      0 0 20px rgba(255,45,168,.35),
-      0 0 18px rgba(36,240,135,.18) !important;
-  }
-
-  p,
-  small,
-  .muted,
-  .lead,
-  .desc,
-  .description {
-    color: #b8c2d8 !important;
-  }
-
-  nav a,
-  header a {
-    color: #ffffff !important;
-  }
-
-  nav a:hover,
-  header a:hover {
-    color: #24f087 !important;
-  }
-
-  .pg-product-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 380px)) !important;
-    justify-content: center !important;
-    gap: 28px !important;
-  }
-
-  .pg-card,
-  .product-card,
-  .card,
-  .product,
-  article,
-  [class*="card"],
-  [class*="product"] {
-    background:
-      radial-gradient(circle at top left, rgba(255,45,168,.20), transparent 36%),
-      radial-gradient(circle at bottom right, rgba(36,240,135,.16), transparent 38%),
-      linear-gradient(145deg, #080b12, #111827 62%, #05070b) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(36,240,135,.34) !important;
-    border-radius: 24px !important;
-    box-shadow:
-      0 24px 70px rgba(0,0,0,.55),
-      0 0 30px rgba(255,45,168,.14),
-      0 0 24px rgba(36,240,135,.08) !important;
-  }
-
-  .pg-badge,
-  .badge,
-  [class*="badge"] {
-    background: rgba(5,7,11,.86) !important;
-    color: #24f087 !important;
-    border: 1px solid rgba(36,240,135,.5) !important;
-    border-radius: 999px !important;
-  }
-
-  .pg-title,
-  .title,
-  [class*="title"] {
-    color: #ffffff !important;
-    font-weight: 950 !important;
-  }
-
-  .pg-price,
-  .price,
-  [class*="price"] {
-    color: #24f087 !important;
-    font-weight: 950 !important;
-  }
-
-  .pg-desc,
-  .description,
-  [class*="desc"] {
-    color: #aeb8cc !important;
-  }
-
-  .pg-buy-btn,
-  .buy-btn,
-  .button,
-  .btn,
-  button,
-  a[href*="create-checkout-session"],
-  a[href="#checkout-not-ready"] {
-    background: linear-gradient(90deg, #ff2da8, #24f087) !important;
-    color: #05070b !important;
-    border: 1px solid rgba(36,240,135,.65) !important;
-    border-radius: 999px !important;
-    font-weight: 950 !important;
-    text-transform: uppercase !important;
-    letter-spacing: .06em !important;
-    box-shadow:
-      0 0 22px rgba(255,45,168,.28),
-      0 0 20px rgba(36,240,135,.20) !important;
-  }
-
-  .pg-buy-btn:hover,
-  .buy-btn:hover,
-  .button:hover,
-  .btn:hover,
-  button:hover,
-  a[href*="create-checkout-session"]:hover {
-    transform: translateY(-2px) !important;
-    filter: brightness(1.08) !important;
-  }
-
-  .pg-buy-btn[href="#checkout-not-ready"],
-  a[href="#checkout-not-ready"] {
-    background: linear-gradient(90deg, #2b1430, #163524) !important;
-    color: #ffffff !important;
-    border-color: rgba(255,45,168,.55) !important;
-    cursor: not-allowed !important;
-  }
-</style>
-
 </body>
 </html>
 
