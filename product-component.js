@@ -16,6 +16,7 @@ class PhatGorrillaProduct {
 
   init() {
     this.attachListeners();
+    this.updateCardDetails();
   }
 
   attachListeners() {
@@ -24,6 +25,7 @@ class PhatGorrillaProduct {
     if (sizeSelect) {
       sizeSelect.addEventListener('change', (e) => {
         this.selections.size = e.target.value;
+        this.updateCardDetails();
       });
     }
 
@@ -32,6 +34,7 @@ class PhatGorrillaProduct {
     if (colorSelect) {
       colorSelect.addEventListener('change', (e) => {
         this.selections.color = e.target.value;
+        this.updateCardDetails();
       });
     }
 
@@ -39,6 +42,33 @@ class PhatGorrillaProduct {
     const addBtn = this.element.querySelector('.add-to-cart-btn');
     if (addBtn) {
       addBtn.addEventListener('click', (e) => this.handleCheckout(e));
+    }
+  }
+
+  updateCardDetails() {
+    const sizeSelect = this.element.querySelector('.variant-size');
+    const colorSelect = this.element.querySelector('.variant-color');
+
+    // If size dropdown exists but no size selected, don't update details yet
+    if (sizeSelect && !this.selections.size) return;
+    // If color dropdown exists but no color selected, don't update details yet
+    if (colorSelect && !this.selections.color) return;
+
+    const variant = this.findMatchingVariant();
+    if (variant) {
+      // Update price
+      const priceEl = this.element.querySelector('.pg-product-price, .price-row strong, .price');
+      if (priceEl) {
+        priceEl.textContent = variant.price;
+      }
+      
+      // Update image
+      if (variant.image) {
+        const imgEl = this.element.querySelector('.pg-product-image img, .product-image-wrap img');
+        if (imgEl) {
+          imgEl.src = variant.image;
+        }
+      }
     }
   }
 
