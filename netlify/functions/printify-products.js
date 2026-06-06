@@ -198,7 +198,7 @@ async function listProducts() {
     .filter(isPublicProduct)
     .sort((a, b) => String(b.updated_at || b.created_at || "").localeCompare(String(a.updated_at || a.created_at || "")))
     .slice(0, MAX_PRODUCTS)
-    .map(product => publicProduct(product, false));
+    .map(product => publicProduct(product, true));
 }
 
 exports.handler = async function(event) {

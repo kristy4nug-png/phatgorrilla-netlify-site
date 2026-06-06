@@ -87,11 +87,11 @@ class PhatGorrillaProduct {
       const response = await fetch(`/.netlify/functions/create-checkout-session?${params}`);
       if (!response.ok) throw new Error('Checkout failed');
 
-      const { sessionId } = await response.json();
-      if (!sessionId) throw new Error('No session');
+      const data = await response.json();
+      if (!data.success || !data.url) throw new Error('No checkout URL returned');
 
-      // Redirect to Stripe
-      window.location.href = `https://checkout.stripe.com/pay/${sessionId}`;
+      // Redirect to Stripe hosted checkout
+      window.location.href = data.url;
     } catch (error) {
       console.error('Checkout error:', error);
       this.showError(`Error: ${error.message}`);

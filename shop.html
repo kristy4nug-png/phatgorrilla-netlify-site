@@ -575,7 +575,8 @@
         const response = await fetch('/.netlify/functions/printify-products');
         if (!response.ok) throw new Error('Failed to load products');
         
-        allProducts = await response.json();
+        const data = await response.json();
+        allProducts = data.products || [];
         if (!Array.isArray(allProducts)) {
           throw new Error('Invalid product data format');
         }
@@ -627,13 +628,17 @@
 
         return `
           <div class="pg-product-card" data-product-id="${product.id}" data-variants='${JSON.stringify(variants)}'>
-            <div class="pg-product-image">
-              <img src="${product.image || '/assets/placeholder.png'}" alt="${product.title}" loading="lazy">
-              <div class="pg-product-badge">${product.type}</div>
-            </div>
+            <a href="${product.product_url || `/product.html?id=${product.id}`}" style="display: block; color: inherit; text-decoration: none;">
+              <div class="pg-product-image">
+                <img src="${product.image || '/assets/placeholder.png'}" alt="${product.title}" loading="lazy">
+                <div class="pg-product-badge">${product.type}</div>
+              </div>
+            </a>
             <div class="pg-product-info">
               <div class="pg-product-type">${product.type}</div>
-              <h3 class="pg-product-title">${product.title}</h3>
+              <a href="${product.product_url || `/product.html?id=${product.id}`}" style="color: inherit; text-decoration: none;">
+                <h3 class="pg-product-title">${product.title}</h3>
+              </a>
               ${product.description ? `<p class="pg-product-description">${product.description}</p>` : ''}
               
               <div class="pg-product-variants">
