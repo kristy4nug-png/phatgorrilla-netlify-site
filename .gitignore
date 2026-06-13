@@ -1,0 +1,57 @@
+# ── Credentials & Keys (NEVER commit these) ───────────────
+*.env
+.env.*
+.env.local
+.env.production
+
+# wp key files
+wp key.txt
+wp-key.txt
+keys.txt
+secrets.txt
+credentials.txt
+Bt.txt
+
+# Stripe keys
+stripe_key*
+stripe-key*
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+pip-log.txt
+
+# ── Node ──────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+.npm/
+dist/
+build/
+
+# ── OS ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ────────────────────────────────────────────────
+.vscode/settings.json
+*.swp
+*.swo
+.idea/
+
+# ── WordPress & WP local exports ──────────────────────────
+wp-config.php
+*.sql
+*.sqlite
+
+# ── Large / generated ─────────────────────────────────────
+*.zip
+*.tar.gz
+*.log
+*.tmp

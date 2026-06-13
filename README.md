@@ -1,56 +1,51 @@
-# Phat Gorrilla WordPress Brand Assets
+# Phat Gorrilla — WordPress Brand Assets
 
-Phat Gorrilla is now live on WordPress/WooCommerce at:
+Active brand assets for the Phat Gorrilla WordPress/WooCommerce store at [phatgorrilla.com](https://phatgorrilla.com).
 
-https://phatgorrilla.com
+## What's In Here
 
-This repository is no longer a Netlify/static website source and should not be used for deployment, checkout, product sync, DNS, Stripe, Printify, or WordPress admin work.
+| File | Use |
+|---|---|
+| `brand-assets/built-different.png` | Homepage hero image |
+| `brand-assets/new-drop.png` | Shop page banner |
+| `brand-assets/elite-range-black-gold.png` | Super Elite category image |
+| `brand-assets/elite-colourways-neon.png` | Neon colourway promo |
+| `brand-assets/elite-colourways-earth.png` | Earth-tone promo |
+| `brand-assets/join-the-movement.png` | Social/footer callout |
+| `brand-assets/wordpress-theme-colours.css` | Theme colour tokens |
 
-The old Netlify/static migration files, local environment file, checkout functions, product feeds, maps, scripts, node modules, and backup fragments were removed from the working copy after the WordPress/WooCommerce move.
+## Core Brand Palette
 
-Current operating source:
+```
+#050505  Black (background)
+#141414  Charcoal
+#F91A7D  Hot Magenta (primary accent)
+#BA0752  Deep Magenta
+#A6C303  Acid Lime (secondary accent)
+#576D02  Army Green
+#C99E41  Metallic Gold
+#F7D87B  Bright Gold
+#E3D4C0  Cream
+#C4A684  Sand
+#3D4E02  Olive
+```
 
-- Website: WordPress
-- Shop: WooCommerce
-- Payments: WooCommerce/Stripe configuration in WordPress
-- Products: WooCommerce and connected fulfilment services
-- Site admin: WordPress dashboard
+## Live Store
 
-Do not recreate Netlify deployment files in this repository unless Phat Gorrilla intentionally rolls back away from WordPress.
+- **Website:** https://phatgorrilla.com
+- **Shop:** WooCommerce
+- **Payments:** Stripe (live mode)
+- **Fulfilment:** Printify → WooCommerce
+- **App:** https://github.com/kristy4nug-png/PowerGorilla
 
-## Active Brand Assets
+## Rules
 
-Use the images in `brand-assets/` for the WordPress homepage, shop category banners, launch posts, and product collection promos.
+- Do NOT deploy from this repo — WordPress is the live source of truth
+- Do NOT commit API keys, `.env` files, or Stripe keys
+- Upload images via WordPress Media Library only
+- See `PRINTIFY_NEW_PRODUCT_RULES.md` in the brand pack for product workflow
 
-- `built-different.png` - primary homepage/brand hero.
-- `new-drop.png` - main drop and shop launch promo.
-- `join-the-movement.png` - social follow/community banner.
-- `elite-range-black-gold.png` - Super Elite / premium black and gold promo.
-- `elite-colourways-neon.png` - Elite Colourways neon promo.
-- `elite-colourways-earth.png` - Elite Colourways earth-tone promo.
+## App Page
 
-## Core Palette
-
-- Black: `#050505`
-- Charcoal: `#141414`
-- Hot magenta: `#F91A7D`
-- Deep magenta: `#BA0752`
-- Acid lime: `#A6C303`
-- Army green: `#576D02`
-- Metallic gold: `#C99E41`
-- Bright gold: `#F7D87B`
-- Cream: `#E3D4C0`
-- Sand: `#C4A684`
-- Olive: `#3D4E02`
-
-## WordPress Placement
-
-Recommended live-site use:
-
-- Homepage hero: `built-different.png`
-- Shop page banner: `new-drop.png`
-- Super Elite category image: `elite-range-black-gold.png`
-- Elite colourway section: `elite-colourways-neon.png` or `elite-colourways-earth.png`
-- Social/footer callout: `join-the-movement.png`
-
-Keep the live source of truth in WordPress/WooCommerce. These files are asset references only.
+The app page (`/app`) on phatgorrilla.com is built from `app-page/app-page.html`.  
+Post-purchase delivery is handled by `app-page/woocommerce-app-delivery.php`.
