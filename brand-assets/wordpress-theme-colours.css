@@ -1,0 +1,47 @@
+:root {
+  --pg-black: #050505;
+  --pg-charcoal: #141414;
+  --pg-hot-magenta: #f91a7d;
+  --pg-deep-magenta: #ba0752;
+  --pg-acid-lime: #a6c303;
+  --pg-army-green: #576d02;
+  --pg-metallic-gold: #c99e41;
+  --pg-bright-gold: #f7d87b;
+  --pg-cream: #e3d4c0;
+  --pg-sand: #c4a684;
+  --pg-olive: #3d4e02;
+}
+
+body {
+  background: var(--pg-black);
+  color: #f7f3ea;
+}
+
+a,
+.wp-block-button__link {
+  color: var(--pg-acid-lime);
+}
+
+.wp-block-button__link,
+.button,
+button,
+input[type="submit"] {
+  background: var(--pg-acid-lime);
+  color: var(--pg-black);
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pg-accent-magenta {
+  color: var(--pg-hot-magenta);
+}
+
+.pg-accent-gold {
+  color: var(--pg-metallic-gold);
+}
+
+.pg-panel {
+  background: var(--pg-charcoal);
+  border: 1px solid rgba(249, 26, 125, 0.35);
+}

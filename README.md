@@ -1,39 +1,56 @@
-# Phat Gorrilla Netlify Site
+# Phat Gorrilla WordPress Brand Assets
 
-This is the legacy Netlify/static site repo for Phat Gorrilla.
+Phat Gorrilla is now live on WordPress/WooCommerce at:
 
-Current launch direction: the real shop is now WordPress/WooCommerce on Namecheap EasyWP at `https://phatgorrilla.com`.
+https://phatgorrilla.com
 
-Do not use this repo as the active shop source unless there is an approved rollback. The old Netlify checkout and Stripe/Printify function code is kept for reference and safety until WooCommerce checkout, Stripe, Printify fulfilment, DNS, SSL, SEO, and policy pages are fully confirmed.
+This repository is no longer a Netlify/static website source and should not be used for deployment, checkout, product sync, DNS, Stripe, Printify, or WordPress admin work.
 
-Do not delete Netlify or Netlify DNS from this repo alone.
+The old Netlify/static migration files, local environment file, checkout functions, product feeds, maps, scripts, node modules, and backup fragments were removed from the working copy after the WordPress/WooCommerce move.
 
-Original assets and brand folders are kept safely in the parent folder.
+Current operating source:
 
-## Adding New Printify Products Safely
+- Website: WordPress
+- Shop: WooCommerce
+- Payments: WooCommerce/Stripe configuration in WordPress
+- Products: WooCommerce and connected fulfilment services
+- Site admin: WordPress dashboard
 
-Legacy Netlify process only:
+Do not recreate Netlify deployment files in this repository unless Phat Gorrilla intentionally rolls back away from WordPress.
 
-- Add the Printify product/variant to `data/stripe-printify-map.json` before selling it.
-- Add the customer-facing product entry to `shop-data.js` with a `buy_url` like `/.netlify/functions/create-checkout-session?key=YOUR_PRODUCT_KEY`.
-- The shop and full app page both read live products from `shop-data.js`, so new visible products can appear in both places.
-- Never use direct `phat-gorrilla.printify.me/product/...` customer links.
-- Do not edit or expose secret keys. Stripe and Printify secrets stay in Netlify environment variables.
+## Active Brand Assets
 
-Live WooCommerce products should now be managed in WordPress/WooCommerce/Printify instead.
+Use the images in `brand-assets/` for the WordPress homepage, shop category banners, launch posts, and product collection promos.
 
-## Free Search Engine Submission
+- `built-different.png` - primary homepage/brand hero.
+- `new-drop.png` - main drop and shop launch promo.
+- `join-the-movement.png` - social follow/community banner.
+- `elite-range-black-gold.png` - Super Elite / premium black and gold promo.
+- `elite-colourways-neon.png` - Elite Colourways neon promo.
+- `elite-colourways-earth.png` - Elite Colourways earth-tone promo.
 
-- Submit `https://phatgorrilla.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
-- Submit `https://phatgorrilla.com/google-free-listings-feed.xml` in Google Merchant Center for free product listings.
-- IndexNow ownership is prepared with `https://phatgorrilla.com/phatgorrilla-20260531-indexnow.txt`.
-- After deployment, submit changed URLs to IndexNow with key `phatgorrilla-20260531-indexnow`.
+## Core Palette
 
-## Social Profiles And API Setup
+- Black: `#050505`
+- Charcoal: `#141414`
+- Hot magenta: `#F91A7D`
+- Deep magenta: `#BA0752`
+- Acid lime: `#A6C303`
+- Army green: `#576D02`
+- Metallic gold: `#C99E41`
+- Bright gold: `#F7D87B`
+- Cream: `#E3D4C0`
+- Sand: `#C4A684`
+- Olive: `#3D4E02`
 
-- Official social hub: `https://phatgorrilla.com/socials`
-- Official Instagram: `https://www.instagram.com/phatgorrilla/`
-- Official TikTok: `https://www.tiktok.com/@phatgorrilla`
-- Official Facebook: `https://www.facebook.com/profile.php?id=61590460628534`
-- API setup notes are in `SOCIAL_API_SETUP.md`.
-- Never commit social API tokens, app secrets, passwords or recovery codes.
+## WordPress Placement
+
+Recommended live-site use:
+
+- Homepage hero: `built-different.png`
+- Shop page banner: `new-drop.png`
+- Super Elite category image: `elite-range-black-gold.png`
+- Elite colourway section: `elite-colourways-neon.png` or `elite-colourways-earth.png`
+- Social/footer callout: `join-the-movement.png`
+
+Keep the live source of truth in WordPress/WooCommerce. These files are asset references only.
