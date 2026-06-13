@@ -14,7 +14,6 @@
                     ┌──────────────┐
                     │  shop.html   │
                     │ index.html   │
-                    │ worldcup.html│
                     │ elite.html   │
                     └──────┬───────┘
                            │
@@ -169,7 +168,6 @@ const session = await stripe.checkout.sessions.create({
         currency: "gbp",        // ← GBP
         unit_amount: 2799,      // ← PENCE (£27.99)
         product_data: {
-          name: "Black World Cup Tee - Black/M",
           images: ["https://...mockup.jpg"]
         }
       },
@@ -208,7 +206,6 @@ const session = await stripe.checkout.sessions.create({
 |------|--------|-----------|---------|
 | shop.html | ✅ Active | product-component.js | product-card-styles.css |
 | index.html | ✅ Active | product-component.js | product-card-styles.css |
-| worldcup.html | ✅ Active | product-component.js | product-card-styles.css |
 | elite.html | ✅ Active | product-component.js | product-card-styles.css |
 
 ### Variant Selection Flow:
@@ -402,7 +399,6 @@ Error: Cannot read property 'checkout' of undefined
    - Gets sessionId back
    ↓
 5. Browser redirects to Stripe checkout
-   - Shows product name: "Black World Cup Tee - Black/M"
    - Shows product price: £27.99 GBP
    - Shows shipping: £4.99 GBP
    - Shows total: £32.98 GBP
@@ -431,7 +427,6 @@ Error: Cannot read property 'checkout' of undefined
 
 ```html
 <div class="pg-product-card" data-product-id="27674090" data-variants='[...]'>
-  <h3 class="pg-product-title">Black World Cup Tee</h3>
   
   <div class="pg-product-variants">
     <div class="pg-variant-group">

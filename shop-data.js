@@ -14,48 +14,6 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "offer": "A clean gold-logo streetwear tee for the core Phat Gorrilla look. Secure GBP checkout, printed and fulfilled by Printify. Full app access comes free after purchase."
   },
   {
-    "id": "6a1bd5d199790633660760e0",
-    "title": "Scotland Phat Gorrilla World Cup Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a1bd5d199790633660760e0/12124/92570/scotland-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=scotland-phat-gorrilla-world-cup-tee-gildan-5000-11956",
-    "drop": "World Cup",
-    "type": "T-Shirt",
-    "colours": "Scotland colours",
-    "sizes": "Sizes shown at checkout",
-    "offer": "Built for bold Scotland supporters with intentional rustic print texture and Phat Gorrilla energy. Secure GBP checkout, printed and fulfilled by Printify."
-  },
-  {
-    "id": "6a19dd531babc69aaa0e422e",
-    "title": "England Phat Gorrilla Skyline Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a19dd531babc69aaa0e422e/12022/102006/england-graphic-tee-phat-gorilla-london-skyline-football-fan-shirt.jpg?camera_label=back-2",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=england-phat-gorrilla-world-cup-tee-gildan-5000-12022",
-    "drop": "World Cup",
-    "type": "T-Shirt",
-    "colours": "England colours",
-    "sizes": "Sizes shown at checkout",
-    "offer": "A country-inspired England supporter tee with skyline attitude and rugged streetwear texture. Secure GBP checkout, printed and fulfilled by Printify."
-  },
-  {
-    "id": "6a1b17819a524711b5034c0a",
-    "title": "Portugal Phat Gorrilla World Cup Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a1b17819a524711b5034c0a/12100/92570/portugal-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=portugal-phat-gorrilla-world-cup-tee-gildan-5000-12022",
-    "drop": "World Cup",
-    "type": "T-Shirt",
-    "colours": "Portugal colours",
-    "sizes": "Sizes shown at checkout",
-    "offer": "Portugal supporter energy with bold Phat Gorrilla graphics and a vintage streetwear finish. Secure GBP checkout, printed and fulfilled by Printify."
-  },
-  {
     "id": "6a19dabc997906336605f3eb",
     "title": "Phat Gorrilla Logo Zip Hoodie — Luxury Gold Monogram Streetwear",
     "visible": false,
@@ -94,20 +52,6 @@ window.PHAT_GORRILLA_PRODUCTS = [
     "image": "https://images-api.printify.com/mockup/6a18807721f4508fc9026c24/73207/98446/wales-phat-gorilla-graphic-t-shirt-rugbyfootball-fan-tee.jpg?camera_label=back",
     "buy_url": "#checkout-not-ready",
     "offer": "Checkout is being connected for this product. Selected artwork may use intentional rustic print texture."
-  },
-  {
-    "id": "6a1bd78ea2f3e94ff40d5d50",
-    "title": "Brazil Phat Gorrilla World Cup Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a1bd78ea2f3e94ff40d5d50/12100/92570/brazil-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=brazil-phat-gorrilla-world-cup-tee-gildan-5000-12100",
-    "drop": "World Cup",
-    "type": "T-Shirt",
-    "colours": "Brazil colours",
-    "sizes": "Sizes shown at checkout",
-    "offer": "Brazil-inspired football streetwear with strong colour and gorilla attitude. Secure GBP checkout, printed and fulfilled by Printify."
   },
   {
     "id": "6a174b81318117fcbc050461",

@@ -73,7 +73,6 @@ Check:
 
 ## Final Switch
 
-Only update all customer-facing shop, Super Elite, World Cup and product CTAs after live WooCommerce checkout is confirmed.
 
 When confirmed:
 

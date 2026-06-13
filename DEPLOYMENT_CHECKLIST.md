@@ -121,7 +121,6 @@ Each product on shop.html should show:
 ✅ **Variant Selection**
 - Size selector (auto-detected from Printify)
 - Color selector (auto-detected from Printify)
-- Applied to all pages: shop.html, index.html, worldcup.html, elite.html
 - Consistent styling across entire app
 
 ✅ **Secure Checkout**

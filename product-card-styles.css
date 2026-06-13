@@ -1,8 +1,9 @@
 /**
- * PHAT GORRILLA PRODUCT CARD STYLES
- * Consistent styling for product cards across all pages
+ * PHAT GORRILLA PRODUCT CARD STYLES v2
+ * Size buttons + colour swatches across all pages
  */
 
+/* ─── Card Shell ──────────────────────────────────────────────────────────── */
 .pg-product-card {
   background: var(--panel, rgba(15, 15, 15, 1));
   border: 1px solid var(--line, rgba(215, 181, 109, 0.2));
@@ -19,6 +20,7 @@
   transform: translateY(-2px);
 }
 
+/* ─── Product Image ───────────────────────────────────────────────────────── */
 .pg-product-image {
   width: 100%;
   aspect-ratio: 1;
@@ -41,6 +43,7 @@
   transform: scale(1.05);
 }
 
+/* ─── Badge ───────────────────────────────────────────────────────────────── */
 .pg-product-badge {
   position: absolute;
   top: 12px;
@@ -55,11 +58,12 @@
   letter-spacing: 0.05em;
 }
 
+/* ─── Info Area ───────────────────────────────────────────────────────────── */
 .pg-product-info {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   flex-grow: 1;
 }
 
@@ -86,50 +90,180 @@
   margin: 0;
 }
 
+/* ─── Variants Container ──────────────────────────────────────────────────── */
 .pg-product-variants {
-  display: grid;
-  gap: 10px;
-  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 6px 0;
 }
 
 .pg-variant-group {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ─── Variant Label ───────────────────────────────────────────────────────── */
+.pg-variant-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted, #b9b0a1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pg-selected-label {
+  color: var(--text, #f5f1e8);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 11px;
+}
+
+/* ─── SIZE BUTTONS ────────────────────────────────────────────────────────── */
+.pg-size-buttons {
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
-.pg-variant-group label {
+.pg-size-btn {
+  min-width: 40px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1.5px solid var(--line, rgba(215, 181, 109, 0.25));
+  border-radius: 6px;
+  background: var(--panel-hover, rgba(26, 26, 26, 1));
+  color: var(--text, #f5f1e8);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.pg-size-btn:hover {
+  border-color: var(--green, #00e676);
+  color: var(--green, #00e676);
+  background: rgba(0, 230, 118, 0.06);
+}
+
+.pg-size-btn.selected,
+.pg-size-btn[aria-pressed="true"] {
+  border-color: var(--green, #00e676);
+  background: rgba(0, 230, 118, 0.12);
+  color: var(--green, #00e676);
+  box-shadow: 0 0 8px rgba(0, 230, 118, 0.2);
+}
+
+/* ─── COLOUR SWATCHES ─────────────────────────────────────────────────────── */
+.pg-colour-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pg-colour-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  overflow: visible;
+  font-size: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.pg-colour-btn:hover {
+  transform: scale(1.18);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.pg-colour-btn.selected,
+.pg-colour-btn[aria-pressed="true"] {
+  border-color: var(--green, #00e676);
+  box-shadow: 0 0 0 2px rgba(0, 230, 118, 0.4), 0 0 8px rgba(0, 230, 118, 0.3);
+  transform: scale(1.12);
+}
+
+/* Tooltip label for colour swatches */
+.pg-colour-label {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  z-index: 10;
+}
+
+.pg-colour-btn:hover .pg-colour-label,
+.pg-colour-btn.selected .pg-colour-label {
+  opacity: 1;
+}
+
+/* ─── Missing Selection Shake ─────────────────────────────────────────────── */
+@keyframes pg-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.pg-missing-selection {
+  animation: pg-shake 0.4s ease;
+  border: 1px dashed rgba(255, 68, 68, 0.5);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+/* ─── Inline Error ────────────────────────────────────────────────────────── */
+.pg-inline-error {
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid rgba(255, 68, 68, 0.4);
+  color: #ff9999;
+  padding: 10px 14px;
+  border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--muted, #b9b0a1);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-align: center;
+  animation: pg-fade-in 0.2s ease;
 }
 
-.pg-variant-group select {
-  padding: 8px;
-  background: var(--panel-hover, rgba(26, 26, 26, 1));
-  border: 1px solid var(--line, rgba(215, 181, 109, 0.2));
-  color: var(--text, #f5f1e8);
-  font-size: 13px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color 0.2s;
-  font-family: inherit;
+@keyframes pg-fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.pg-variant-group select:hover,
-.pg-variant-group select:focus {
-  border-color: var(--green, #00e676);
-  outline: none;
-}
-
+/* ─── Price ───────────────────────────────────────────────────────────────── */
 .pg-product-price {
   font-size: 20px;
   font-weight: 900;
   color: var(--green, #00e676);
-  margin: 12px 0 0;
+  margin: 4px 0 0;
 }
 
+/* ─── Actions ─────────────────────────────────────────────────────────────── */
 .pg-product-actions {
   display: grid;
   gap: 8px;
@@ -137,9 +271,9 @@
 }
 
 .add-to-cart-btn {
-  padding: 12px 16px;
+  padding: 13px 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
@@ -150,6 +284,7 @@
   background: var(--green, #00e676);
   color: #000;
   font-family: inherit;
+  width: 100%;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
@@ -159,53 +294,16 @@
 }
 
 .add-to-cart-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none !important;
 }
 
-/* Error banner */
-.error-banner {
-  background: rgba(255, 68, 68, 0.1);
-  border: 1px solid #ff4444;
-  color: #ff9999;
-  padding: 16px;
-  border-radius: 4px;
-  margin: 20px 0;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .pg-product-card {
-    border-radius: 6px;
-  }
-
-  .pg-product-info {
-    padding: 16px;
-    gap: 10px;
-  }
-
-  .pg-product-title {
-    font-size: 14px;
-  }
-
-  .pg-variant-group select {
-    font-size: 12px;
-    padding: 7px;
-  }
-
-  .add-to-cart-btn {
-    font-size: 12px;
-    padding: 10px 14px;
-  }
-}
-
-/* Gallery thumbnails */
+/* ─── Gallery Thumbnails ──────────────────────────────────────────────────── */
 .pg-thumbs {
   display: flex;
   gap: 8px;
-  margin: 10px 0;
+  margin: 10px 0 0;
   overflow-x: auto;
   padding-bottom: 4px;
 }
@@ -226,4 +324,49 @@
 .pg-thumbs img.active {
   border-color: var(--green, #00e676);
   transform: scale(1.08);
+}
+
+/* ─── Error Banner (page-level) ───────────────────────────────────────────── */
+.error-banner {
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid #ff4444;
+  color: #ff9999;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .pg-product-card {
+    border-radius: 6px;
+  }
+
+  .pg-product-info {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .pg-product-title {
+    font-size: 14px;
+  }
+
+  .pg-size-btn {
+    min-width: 36px;
+    height: 32px;
+    font-size: 11px;
+    padding: 0 8px;
+  }
+
+  .pg-colour-btn {
+    width: 26px;
+    height: 26px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 12px;
+    padding: 11px 14px;
+  }
 }

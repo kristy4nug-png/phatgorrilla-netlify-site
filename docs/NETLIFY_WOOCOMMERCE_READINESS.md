@@ -64,6 +64,5 @@ Once WooCommerce is live and tested:
 
 - Update Shop CTAs to `SHOP_URL`.
 - Update Super Elite CTAs to the WooCommerce category or collection URL.
-- Update World Cup CTAs to the WooCommerce category or collection URL.
 - Update product buy buttons to real WooCommerce product URLs.
 - Keep the Netlify brand site at `phatgorrilla.com`.

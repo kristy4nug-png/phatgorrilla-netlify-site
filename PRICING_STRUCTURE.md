@@ -18,7 +18,6 @@
 | Item | Base Price | Markup | Customer Price | Shipping | **Total** |
 |------|-----------|--------|-----------------|----------|----------|
 | Gildan T-Shirt (example) | £24.99 | +£3 | **£27.99** | £4.99 | **£32.98** |
-| World Cup Tee | £25.99 | +£3 | **£28.99** | £4.99 | **£33.98** |
 
 ### Hoodies (Base + £8)
 | Item | Base Price | Markup | Customer Price | Shipping | **Total** |

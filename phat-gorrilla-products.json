@@ -10,36 +10,6 @@
     "offer": "Secure GBP checkout. Printed and fulfilled by Printify. First purchase includes free Phat Gorrilla app access."
   },
   {
-    "id": "6a1bd5d199790633660760e0",
-    "title": "Scotland Phat Gorrilla World Cup Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a1bd5d199790633660760e0/12124/92570/scotland-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=scotland-phat-gorrilla-world-cup-tee-gildan-5000-11956",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
-  },
-  {
-    "id": "6a19dd531babc69aaa0e422e",
-    "title": "England Graphic Tee — 'Phat Gorrilla' London Skyline Football Fan Shirt",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a19dd531babc69aaa0e422e/12022/102006/england-graphic-tee-phat-gorilla-london-skyline-football-fan-shirt.jpg?camera_label=back-2",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=england-phat-gorrilla-world-cup-tee-gildan-5000-12022",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. First purchase includes free Phat Gorrilla app access."
-  },
-  {
-    "id": "6a1b17819a524711b5034c0a",
-    "title": "Portugal Phat Gorrilla World Cup Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a1b17819a524711b5034c0a/12100/92570/portugal-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=portugal-phat-gorrilla-world-cup-tee-gildan-5000-12022",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
-  },
-  {
     "id": "6a19dabc997906336605f3eb",
     "title": "Phat Gorrilla Logo Zip Hoodie — Luxury Gold Monogram Streetwear",
     "visible": false,
@@ -78,16 +48,6 @@
     "image": "https://images-api.printify.com/mockup/6a18807721f4508fc9026c24/73207/98446/wales-phat-gorilla-graphic-t-shirt-rugbyfootball-fan-tee.jpg?camera_label=back",
     "buy_url": "#checkout-not-ready",
     "offer": "Checkout is being connected for this product. Please choose another live Phat Gorrilla item for now."
-  },
-  {
-    "id": "6a1bd78ea2f3e94ff40d5d50",
-    "title": "Brazil Phat Gorrilla World Cup Tee",
-    "visible": true,
-    "price_from": "£27.99",
-    "price_to": "£27.99",
-    "image": "https://images-api.printify.com/mockup/6a1bd78ea2f3e94ff40d5d50/12100/92570/brazil-phat-gorrilla-world-cup-tee-gildan-5000.jpg?camera_label=front",
-    "buy_url": "/.netlify/functions/create-checkout-session?key=brazil-phat-gorrilla-world-cup-tee-gildan-5000-12100",
-    "offer": "Secure GBP checkout. Printed and fulfilled by Printify. Selected prints use intentional rustic, distressed artwork texture for a raw streetwear finish. Full app access comes free after purchase."
   },
   {
     "id": "6a174b81318117fcbc050461",

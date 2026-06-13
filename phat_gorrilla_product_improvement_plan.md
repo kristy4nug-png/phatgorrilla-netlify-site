@@ -32,7 +32,6 @@ Examples:
 
 - `Phat Gorrilla Scotland Crest Tee`
 - `Phat Gorrilla Black Gold Elite Hoodie`
-- `Phat Gorrilla World Cup Brazil Tee`
 - `Phat Gorrilla Neon Gorilla Crewneck`
 - `Phat Gorrilla Country Supporter Tee`
 
@@ -49,7 +48,6 @@ Use this pattern:
 
 `Premium Phat Gorrilla streetwear with bold gorilla energy, secure GBP checkout and made-on-demand fulfilment by Printify. Selected designs use intentional rustic or distressed print texture for a worn-in streetwear finish.`
 
-For World Cup products:
 
 `Built for bold supporters. A country-inspired Phat Gorrilla tee with strong colour, football energy and intentional rustic print texture. Secure GBP checkout, printed and fulfilled by Printify.`
 

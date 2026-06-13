@@ -39,7 +39,6 @@
 **Frontend** ✅
 - shop.html (product catalog)
 - index.html (home page products)
-- worldcup.html (country tees)
 - elite.html (premium range)
 - Size/color selectors on ALL pages
 - Professional styling

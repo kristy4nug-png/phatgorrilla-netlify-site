@@ -27,8 +27,6 @@ Customer-facing tracked pages:
 - `index.html`
 - `shop.html`
 - `elite.html`
-- `worldcup.html`
-- `world-cup.html`
 - `app-demo.html`
 - `app.html`
 - `free-app.html`
@@ -70,8 +68,6 @@ Checkout status:
 
 - `shop-data.js`: 12 checkout links, 0 missing map keys
 - `elite.html`: 23 checkout links, 0 missing map keys
-- `worldcup.html`: 14 checkout links, 0 missing map keys
-- `world-cup.html`: 9 checkout links, 0 missing map keys
 - Stripe checkout uses GBP.
 - Shipping is added in Stripe checkout as UK Standard Delivery.
 - Printify order creation is handled by the Stripe webhook after `checkout.session.completed`.
@@ -127,7 +123,6 @@ Elite page:
 - `elite-products.json` lacks rich descriptions, sizes and colours.
 - The page can be improved by grouping products more clearly and using stronger product-specific copy.
 
-World Cup page:
 
 - 14 product cards and checkout keys are mapped.
 - The theme is clear.
@@ -178,7 +173,6 @@ SEO findings:
 - Some support pages have short meta descriptions.
 - Some pages lack Open Graph images.
 - `about.html` lacks a canonical link and Open Graph image.
-- `world-cup.html` lacks canonical/Open Graph metadata and overlaps with `worldcup.html`.
 - Product schema exists on `shop.html`, but it is basic and can be strengthened.
 - Google product feed exists but only has 12 items and could use better titles/descriptions/images.
 
@@ -203,14 +197,12 @@ Highest priority:
 - `index.html`: needed a more premium launch hero and stronger new-drop/product sections. This has now had a safe first refresh.
 - `shop.html`: functional, but needed more premium cards, product badges and collection grouping. This has now had a safe first refresh.
 - `elite.html`: good base, but repeated copy made it feel generated. The first refresh added stronger trust and collection framing.
-- `worldcup.html`: strong concept, but needed better collection storytelling and product image consistency. The first refresh added clearer customer messaging.
 - `socials.html`: useful hub, but could support active launch campaigns with pinned content and social proof.
 - `comments.html`: present, but should feel more like community/testimonial content.
 
 Lower priority:
 
 - `free-app.html`: was a plain redirect-style page. It has now been refreshed with proper app-demo wording, meta description and a clearer CTA.
-- `world-cup.html`: overlaps with `worldcup.html`; needs a decision whether to keep as alias only or modernise.
 - `scotland_fixed_product_review_v2.html`: removed after backup because it looked like a review utility page and did not belong in the public production site.
 
 ## 10. Social Media Gap
@@ -237,13 +229,11 @@ Existing useful local asset folder:
 
 Do this first, before deeper API work:
 
-1. Refresh `index.html`, `shop.html`, `elite.html`, `worldcup.html` and shared footer/nav styling.
 2. Improve product card layout without changing checkout URLs or prices.
 3. Rewrite visible product titles/descriptions in website data only.
 4. Add visible size/colour/trust notes where data already exists.
 5. Add a stronger homepage launch layout:
    - Shop the Drop
-   - World Cup Streetwear Has Landed
    - Super Elite Range
    - Follow @phatgorrilla
    - Limited designs. Made on demand.
@@ -273,8 +263,6 @@ Safe first implementation batch:
   - `index.html`
   - `shop.html`
   - `elite.html`
-  - `worldcup.html`
-  - `world-cup.html`
   - `app-demo.html`
   - `app.html`
   - `free-app.html`
